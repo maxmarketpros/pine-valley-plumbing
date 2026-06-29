@@ -1,0 +1,101 @@
+---
+import { business } from "../data/site";
+import Icon from "./Icon.astro";
+
+interface Props {
+  eyebrow?: string;
+  /** Heading HTML — wrap emphasis words in <span class="hl"> for two-tone. */
+  heading: string;
+  subheading?: string;
+  image?: string;
+  imageAlt?: string;
+  imageSrcset?: string;
+  bookLabel?: string;
+  bookUrl?: string;
+  phoneLabel?: string;
+  phoneTel?: string;
+  showButtons?: boolean;
+  align?: "split" | "center";
+}
+
+const {
+  eyebrow,
+  heading,
+  subheading,
+  image,
+  imageAlt = "",
+  imageSrcset,
+  bookLabel = "Book Appointment",
+  bookUrl = business.bookingUrl,
+  phoneLabel = business.navPhone,
+  phoneTel = business.navPhoneTel,
+  showButtons = true,
+  align = image ? "split" : "center",
+} = Astro.props;
+---
+
+<section class:list={["hero surface-wood", `hero--${align}`]}>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1 class="hero__heading" set:html={heading} />
+      {subheading && <p class="hero__sub">{subheading}</p>}
+      {showButtons && (
+        <div class="btn-group hero__buttons">
+          <a href={bookUrl} class="btn btn--gold"><Icon name="calendar" /> {bookLabel}</a>
+          <a href={phoneTel} class="btn btn--outline"><Icon name="phone" /> {phoneLabel}</a>
+        </div>
+      )}
+    </div>
+
+    {image && (
+      <div class="hero__media">
+        <img src={image} srcset={imageSrcset} sizes="(max-width: 900px) 90vw, 45vw" alt={imageAlt} loading="eager" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: var(--section-lg); position: relative; overflow: hidden; }
+  .hero__inner {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .hero--split .hero__inner { grid-template-columns: 1.05fr 0.95fr; }
+  .hero--center .hero__inner { grid-template-columns: 1fr; }
+  .hero--center .hero__content { max-width: 52rem; margin-inline: auto; text-align: center; }
+  .hero--center .hero__buttons { justify-content: center; }
+
+  .hero__content > * + * { margin-top: 1.25rem; }
+  .hero__heading {
+    font-size: var(--fs-hero);
+    line-height: 0.98;
+    color: var(--on-wood-strong);
+  }
+  .hero__sub {
+    font-size: var(--fs-body-lg);
+    color: var(--on-wood-body);
+    max-width: 40rem;
+  }
+  .hero--center .hero__sub { margin-inline: auto; }
+
+  .hero__media img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    border: 5px solid var(--cream-100);
+    box-shadow: var(--shadow-hover);
+    transform: rotate(1.4deg);
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 900px) {
+    .hero--split .hero__inner { grid-template-columns: 1fr; }
+    .hero__content { text-align: center; }
+    .hero__buttons { justify-content: center; }
+    .hero__sub { margin-inline: auto; }
+    .hero__media { order: -1; max-width: 32rem; margin-inline: auto; }
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+const title = "Expert Plumbing Services in Hillsborough County";
+const description =
+  "Pine Valley Plumbing delivers reliable plumbing solutions in Hillsborough County. From emergency repairs to installations, we ensure quality work every time.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Local"
+    heading={`Plumber in <span class="hl">Hillsborough County</span>`}
+    subheading="Pine Valley Plumbing serves Hillsborough County with honest work and real expertise"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SectionHeader eyebrow="Services" heading="What we do for you" lead="Every job done right the first time" />
+    <div class="card-grid cols-3">
+      <ServiceCard
+        eyebrow="Emergency"
+        title="Emergency plumbing services"
+        body="Burst pipes and broken fixtures wait for no one"
+        href="/emergency-plumber-merrimack-nh"
+      />
+      <ServiceCard
+        title="Drain cleaning services"
+        body="Clear clogs and keep water flowing freely"
+        href="/drain-cleaning-merrimack-nh"
+      />
+      <ServiceCard
+        title="Water heater installation"
+        body="New systems installed with precision and care"
+        href="/water-heater-installation-merrimack-nh"
+      />
+      <ServiceCard
+        eyebrow="Repair"
+        title="Water heater repair"
+        body="Get your hot water back when you need it"
+        href="/water-heater-repair-merrimack-nh"
+      />
+      <ServiceCard
+        eyebrow="Fixtures"
+        title="Faucet repair and installation"
+        body="Fix leaks and upgrade your kitchen or bathroom"
+        href="/faucet-repair-merrimack-nh"
+      />
+      <ServiceCard
+        title="Leak detection and pipe repair"
+        body="Find problems before they become disasters"
+        href="/pipe-repair-merrimack-nh"
+      />
+    </div>
+  </Section>
+
+  <Section surface="forest">
+    <SectionHeader eyebrow="Why" heading="We know Hillsborough County" lead="Fast response and work done right every time" />
+    <div class="card-grid cols-2">
+      <FeatureCard
+        tag="Speed"
+        title="We arrive when you need us most"
+        body="Same day service for emergencies in the area"
+        image="/images/relume-653364.jpeg"
+        imageSrcset="/images/relume-653364-p-500.jpeg 500w, /images/relume-653364-p-800.jpeg 800w, /images/relume-653364-p-1080.jpeg 1080w, /images/relume-653364-p-1600.jpeg 1600w, /images/relume-653364.jpeg 1920w"
+        imageAlt="Stressed woman calling plumber while water leaks under kitchen sink"
+      />
+      <FeatureCard
+        tag="Local codes matter"
+        title="Every job meets Hillsborough County standards"
+        body="Trust that counts"
+        image="/images/relume-653365.jpeg"
+        imageSrcset="/images/relume-653365-p-500.jpeg 500w, /images/relume-653365-p-800.jpeg 800w, /images/relume-653365-p-1080.jpeg 1080w, /images/relume-653365-p-1600.jpeg 1600w, /images/relume-653365.jpeg 1920w"
+        imageAlt="Plumber adjusting pipe connections with wrench and red valve"
+      />
+    </div>
+  </Section>
+
+  <Section surface="cream">
+    <SectionHeader
+      eyebrow="Results"
+      heading="Built on real experience and skill"
+      lead="With over a decade doing plumbing the right way. Master plumber and gas license certified, serving Hillsborough County with the same precision learned from his father and uncle in construction."
+    />
+    <div class="card-grid cols-2">
+      <FeatureCard tag="10+" title="Years in the trade" />
+      <FeatureCard tag="100%" title="Done right the first time" />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Ready to fix it"
+    body="Call Pine Valley Plumbing now or send an email for service"
+  />
+</BaseLayout>

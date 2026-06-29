@@ -1,0 +1,276 @@
+---
+import { navLinks, services, areas, business } from "../data/site";
+import GoogleReviewBadge from "./GoogleReviewBadge.astro";
+import Icon from "./Icon.astro";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) => (href === "/" ? currentPath === "/" : currentPath === href);
+const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98e1-32bits-256.png";
+---
+
+<header class="nav surface-forest" data-nav>
+  <div class="nav__bar container">
+    <a href="/" class="nav__logo" aria-label="Pine Valley Plumbing — home">
+      <img src={navLogo} width="256" height="138" alt="Pine Valley Plumbing" />
+    </a>
+
+    <GoogleReviewBadge class="nav__badge" />
+
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu" data-nav-toggle>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav-menu" class="nav__menu" aria-label="Main navigation">
+      <ul class="nav__links">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="nav__link" aria-current={isActive(link.href) ? "page" : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+
+        <li class="nav__dropdown">
+          <button type="button" class="nav__dropbtn" aria-expanded="false" data-dropdown>
+            Services <Icon name="chevron-down" class="nav__chev" />
+          </button>
+          <ul class="nav__dropmenu">
+            {services.map((s) => (
+              <li><a href={s.href} class="nav__droplink">{s.label}</a></li>
+            ))}
+          </ul>
+        </li>
+
+        <li class="nav__dropdown">
+          <button type="button" class="nav__dropbtn" aria-expanded="false" data-dropdown>
+            Areas <Icon name="chevron-down" class="nav__chev" />
+          </button>
+          <ul class="nav__dropmenu">
+            {areas.map((a) => (
+              <li><a href={a.href} class="nav__droplink">{a.label}</a></li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+
+      <div class="nav__buttons">
+        <a href={business.bookingUrl} class="btn btn--gold btn--sm">
+          <Icon name="calendar" /> Book Now
+        </a>
+        <a href={business.navPhoneTel} class="btn btn--outline btn--sm">
+          <Icon name="phone" /> {business.navPhone}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--gold-500);
+    box-shadow: 0 2px 12px #2a160f33;
+  }
+  .nav__bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: var(--header-h);
+    padding-block: 0.6rem;
+  }
+  .nav__logo { flex: none; display: inline-flex; }
+  .nav__logo img { height: 56px; width: auto; max-width: none; }
+  .nav__badge { margin-right: auto; }
+
+  .nav__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    margin-left: auto;
+  }
+  .nav__toggle span {
+    display: block;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--cream-100);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+  }
+  .nav__link,
+  .nav__dropbtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 0;
+    color: var(--cream-100);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0.7rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+  .nav__link:hover,
+  .nav__dropbtn:hover,
+  .nav__link[aria-current="page"] {
+    color: var(--gold-500);
+  }
+  .nav__chev { width: 0.9em; height: 0.9em; transition: transform 0.2s ease; }
+
+  .nav__dropdown { position: relative; }
+  .nav__dropmenu {
+    list-style: none;
+    margin: 0;
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 260px;
+    background: var(--pine-900);
+    border: 1px solid #ffffff1a;
+    border-top: 3px solid var(--gold-500);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-hover);
+    padding: 0.4rem;
+    z-index: 20;
+  }
+  .nav__droplink {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius-sm);
+    color: var(--on-forest-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .nav__droplink:hover { background: #ffffff14; color: var(--gold-500); }
+
+  /* open states */
+  .nav__dropbtn[aria-expanded="true"] + .nav__dropmenu { display: block; }
+  .nav__dropbtn[aria-expanded="true"] .nav__chev { transform: rotate(180deg); }
+
+  .nav__buttons { display: flex; gap: 0.6rem; }
+
+  /* desktop hover open (mouse enhancement) */
+  @media (min-width: 992px) and (hover: hover) {
+    .nav__dropdown:hover .nav__dropmenu { display: block; }
+    .nav__dropdown:hover .nav__chev { transform: rotate(180deg); }
+  }
+
+  /* ---- mobile ---- */
+  @media (max-width: 991px) {
+    .nav__badge { display: none; }
+    .nav__logo { margin-right: auto; }
+    .nav__toggle { display: flex; }
+    .nav__menu {
+      position: fixed;
+      inset: var(--header-h) 0 0 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--pine-900);
+      padding: 1.25rem var(--gutter) 2.5rem;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      border-top: 3px solid var(--gold-500);
+    }
+    [data-nav][data-open] .nav__menu { transform: translateX(0); }
+    [data-nav][data-open] .nav__toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    [data-nav][data-open] .nav__toggle span:nth-child(2) { opacity: 0; }
+    [data-nav][data-open] .nav__toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav__links { flex-direction: column; align-items: stretch; gap: 0; width: 100%; }
+    .nav__link, .nav__dropbtn {
+      width: 100%;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      padding: 0.9rem 0.25rem;
+      border-bottom: 1px solid #ffffff14;
+    }
+    .nav__dropmenu {
+      position: static;
+      display: none;
+      min-width: 0;
+      box-shadow: none;
+      border: 0;
+      border-radius: 0;
+      background: #00000026;
+      margin: 0.25rem 0 0.5rem;
+    }
+    .nav__buttons { flex-direction: column; margin-top: 1.5rem; }
+    .nav__buttons .btn { width: 100%; }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-nav]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+  const dropBtns = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-dropdown]"));
+
+  const isMobile = () => window.matchMedia("(max-width: 991px)").matches;
+
+  toggle?.addEventListener("click", () => {
+    const open = root?.toggleAttribute("data-open");
+    toggle.setAttribute("aria-expanded", String(!!open));
+  });
+
+  const closeAllDrops = () => dropBtns.forEach((b) => b.setAttribute("aria-expanded", "false"));
+
+  dropBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = btn.getAttribute("aria-expanded") === "true";
+      closeAllDrops();
+      btn.setAttribute("aria-expanded", String(!open));
+    });
+  });
+
+  // close dropdowns when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!(e.target as HTMLElement)?.closest?.("[data-dropdown]")) closeAllDrops();
+  });
+
+  // Esc closes everything
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeAllDrops();
+      if (root?.hasAttribute("data-open")) {
+        root.removeAttribute("data-open");
+        toggle?.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+
+  // close mobile menu after following a link
+  document.querySelectorAll<HTMLAnchorElement>(".nav__link, .nav__droplink").forEach((a) => {
+    a.addEventListener("click", () => {
+      if (isMobile()) {
+        root?.removeAttribute("data-open");
+        toggle?.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+</script>

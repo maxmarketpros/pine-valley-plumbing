@@ -1,0 +1,222 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Master Plumber in Merrimack, NH | Pine Valley Plumbing";
+const description =
+  "Trust Pine Valley Plumbing for honest and precise plumbing services in Merrimack, NH. Family-owned with decades of experience, we do it right.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Established"
+    heading="Master Plumber in Merrimack, NH Who Takes the Time to Do It Right"
+    subheading="Family-owned expertise serving Merrimack, New Hampshire and surrounding areas"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  {/* ---- Who we are ---- */}
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Foundation"
+      heading="About Us"
+      image="/images/relume-653298.png"
+      imageSrcset="/images/relume-653298-p-500.png 500w, /images/relume-653298-p-800.png 800w, /images/relume-653298-p-1080.png 1080w, /images/relume-653298-p-1600.png 1600w, /images/relume-653298-p-2000.png 2000w, /images/relume-653298.png 2560w"
+      imageAlt="Cartoon beaver in green outfit holding a red level tool"
+      reverse={true}
+      imageFit="contain"
+    >
+      <div class="rich-text">
+        <p>We are a locally owned and operated company built on quality workmanship, honest service, and long-term relationships. Our goal has always been simple: provide reliable, professional service while treating every customer and every home with respect.</p>
+        <p>The company was founded by a husband-and-wife team who combined hands-on trade expertise with a strong background in design, organization, and customer experience. Together, we set out to build a business that not only delivers great results, but also makes the entire process clear, comfortable, and stress-free for our customers.</p>
+      </div>
+      <ul class="badge-row">
+        <li><Icon name="map-pin" /> Locally Owned &amp; Operated</li>
+        <li><Icon name="home" /> Family-Run</li>
+        <li><Icon name="wrench" /> Master Plumber on Staff</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  {/* ---- Meet the owners ---- */}
+  <Section surface="paper">
+    <SectionHeader
+      eyebrow="Meet the owners"
+      heading="The Husband-and-Wife Team Behind Pine Valley"
+      scriptAccent="Family-owned & operated"
+    />
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-card__head">
+          <span class="team-card__avatar" aria-hidden="true">M</span>
+          <div>
+            <span class="team-card__role">Master Plumber &amp; Gas Fitter</span>
+            <h3 class="team-card__name">Michael</h3>
+          </div>
+        </div>
+        <p>Michael brings <strong>over a decade of experience</strong> in commercial plumbing, new construction, and residential service. He earned his Master Plumbing License and Gas Fitter License through years of field work and formal training, developing a deep understanding of complex systems, code compliance, and quality installation practices. Before starting the company alongside his wife, Michael built his career working on everything from large-scale commercial projects to detailed service work, shaping the high standards the company operates under today.</p>
+      </article>
+
+      <article class="team-card">
+        <div class="team-card__head">
+          <span class="team-card__avatar" aria-hidden="true">J</span>
+          <div>
+            <span class="team-card__role">Co-Founder &amp; Designer</span>
+            <h3 class="team-card__name">Jacquie</h3>
+          </div>
+        </div>
+        <p>Jacquie earned her bachelor’s degree from Wentworth Institute of Technology in Boston and went on to work for 10 years as an interior designer with an architectural company. Her experience in design, planning, and client relationships became a natural foundation for co-founding the company together, where she helps shape both the look of the brand and the experience customers receive.</p>
+      </article>
+    </div>
+  </Section>
+
+  {/* ---- Our promise (dark pull-quote) ---- */}
+  <Section surface="forest-deep" container="md">
+    <div class="promise">
+      <Icon name="quote" class="promise__quote" />
+      <span class="eyebrow">Our promise</span>
+      <p class="promise__text">Together, we believe that great service is about more than just fixing a problem — it’s about communication, respect, and doing the job right the first time. From the first phone call to the final walkthrough, our focus is on professionalism, transparency, and long-term solutions.</p>
+    </div>
+  </Section>
+
+  {/* ---- Community & careers ---- */}
+  <Section surface="cream" container="md">
+    <div class="community">
+      <span class="eyebrow">Our community</span>
+      <h2>Rooted in Our Community</h2>
+      <p>As a growing local business, we take pride in serving our community and creating a workplace where our team can build long-term careers. Whether it’s a small repair or a larger project, our customers can expect skilled workmanship, clear explanations, and dependable service every step of the way.</p>
+      <a href="/careers" class="link-arrow">Explore careers at Pine Valley <Icon name="arrow-right" /></a>
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Ready for honest plumbing work"
+    body="Reach out to Pine Valley Plumbing and let us handle what matters most"
+  />
+</BaseLayout>
+
+<style>
+  /* ---- trust pills under the intro ---- */
+  .badge-row {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.6rem;
+    padding: 0;
+  }
+  .badge-row li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--white);
+    border: 1px solid #00000012;
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-pill);
+    padding: 0.5rem 0.95rem;
+    font-size: var(--fs-body-sm);
+    font-weight: 700;
+    color: var(--ink-900);
+  }
+  .badge-row li :global(svg) {
+    width: 1.05em;
+    height: 1.05em;
+    color: var(--color-green-deep);
+  }
+
+  /* ---- owner cards ---- */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+    margin-top: 2.75rem;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid #00000010;
+    border-top: 4px solid var(--gold-500);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .team-card__head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+  .team-card__avatar {
+    flex: none;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    line-height: 1;
+    background: var(--pine-800);
+    color: var(--gold-500);
+    box-shadow: var(--shadow-card);
+  }
+  .team-card__role {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gold-deep);
+  }
+  .team-card__name {
+    font-size: 1.6rem;
+    color: var(--ink-900);
+    line-height: 1;
+    margin-top: 0.2rem;
+  }
+  .team-card p {
+    color: var(--on-cream-muted);
+    line-height: 1.7;
+  }
+  @media (max-width: 800px) {
+    .team-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---- promise pull-quote ---- */
+  .promise {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 1rem;
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+  .promise :global(.promise__quote) {
+    width: 3.25rem;
+    height: 3.25rem;
+    color: var(--color-gold);
+    opacity: 0.9;
+  }
+  .promise__text {
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--on-forest-strong);
+  }
+
+  /* ---- community ---- */
+  .community {
+    text-align: center;
+    max-width: 46rem;
+    margin-inline: auto;
+  }
+  .community > * + * { margin-top: 1rem; }
+  .community p { color: var(--on-cream-muted); font-size: var(--fs-body-lg); line-height: 1.7; }
+  .community .link-arrow { margin-top: 1.4rem; }
+</style>

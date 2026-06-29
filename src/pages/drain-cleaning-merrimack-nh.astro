@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+const title = "Expert Drain Cleaning Services in Merrimack, NH";
+const description =
+  "Experience professional drain cleaning in Merrimack, NH. We use effective techniques to clear your drains without damaging your pipes. Call us now!";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Cleared"
+    heading="Professional Drain Cleaning in Merrimack, NH"
+    subheading="Slow, careful work that gets results. We find the problem and fix it properly."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Professional"
+      heading="We clear drains properly"
+      body="Equipment and technique that works without shortcuts"
+      image="/images/relume-653303.jpeg"
+      imageSrcset="/images/relume-653303-p-500.jpeg 500w, /images/relume-653303-p-800.jpeg 800w, /images/relume-653303-p-1080.jpeg 1080w, /images/relume-653303-p-1600.jpeg 1600w, /images/relume-653303.jpeg 1920w"
+      imageAlt="Inserting corrugated hose into a concrete septic tank opening"
+    >
+      <div class="rich-text">
+        <h3>Every drain tells a story</h3>
+        <p>Hair, soap, debris, tree roots. We find what's blocking your line and remove it completely. No guessing, no damage to your pipes.</p>
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Why"
+      heading="We show up and deliver"
+      body="Fast response when you need it most"
+      image="/images/relume-653304.jpeg"
+      imageSrcset="/images/relume-653304-p-500.jpeg 500w, /images/relume-653304-p-800.jpeg 800w, /images/relume-653304-p-1080.jpeg 1080w, /images/relume-653304-p-1600.jpeg 1600w, /images/relume-653304.jpeg 1920w"
+      imageAlt="Hand holding drain snake next to sink drain for plumbing maintenance"
+      reverse
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="phone"
+        title="We arrive quickly for emergencies"
+        body="A backed-up drain doesn't wait. Neither do we. Call and we'll be there to handle it right away."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="No chemicals, no damage to pipes"
+        body="Chemical cleaners eat through pipes and create hazards. We use proper equipment and proven methods that protect your plumbing."
+      />
+      <FeatureCard
+        icon="clock"
+        title="We take time to do it right"
+        body="Slow work done perfectly beats fast work done wrong. We'll explain what we find and why it matters for your home."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Get your drains cleared"
+    body="Call now for fast drain cleaning or schedule an appointment at your convenience."
+  />
+</BaseLayout>

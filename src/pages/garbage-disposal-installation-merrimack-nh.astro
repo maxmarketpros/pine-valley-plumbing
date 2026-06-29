@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Garbage Disposal Installation in Merrimack, NH";
+const description =
+  "Get professional garbage disposal installation in Merrimack, NH from a licensed master plumber. Enjoy quality service and transparent pricing for lasting results.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Installation"
+    heading={`Garbage Disposal Installation in <span class="hl">Merrimack, NH</span>`}
+    subheading="Professional installation from a licensed master plumber serving Merrimack, NH"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Installation"
+      heading="Quality disposal installation that lasts"
+      body="We install disposals the right way, taking time to ensure everything works perfectly. Your new disposal will handle years of daily use without problems."
+      image="/images/relume-653336.jpeg"
+      imageSrcset="/images/relume-653336-p-500.jpeg 500w, /images/relume-653336-p-800.jpeg 800w, /images/relume-653336-p-1080.jpeg 1080w, /images/relume-653336-p-1600.jpeg 1600w, /images/relume-653336.jpeg 1920w"
+      imageAlt="Modern garbage disposal unit installed under kitchen sink with electrical connections"
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> Licensed master plumber</li>
+        <li><Icon name="check" /> Proper installation and setup</li>
+        <li><Icon name="check" /> Quality units built to last</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Installation"
+      heading="What makes proper installation"
+      body="A disposal installed right handles years of use without failure"
+      image="/images/relume-653337.jpeg"
+      imageSrcset="/images/relume-653337-p-500.jpeg 500w, /images/relume-653337-p-800.jpeg 800w, /images/relume-653337-p-1080.jpeg 1080w, /images/relume-653337-p-1600.jpeg 1600w, /images/relume-653337.jpeg 1920w"
+      imageAlt="Hands repairing plumbing pipes and installing a garbage disposal unit"
+      reverse
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="shield-check"
+        title="Licensed master plumber"
+        body="Thirteen years of experience doing this work the correct way"
+      />
+      <FeatureCard
+        icon="wrench"
+        title="Proper setup matters"
+        body="We take time to ensure every connection is secure and functional"
+      />
+      <FeatureCard
+        icon="check"
+        title="You understand the process before we finish"
+        body="We explain what we're doing so you know it's done right"
+      />
+      <FeatureCard
+        icon="home"
+        title="We handle the hard part for you"
+        body="We explain what we're doing so you know it's done right"
+      />
+      <FeatureCard
+        icon="clock"
+        title="Built to work day after day"
+        body="Quality units installed correctly last for years without failure"
+      />
+    </div>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="Why homeowners trust our disposal work"
+      image="/images/relume-653338.jpeg"
+      imageSrcset="/images/relume-653338-p-500.jpeg 500w, /images/relume-653338-p-800.jpeg 800w, /images/relume-653338-p-1080.jpeg 1080w, /images/relume-653338-p-1600.jpeg 1600w, /images/relume-653338.jpeg 1920w"
+      imageAlt="Disassembled camera lens with accessories on tiled surface"
+      reverse
+    >
+      <div class="card-grid cols-2">
+        <FeatureCard
+          icon="shield-check"
+          title="Master plumber certified"
+          body="Over a decade of hands-on experience doing disposal work correctly"
+        />
+        <FeatureCard
+          icon="wrench"
+          title="Installation done right"
+          body="We take the time to get every connection secure and functional"
+        />
+        <FeatureCard
+          icon="credit-card"
+          title="Transparent pricing always"
+          body="You know the cost before we begin any work on your home"
+        />
+        <FeatureCard
+          icon="check"
+          title="You understand the work"
+          body="We explain how to use and maintain your disposal properly"
+        />
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <CtaBand
+    heading="Ready for installation today"
+    body="Call or email to schedule your garbage disposal installation with a licensed master plumber."
+  />
+</BaseLayout>

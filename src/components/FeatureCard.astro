@@ -1,0 +1,56 @@
+---
+import Icon from "./Icon.astro";
+interface Props {
+  tag?: string;
+  icon?: string;
+  title: string;
+  body?: string;
+  image?: string;
+  imageAlt?: string;
+  imageSrcset?: string;
+}
+const { tag, icon, title, body, image, imageAlt = "", imageSrcset } = Astro.props;
+---
+<article class="feature-card">
+  {image && (
+    <div class="feature-card__media">
+      <img src={image} srcset={imageSrcset} sizes="(max-width: 700px) 90vw, 400px" alt={imageAlt} loading="lazy" />
+    </div>
+  )}
+  <div class="feature-card__body">
+    {icon && <span class="icon-chip"><Icon name={icon} /></span>}
+    {tag && <span class="feature-card__tag">{tag}</span>}
+    <h3 class="feature-card__title">{title}</h3>
+    {body && <p class="feature-card__text">{body}</p>}
+    <slot />
+  </div>
+</article>
+
+<style>
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid #00000010;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    height: 100%;
+  }
+  .feature-card__media { aspect-ratio: 16 / 10; overflow: hidden; }
+  .feature-card__media img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-card__body { padding: var(--space-5); display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
+  .feature-card__tag {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-green-deep);
+    background: var(--green-tint);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-pill);
+  }
+  .feature-card__title { font-size: 1.4rem; color: var(--ink-900); }
+  .feature-card__text { color: var(--on-cream-muted); }
+</style>

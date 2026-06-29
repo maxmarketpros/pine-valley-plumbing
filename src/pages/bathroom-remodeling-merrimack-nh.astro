@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+const title = "Expert Bathroom Remodeling & Plumbing in Merrimack, NH";
+const description =
+  "Transform your bathroom with our expert remodeling and plumbing services in Merrimack, NH. Quality fixtures, precise installations, and lasting results.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Transform"
+    heading={`Bathroom Remodeling & Plumbing in <span class="hl">Merrimack, NH</span>`}
+    subheading="We build bathrooms that last, with the care and precision that matters"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="Built on decades of construction experience"
+      body="We grew up in construction. We've done the work from the ground up and learned what matters. Your bathroom gets that same care and precision."
+      image="/images/relume-653344.jpeg"
+      imageSrcset="/images/relume-653344-p-500.jpeg 500w, /images/relume-653344-p-800.jpeg 800w, /images/relume-653344-p-1080.jpeg 1080w, /images/relume-653344-p-1600.jpeg 1600w, /images/relume-653344.jpeg 1920w"
+      imageAlt="Bathroom renovation in progress with tiles, tools, and construction materials"
+    />
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Fixtures"
+      heading="Toilets, showers, and faucets"
+      body="We install quality fixtures that work and last"
+      image="/images/relume-653345.jpeg"
+      imageSrcset="/images/relume-653345-p-500.jpeg 500w, /images/relume-653345-p-800.jpeg 800w, /images/relume-653345-p-1080.jpeg 1080w, /images/relume-653345-p-1600.jpeg 1600w, /images/relume-653345.jpeg 1920w"
+      imageAlt="Modern white bathroom with bathtub, sink, and large windows"
+      reverse
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="shield-check"
+        title="Custom plumbing solutions"
+        body="Every line and connection done right the first time"
+      />
+      <FeatureCard
+        icon="check"
+        title="Water-efficient systems"
+        body="Save water and money with smart installations"
+      />
+      <FeatureCard
+        icon="home"
+        title="Bathrooms built to your vision"
+        body="We listen and build what you actually want"
+      />
+      <FeatureCard
+        icon="wrench"
+        title="Upgrade fixtures that perform"
+        body="We listen and build what you actually want"
+      />
+      <FeatureCard
+        icon="star"
+        title="Plumbing lines done with precision"
+        body="Every connection installed correctly the first time"
+      />
+    </div>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="Why our work lasts"
+      image="/images/relume-653346.jpeg"
+      imageSrcset="/images/relume-653346-p-500.jpeg 500w, /images/relume-653346-p-800.jpeg 800w, /images/relume-653346-p-1080.jpeg 1080w, /images/relume-653346-p-1600.jpeg 1600w, /images/relume-653346.jpeg 1920w"
+      imageAlt="Luxurious marble bathroom with gray cabinets and glass shower"
+      reverse
+    />
+    <div class="card-grid cols-2" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="shield-check"
+        title="Licensed and certified"
+        body="Master plumber with gas license and decades of experience"
+      />
+      <FeatureCard
+        icon="clock"
+        title="No shortcuts taken"
+        body="We do the work right even when no one is watching"
+      />
+      <FeatureCard
+        icon="check"
+        title="You understand it"
+        body="We explain every step so you know the work is solid"
+      />
+      <FeatureCard
+        icon="home"
+        title="Built to last"
+        body="Bathrooms that hold up year after year without problems"
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Ready to start your remodel"
+    body="Call us or send an email to discuss your bathroom project and get a quote."
+  />
+</BaseLayout>

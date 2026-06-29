@@ -1,0 +1,156 @@
+---
+import { business } from "../data/site";
+import Icon from "./Icon.astro";
+
+interface Testimonial {
+  quote: string;
+  location: string;
+}
+interface Props {
+  items: Testimonial[];
+  scriptAccent?: string;
+  heading?: string;
+}
+const {
+  items,
+  scriptAccent = "Why homeowners choose",
+  heading = 'Pine Valley <span class="hl">Plumbing</span>',
+} = Astro.props;
+---
+
+<section class="tm surface-cream section">
+  <div class="container">
+    <div class="section-head is-center tm__head">
+      <p class="script-accent">{scriptAccent}</p>
+      <h2 set:html={heading} />
+    </div>
+
+    <div class="tm__grid">
+      <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="rating-badge" aria-label={`Rated ${business.rating} stars from ${business.reviewCount}+ happy customers on Google`}>
+        <div class="rating-badge__inner">
+          <svg class="rating-badge__g" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+            <path fill="#4285F4" d="M46.64 24.55c0-1.63-.15-3.2-.44-4.72H24v9.03h12.73c-.55 2.97-2.22 5.48-4.74 7.17l7.38 5.73c4.32-3.99 6.81-9.87 6.81-16.39z"></path>
+            <path fill="#FBBC05" d="M10.54 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24s.92 7.54 2.56 10.78l7.98-6.19z"></path>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.38-5.73c-2.15 1.45-4.92 2.3-8.51 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+          </svg>
+          <div class="rating-badge__score">{business.rating} <span>Stars</span></div>
+          <div class="rating-badge__stars">
+            {Array.from({ length: 5 }).map(() => <Icon name="star" />)}
+          </div>
+          <p class="rating-badge__count">From {business.reviewCount}+ Happy Customers</p>
+        </div>
+      </a>
+
+      {items.map((t, i) => (
+        <figure class:list={["note", i % 2 === 0 ? "note--l" : "note--r"]}>
+          <span class="note__quote" aria-hidden="true">&rdquo;</span>
+          <div class="note__stars">{Array.from({ length: 5 }).map(() => <Icon name="star" />)}</div>
+          <blockquote>{t.quote}</blockquote>
+          <figcaption>– {t.location}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tm__head { margin-bottom: 3rem; }
+  .tm__head h2 { font-size: var(--fs-h2); }
+  .tm__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+
+  /* light-bulb rating sign */
+  .rating-badge {
+    display: block;
+    padding: 14px;
+    border-radius: var(--radius-lg);
+    background-color: var(--wood-800);
+    background-image: radial-gradient(circle, var(--yellow-bright) 0 2.5px, transparent 3.4px);
+    background-size: 20px 20px;
+    background-position: center;
+    box-shadow: var(--shadow-note);
+  }
+  .rating-badge__inner {
+    height: 100%;
+    background: var(--pine-900);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  .rating-badge__g { width: 46px; height: 46px; }
+  .rating-badge__score {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--cream-100);
+    line-height: 1;
+  }
+  .rating-badge__score span { font-size: 1.1rem; color: var(--gold-500); }
+  .rating-badge__stars { display: flex; gap: 3px; color: var(--gold-500); }
+  .rating-badge__stars svg { width: 22px; height: 22px; }
+  .rating-badge__count {
+    font-family: var(--font-body);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--on-forest-body);
+  }
+
+  /* paper notes */
+  .note {
+    position: relative;
+    background: var(--cream-100);
+    border-radius: var(--radius-paper);
+    padding: 2rem 1.5rem 1.5rem;
+    box-shadow: var(--shadow-note);
+    background-image: repeating-linear-gradient(0deg, transparent 0 27px, #d9c2a855 27px 28px);
+    margin: 0;
+  }
+  .note--l { transform: rotate(-1.4deg); }
+  .note--r { transform: rotate(1.2deg); }
+  .note::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 90px;
+    height: 24px;
+    background: rgba(245, 184, 32, 0.4);
+    border: 1px solid rgba(245, 184, 32, 0.5);
+  }
+  .note__quote {
+    font-family: Georgia, serif;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.9rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--color-green-deep);
+    opacity: 0.25;
+  }
+  .note__stars { display: flex; gap: 2px; color: var(--gold-500); margin-bottom: 0.6rem; }
+  .note__stars svg { width: 18px; height: 18px; }
+  .note blockquote {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--ink-900);
+    font-weight: 600;
+  }
+  .note figcaption {
+    margin-top: 0.9rem;
+    font-family: var(--font-script);
+    font-size: 1.3rem;
+    color: var(--color-green-deep);
+  }
+</style>

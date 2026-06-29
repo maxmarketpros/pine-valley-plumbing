@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { business } from "../data/site";
+---
+<BaseLayout title="Not Found" description="The page you're looking for can't be found.">
+  <section class="nf surface-wood">
+    <div class="container nf__inner">
+      <p class="script-accent">Whoops…</p>
+      <h1>Page Not Found</h1>
+      <p class="nf__text">The page you're looking for doesn't exist or has moved. Let's get you back on track.</p>
+      <div class="btn-group is-center">
+        <a href="/" class="btn btn--gold"><Icon name="home" /> Back Home</a>
+        <a href={business.navPhoneTel} class="btn btn--outline"><Icon name="phone" /> {business.navPhone}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf { padding-block: var(--section-lg); text-align: center; }
+  .nf__inner { max-width: 40rem; }
+  .nf h1 { font-size: var(--fs-hero); color: var(--on-wood-strong); }
+  .nf__text { color: var(--on-wood-body); font-size: var(--fs-body-lg); margin: 1rem 0 1.75rem; }
+</style>

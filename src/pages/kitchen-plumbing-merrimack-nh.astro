@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+const title = "Top Kitchen Plumbing Services in Merrimack, NH";
+const description =
+  "Get top-notch kitchen plumbing services in Merrimack, NH. From faucet installations to remodels, we ensure quality and reliability. Call for a free quote!";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Kitchen"
+    heading={`Kitchen Plumbing Services in <span class="hl">Merrimack, NH</span>`}
+    subheading="Expert kitchen plumbing for Merrimack, NH and surrounding areas. Call (603) 521-2433."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="What we handle in your kitchen"
+      image="/images/relume-653339.jpeg"
+      imageSrcset="/images/relume-653339-p-500.jpeg 500w, /images/relume-653339-p-800.jpeg 800w, /images/relume-653339-p-1080.jpeg 1080w, /images/relume-653339-p-1600.jpeg 1600w, /images/relume-653339.jpeg 1920w"
+      imageAlt="Kitchen renovation in progress with construction tools and materials scattered around"
+    />
+    <div class="card-grid cols-2" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="wrench"
+        title="Faucet work"
+        body="We install new faucets and repair old ones that leak or don't work right. Everything gets tested before we're done."
+      />
+      <FeatureCard
+        icon="wrench"
+        title="Sink plumbing"
+        body="Your kitchen sink needs to drain properly and hold up to daily use. We make sure it does both."
+      />
+      <FeatureCard
+        icon="home"
+        title="Dishwasher hookups"
+        body="We connect dishwashers, ice makers, and water dispensers the right way. No leaks, no problems down the road."
+      />
+      <FeatureCard
+        icon="check"
+        title="Garbage disposal"
+        body="A working garbage disposal makes kitchen life easier. We install new ones and fix ones that have stopped working."
+      />
+    </div>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Remodel"
+      heading="Kitchen work done right"
+      body="Upgrades and remodels built to last"
+      image="/images/relume-653340.jpeg"
+      imageSrcset="/images/relume-653340-p-500.jpeg 500w, /images/relume-653340-p-800.jpeg 800w, /images/relume-653340-p-1080.jpeg 1080w, /images/relume-653340-p-1600.jpeg 1600w, /images/relume-653340.jpeg 1920w"
+      imageAlt="Elegant bathroom with freestanding tub, glass shower, and wooden vanity"
+      reverse
+    >
+      <div class="rich-text">
+        <h3>We take time to do it properly</h3>
+        <p>A kitchen remodel means new plumbing that works without fail. We do the job right the first time, no shortcuts, no compromises.</p>
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Master"
+      heading="Licensed and experienced"
+      body="Thirteen years in the trade, master plumber license"
+      image="/images/relume-653341.jpeg"
+      imageSrcset="/images/relume-653341-p-500.jpeg 500w, /images/relume-653341-p-800.jpeg 800w, /images/relume-653341-p-1080.jpeg 1080w, /images/relume-653341-p-1600.jpeg 1600w, /images/relume-653341.jpeg 1920w"
+      imageAlt="Modern bathroom with blue vanity, gold fixtures, and white marble countertop"
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="star"
+        title="Master plumber with real experience"
+        body="We earned our license through years of work in the field. You get someone who knows plumbing inside and out, not someone learning on the job."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="We explain the work as we go"
+        body="You'll understand what we're doing and why it matters. No mystery, no confusion about the process or the cost."
+      />
+      <FeatureCard
+        icon="home"
+        title="Respectful work in your home"
+        body="We treat your kitchen like it matters because it does. We clean up after ourselves and leave your home the way we found it."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Get it scheduled"
+    body="Call (603) 521-2433 or email us for a free quote today."
+  />
+</BaseLayout>

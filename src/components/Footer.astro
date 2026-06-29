@@ -1,0 +1,135 @@
+---
+import { business, footerPages, footerServices, socialLinks } from "../data/site";
+import Icon from "./Icon.astro";
+const year = 2025; // matches source copyright
+---
+
+<footer class="footer surface-forest-deep">
+  <div class="container footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="Pine Valley Plumbing — home">
+          <img
+            src="/images/PineValley_Mascot_A.png"
+            srcset="/images/PineValley_Mascot_A-p-500.png 500w, /images/PineValley_Mascot_A-p-800.png 800w, /images/PineValley_Mascot_A-p-1080.png 1080w, /images/PineValley_Mascot_A-p-1600.png 1600w, /images/PineValley_Mascot_A.png 2602w"
+            sizes="(max-width: 479px) 152px, 240px"
+            width="240"
+            alt="Cartoon beaver in green outfit holding a large red wrench"
+            loading="lazy"
+          />
+        </a>
+
+        <div class="footer__details">
+          <p class="footer__label">Service Area</p>
+          <p>
+            <a href={business.mapsUrl}>{business.serviceArea}</a>
+          </p>
+          <p class="footer__label">Contact</p>
+          <p><a href={business.navPhoneTel}>{business.navPhone}</a></p>
+          <p><a href={business.navEmailHref}>{business.navEmail}</a></p>
+        </div>
+
+        <ul class="footer__social">
+          {socialLinks.map((s) => (
+            <li>
+              <a href={s.href} class="footer__social-link" aria-label={s.label}>
+                <Icon name={s.icon} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <nav class="footer__menus" aria-label="Footer">
+        <ul class="footer__col">
+          {footerPages.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+        <ul class="footer__col">
+          {footerServices.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© {year} Pine Valley Plumbing. All rights reserved.</p>
+      <a href="/terms-conditions-and-privacy-policy">Terms &amp; Conditions and Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { padding-block: var(--section-md); border-top: 4px solid var(--gold-500); }
+  .footer__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: 3rem;
+  }
+  .footer__logo img { width: 220px; height: auto; }
+  .footer__details { margin-top: 1.25rem; font-size: var(--fs-body-sm); line-height: 1.7; }
+  .footer__details p { margin: 0; }
+  .footer__details a:hover { color: var(--gold-500); }
+  .footer__label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    font-size: 0.75rem;
+    color: var(--gold-500);
+    margin-top: 0.75rem !important;
+  }
+  .footer__social {
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 1.5rem 0 0;
+  }
+  .footer__social-link {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-pill);
+    background: #ffffff14;
+    color: var(--cream-100);
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .footer__social-link svg { width: 20px; height: 20px; }
+  .footer__social-link:hover { background: var(--gold-500); color: var(--wood-900); }
+
+  .footer__menus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer__col { list-style: none; margin: 0; display: grid; gap: 0.7rem; align-content: start; }
+  .footer__col a {
+    font-size: var(--fs-body-sm);
+    font-weight: 600;
+    color: var(--on-forest-body);
+  }
+  .footer__col a:hover { color: var(--gold-500); }
+
+  .footer__bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ffffff1f;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fs-body-sm);
+    color: var(--on-forest-body);
+  }
+  .footer__bottom a:hover { color: var(--gold-500); }
+
+  @media (max-width: 860px) {
+    .footer__top { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+  @media (max-width: 520px) {
+    .footer__menus { grid-template-columns: 1fr; }
+  }
+</style>

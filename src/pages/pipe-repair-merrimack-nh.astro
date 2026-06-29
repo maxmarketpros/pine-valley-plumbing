@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Pipe Repair Services in Merrimack, NH";
+const description =
+  "Trust our licensed master plumbers for reliable pipe repair services in Merrimack, NH. We handle leaks, bursts, and more with precision and care.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Reliable"
+    heading={`Pipe Repair Services in <span class="hl">Merrimack, NH</span>`}
+    subheading="We fix pipes in Merrimack, NH and surrounding areas with precision and care"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="We find and fix every type of pipe problem"
+      body="Leaks, corrosion, burst pipes, and frozen lines all get our attention. We take time to do the work right so you don't face the same problem again."
+      image="/images/relume-653317.jpeg"
+      imageSrcset="/images/relume-653317-p-500.jpeg 500w, /images/relume-653317-p-800.jpeg 800w, /images/relume-653317-p-1080.jpeg 1080w, /images/relume-653317-p-1600.jpeg 1600w, /images/relume-653317.jpeg 1920w"
+      imageAlt="Plumbing repair with pipes and hands working in an excavated ground hole"
+    />
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="Stop the damage fast"
+      body="A burst pipe or hidden leak can destroy your home in hours. We answer emergency calls and arrive ready to stop the water and assess what needs fixing."
+      image="/images/relume-653319.jpeg"
+      imageSrcset="/images/relume-653319-p-500.jpeg 500w, /images/relume-653319-p-800.jpeg 800w, /images/relume-653319-p-1080.jpeg 1080w, /images/relume-653319-p-1600.jpeg 1600w, /images/relume-653319.jpeg 1920w"
+      imageAlt="Rusty leaking pipe dripping water onto damaged wooden surface"
+      reverse
+    />
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Proven"
+      heading="Why we do it right"
+      body="Thirteen years of experience and a master plumber's license."
+      image="/images/relume-653321.jpeg"
+      imageSrcset="/images/relume-653321-p-500.jpeg 500w, /images/relume-653321-p-800.jpeg 800w, /images/relume-653321-p-1080.jpeg 1080w, /images/relume-653321-p-1600.jpeg 1600w, /images/relume-653321.jpeg 1920w"
+      imageAlt="Leaking water pipe with spray against red and white background"
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="wrench"
+        title="Master plumber on every job"
+        body="Licensed and trained to handle any pipe problem from start to finish."
+      />
+      <FeatureCard
+        icon="clock"
+        title="Precision work takes time"
+        body="We don't rush. The job gets done right the first time."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="You understand what we're doing"
+        body="We explain the problem and the solution so you know it's fixed properly."
+      />
+    </div>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      heading="Our pipe repair process"
+      image="/images/Pine-Valley-Plumbing-photo-37.jpg"
+      imageSrcset="/images/Pine-Valley-Plumbing-photo-37-p-500.jpg 500w, /images/Pine-Valley-Plumbing-photo-37-p-800.jpg 800w, /images/Pine-Valley-Plumbing-photo-37-p-1080.jpg 1080w, /images/Pine-Valley-Plumbing-photo-37-p-1600.jpg 1600w, /images/Pine-Valley-Plumbing-photo-37.jpg 1920w"
+      imageAlt="Hands tightening plumbing pipe connection with metallic wrench"
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> We assess the damage and trace the source</li>
+        <li><Icon name="check" /> We explain what's wrong and your repair options</li>
+        <li><Icon name="check" /> We fix it right and test everything thoroughly</li>
+        <li><Icon name="check" /> We follow up to make sure it holds</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <CtaBand
+    heading="Pipe problems need fast action"
+    body="Call us now for emergency repair or schedule your appointment today with Pine Valley Plumbing."
+  />
+</BaseLayout>

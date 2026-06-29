@@ -1,0 +1,64 @@
+---
+interface Props {
+  class?: string;
+  topText?: string;
+  bottomText?: string;
+  centerText?: string;
+}
+const {
+  class: className,
+  topText = "PROUDLY SERVING MERRIMACK",
+  bottomText = "& SURROUNDING TOWNS",
+  centerText = "MERRIMACK",
+} = Astro.props;
+---
+<svg class:list={["seal", className]} viewBox="0 0 200 200" role="img" aria-label={`${topText} ${bottomText}`}>
+  <defs>
+    <path id="seal-top" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0" />
+    <path id="seal-bottom" d="M 28,118 a 78,78 0 0,0 144,0" />
+  </defs>
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="3" />
+  <circle cx="100" cy="100" r="78" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <text class="seal__text">
+    <textPath href="#seal-top" startOffset="50%" text-anchor="middle">{topText}</textPath>
+  </text>
+  <text class="seal__text">
+    <textPath href="#seal-bottom" startOffset="50%" text-anchor="middle">{bottomText}</textPath>
+  </text>
+  <!-- pine trees -->
+  <g fill="currentColor" transform="translate(100,86)">
+    <path d="M0,-26 L11,2 L-11,2 Z" />
+    <path d="M0,-14 L15,14 L-15,14 Z" />
+    <rect x="-3" y="14" width="6" height="9" />
+    <path transform="translate(-26,8) scale(0.62)" d="M0,-26 L11,2 L-11,2 Z M0,-14 L15,14 L-15,14 Z" />
+    <path transform="translate(26,8) scale(0.62)" d="M0,-26 L11,2 L-11,2 Z M0,-14 L15,14 L-15,14 Z" />
+  </g>
+  <text x="100" y="128" text-anchor="middle" class="seal__center">{centerText}</text>
+  <text x="100" y="142" text-anchor="middle" class="seal__est">EST. NH</text>
+</svg>
+
+<style>
+  .seal { width: 160px; height: 160px; color: var(--color-green-deep); }
+  .surface-wood .seal,
+  .surface-forest .seal,
+  .surface-forest-deep .seal { color: var(--cream-100); }
+  .seal__text {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 1px;
+    fill: currentColor;
+  }
+  .seal__center {
+    font-family: var(--font-display);
+    font-size: 15px;
+    letter-spacing: 1px;
+    fill: currentColor;
+  }
+  .seal__est {
+    font-family: var(--font-body);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    fill: currentColor;
+  }
+</style>

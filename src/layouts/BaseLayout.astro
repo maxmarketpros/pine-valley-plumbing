@@ -1,0 +1,96 @@
+---
+import "../styles/tokens.css";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Override canonical path; defaults to the current pathname. */
+  canonicalPath?: string;
+  ogType?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogType = "website",
+  ogImage = "/images/relume-653201.jpeg",
+  jsonLd,
+  bodyClass,
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://hirepinevalley.com");
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, site).href;
+const ogImageUrl = new URL(ogImage, site).href;
+const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/webclip.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Permanent+Marker&family=Mulish:wght@400;500;600;700;800&display=swap"
+    />
+
+    {jsonLdList.map((schema) => <JsonLd schema={schema} />)}
+
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 200;
+        background: var(--color-green-deep);
+        color: var(--cream-100);
+        padding: 0.75rem 1.25rem;
+        border-radius: 0 0 var(--radius-md) 0;
+        font-weight: 700;
+      }
+      .skip-link:focus { left: 0; }
+    </style>
+  </body>
+</html>

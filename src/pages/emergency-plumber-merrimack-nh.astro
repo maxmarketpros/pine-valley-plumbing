@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+const title = "Emergency Plumbing in Merrimack, NH - Fast & Reliable";
+const description =
+  "Need an emergency plumber in Merrimack, NH? Call us for fast, reliable service. We respond quickly and handle all plumbing emergencies with expertise.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Always"
+    heading="Emergency Plumber in Merrimack, NH – Fast & Reliable Service"
+    subheading="When pipes fail at midnight, we're there. Fast response, honest work, every time."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Fast"
+      heading="We answer when you call"
+      body="Your emergency is our priority"
+      image="/images/relume-653300.jpeg"
+      imageSrcset="/images/relume-653300-p-500.jpeg 500w, /images/relume-653300-p-800.jpeg 800w, /images/relume-653300-p-1080.jpeg 1080w, /images/relume-653300-p-1600.jpeg 1600w, /images/relume-653300.jpeg 1920w"
+      imageAlt="Plumber fixing leaking pipe with wrench, water spraying from connection"
+    >
+      <div class="rich-text">
+        <h3>Rapid response to your emergency</h3>
+        <p>Call (603) 521-2433 and we pick up. We keep our schedule open for emergencies so we can reach you fast. No waiting, no callbacks later.</p>
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SectionHeader eyebrow="Right" heading="Work done correctly" lead="Master plumber with gas license" />
+    <div class="card-grid cols-2">
+      <FeatureCard icon="shield-check" title="Over a Decade of plumbing experience" body="We know the trade inside and out" />
+      <FeatureCard icon="wrench" title="Clear communication" body="We explain what went wrong and how we fix it" />
+    </div>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Always"
+      heading="Every emergency we handle"
+      body="Burst pipes flood your basement at two in the morning. A backed-up toilet won't drain. Your water heater dies in winter. We handle it all, and we handle it now."
+      image="/images/relume-653301.jpeg"
+      imageSrcset="/images/relume-653301-p-500.jpeg 500w, /images/relume-653301-p-800.jpeg 800w, /images/relume-653301-p-1080.jpeg 1080w, /images/relume-653301-p-1600.jpeg 1600w, /images/relume-653301.jpeg 1920w"
+      imageAlt="Plumber repairing toilet tank with wrench in tiled bathroom"
+    />
+  </Section>
+
+  <CtaBand
+    heading="Don't wait for morning"
+    body="Pipes don't fail on schedule. Call now and we'll be there."
+    scriptAccent="We're standing by"
+  />
+</BaseLayout>

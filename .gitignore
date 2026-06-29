@@ -1,0 +1,16 @@
+# build output
+dist/
+# generated types
+.astro/
+# dependencies
+node_modules/
+# logs
+npm-debug.log*
+# environment variables
+.env
+.env.production
+# macOS / Windows
+.DS_Store
+Thumbs.db
+# legacy Webflow export (kept locally as reference, not deployed)
+pine-valley-plumbing.webflow (2)/

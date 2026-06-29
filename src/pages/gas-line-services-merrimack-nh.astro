@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Gas Line Services in Merrimack, NH";
+const description =
+  "Ensure safety with our licensed gas line installation, repair, and leak detection services in Merrimack, NH. Contact us for reliable service today!";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Safety"
+    heading={`Licensed Gas Line Services in <span class="hl">Merrimack, NH</span>`}
+    subheading="Professional gas line services installed and maintained by a licensed master plumber in Merrimack, NH"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Installation"
+      heading="Gas line installation done right from the start"
+      body="New appliances, kitchen remodels, or property additions all need proper gas line work. We install every line to code and make sure it's safe before we're done. You'll understand the work and know it was done correctly."
+      image="/images/relume-653349.jpeg"
+      imageSrcset="/images/relume-653349-p-500.jpeg 500w, /images/relume-653349-p-800.jpeg 800w, /images/relume-653349-p-1080.jpeg 1080w, /images/relume-653349-p-1600.jpeg 1600w, /images/relume-653349.jpeg 1920w"
+      imageAlt="Technician in blue uniform checking water pipe connection on exterior wall"
+    />
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Repair"
+      heading="Gas line repair when you need it"
+      body="A leak in your gas line demands immediate attention. We find the problem, fix it safely, and make sure everything works before we leave."
+      image="/images/relume-653350.jpeg"
+      imageSrcset="/images/relume-653350-p-500.jpeg 500w, /images/relume-653350-p-800.jpeg 800w, /images/relume-653350-p-1080.jpeg 1080w, /images/relume-653350-p-1600.jpeg 1600w, /images/relume-653350.jpeg 1920w"
+      imageAlt="Gloved hand adjusting plumbing valve with wrench near water heater"
+      reverse
+    >
+      <div class="rich-text">
+        <h3>Leak detection and repair</h3>
+        <p>Strange smells or hissing sounds mean trouble. We locate the leak, repair the line, and restore your safety.</p>
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Hookups"
+      heading="Connect your appliances the right way"
+      body="New stove, dryer, water heater, or grill needs a gas line. We run the line to code, test it thoroughly, and make sure your appliance works perfectly."
+      image="/images/relume-653351.jpeg"
+      imageSrcset="/images/relume-653351-p-500.jpeg 500w, /images/relume-653351-p-800.jpeg 800w, /images/relume-653351-p-1080.jpeg 1080w, /images/relume-653351-p-1600.jpeg 1600w, /images/relume-653351.jpeg 1920w"
+      imageAlt="Hand in work glove adjusting yellow and metallic plumbing valves"
+      reverse
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> Stoves</li>
+        <li><Icon name="check" /> Water heaters</li>
+        <li><Icon name="check" /> Dryers</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <CtaBand
+    heading="Ready for gas line work"
+    body="Call or email to schedule your installation, repair, or emergency service today."
+  />
+</BaseLayout>

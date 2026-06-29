@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Faucet Repair Services in Merrimack, NH";
+const description =
+  "Get reliable faucet repair in Merrimack, NH. We diagnose issues, replace parts, and ensure quality service to stop leaks and drips fast.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Reliable"
+    heading={`Faucet Repair in <span class="hl">Merrimack, NH</span>`}
+    subheading="Fast response when your faucet fails. We service Merrimack and the surrounding areas."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Problems"
+      heading="What goes wrong with faucets"
+      body="A dripping faucet wastes water and money. Low pressure means something is blocking the line. Leaks damage cabinets and floors if left alone."
+      image="/images/relume-653331.jpeg"
+      imageSrcset="/images/relume-653331-p-500.jpeg 500w, /images/relume-653331-p-800.jpeg 800w, /images/relume-653331-p-1080.jpeg 1080w, /images/relume-653331-p-1600.jpeg 1600w, /images/relume-653331.jpeg 1920w"
+      imageAlt="Modern black faucet running water in sleek marble kitchen with plants"
+      reverse
+    >
+      <div class="card-grid cols-2">
+        <FeatureCard
+          icon="wrench"
+          title="Water pooling under your sink"
+          body="A leaking faucet can waste thousands of gallons a year. The problem gets worse if you ignore it. We find the source and stop it."
+        />
+        <FeatureCard
+          icon="wrench"
+          title="That constant drip in the night"
+          body="One drop per second adds up fast. Your water bill climbs and the noise never stops. We replace worn parts and make it quiet again."
+        />
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Process"
+      heading="How we repair your faucet"
+      body="We look at what is broken, figure out why, and fix it right. No guessing. No shortcuts. Just solid work."
+      image="/images/relume-653332.jpeg"
+      imageSrcset="/images/relume-653332-p-500.jpeg 500w, /images/relume-653332-p-800.jpeg 800w, /images/relume-653332-p-1080.jpeg 1080w, /images/relume-653332-p-1600.jpeg 1600w, /images/relume-653332.jpeg 1920w"
+      imageAlt="Modern kitchen with white countertops, stainless steel sink, and black faucet"
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> Inspect the damage</li>
+        <li><Icon name="check" /> Diagnose the root cause</li>
+        <li><Icon name="check" /> Install quality parts</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="cream">
+    <SectionHeader
+      eyebrow="Trust"
+      heading="Why Pine Valley Plumbing gets it done"
+      lead="Thirteen years in the trade taught us that rushing leads to mistakes. We take the time to do it right, and we show you every step so you know the work is solid."
+    />
+    <div class="card-grid cols-3">
+      <FeatureCard
+        icon="shield-check"
+        title="Master plumber with real experience"
+        body="Licensed and certified to handle any faucet problem in Merrimack and beyond."
+      />
+      <FeatureCard
+        icon="wrench"
+        title="We show you the work, not hide it"
+        body="You'll see what we find and understand why we're fixing it the way we are."
+      />
+      <FeatureCard
+        icon="check"
+        title="Parts that hold up over time"
+        body="We use quality materials because cheap fixes come back to haunt you."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Ready to fix your faucet"
+    body="Call us now or send an email to schedule your repair appointment today."
+  />
+</BaseLayout>

@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ContactInfo from "../components/ContactInfo.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+import { business } from "../data/site";
+
+const title = "Careers";
+const description =
+  "Get reliable plumbing solutions in Merrimack, NH. Contact Pine Valley Plumbing for urgent assistance, quotes, and expert advice on your plumbing needs.";
+
+const perks = ["No Nights", "No Weekends", "No On-Call", "Great Pay"];
+
+const faqs = [
+  { q: "How fast can you respond?", a: "We handle emergencies with urgency. Call us at (603) 339-6732 and we'll get there as soon as we can. Plumbing doesn't wait and neither do we." },
+  { q: "What should I tell you?", a: "Describe what's happening and where. Let us know if water is actively leaking or if it's something that's been building. The more details you give, the better we can prepare." },
+  { q: "Do you work on weekends?", a: "We understand plumbing problems don't follow a schedule. Contact us and we'll discuss availability for your situation. Emergencies are our priority." },
+  { q: "Can you fix it right?", a: "That's the only way we work. We take the time to do it properly, not just quickly. You'll understand the process and know it's done right." },
+  { q: "What areas do you serve?", a: "We're based in Merrimack, NH and service the surrounding areas. Call us to confirm we reach your location." },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/Screenshot-2025-12-22-at-6.56.20-PM.png">
+  <section class="careers-hero surface-cream">
+    <div class="container careers-hero__inner">
+      <p class="careers-hero__subtitle">Pine Valley Plumbing • Merrimack, NH</p>
+      <h1 class="careers-hero__title">A Career With <span class="careers-hl">Real Balance</span></h1>
+
+      <div class="van-display">
+        <img src="/images/Screenshot-2025-12-22-at-6.56.20-PM.png" alt="Pine Valley Plumbing Work Truck" loading="eager" />
+        <div class="take-home-badge">
+          <span class="badge-label">Company Vehicle</span>
+          <div class="badge-text">You get to take this truck home every night!</div>
+        </div>
+      </div>
+
+      <ul class="perks-row">
+        {perks.map((p) => (
+          <li class="perk-pill"><Icon name="check" /> {p}</li>
+        ))}
+      </ul>
+
+      <div class="careers-copy">
+        <p>If you’re a skilled plumber looking for a rewarding career with a balanced work environment, <strong>Pine Valley Plumbing</strong> in Merrimack, NH, is the place for you. Joining our team means becoming part of a respected company that values your expertise and dedication. We prioritize your well-being by providing a stable schedule with no nights, weekends, or on-call shifts.</p>
+        <p>This structure allows you to maintain a healthy work-life balance, giving you more time to spend with loved ones and pursue personal interests. At <strong>Pine Valley Plumbing</strong>, we understand that your time is valuable, and we strive to create a supportive workplace where you can grow both professionally and personally.</p>
+        <p>Along with a positive team culture, we offer competitive compensation that reflects your skills and commitment. We believe in recognizing hard work and ensuring our employees feel appreciated and valued. Our dedication to professional growth means you’ll have opportunities to advance your career, learn new techniques, and stay updated on industry advancements.</p>
+        <p>By joining the <strong>Pine Valley Plumbing</strong> family, you’ll be part of a team that takes pride in providing top-quality service to our community—all while enjoying a fulfilling and well-rounded career.</p>
+      </div>
+
+      <div class="careers-cta">
+        <a href={business.careersApplyUrl} class="btn btn--green careers-apply">Apply Now</a>
+      </div>
+    </div>
+  </section>
+
+  <Section surface="paper">
+    <SectionHeader eyebrow="Direct" heading="Get in touch" lead="We're here when you need us most" align="left" />
+    <ContactInfo />
+  </Section>
+
+  <FaqAccordion faqs={faqs} heading="Questions" subheading="Find answers to what you need to know about our services" />
+
+  <Section surface="cream" container="md" size="sm" class="text-center">
+    <h3>Need more help?</h3>
+    <p class="lead" style="margin-top:.75rem">Reach out directly and we'll answer what you need</p>
+  </Section>
+
+  <CtaBand
+    heading="Ready for the fix"
+    body="Don't let plumbing problems wait. We're standing by to help you today."
+  />
+</BaseLayout>
+
+<style>
+  .careers-hero { padding-block: var(--section-lg); }
+  .careers-hero__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .careers-hero__subtitle {
+    font-family: var(--font-body);
+    color: var(--color-green-deep);
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  .careers-hero__title {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    max-width: 18ch;
+    line-height: 1.02;
+  }
+  .careers-hl { position: relative; white-space: nowrap; color: var(--color-green-deep); }
+  .careers-hl::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: -4px;
+    width: 108%;
+    height: 0.55em;
+    background: var(--yellow-bright);
+    opacity: 0.85;
+    transform: rotate(-2deg);
+    z-index: -1;
+  }
+
+  .van-display { position: relative; width: 100%; max-width: 950px; margin: 2rem 0 3rem; }
+  .van-display img { width: 100%; border-radius: var(--radius-lg); filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.15)); }
+  .take-home-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 5%;
+    background: #fff;
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hover);
+    border-top: 6px solid var(--gold-500);
+    transform: rotate(-3deg);
+    max-width: 320px;
+    text-align: left;
+  }
+  .badge-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-green-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .badge-text { font-size: 1.05rem; font-weight: 800; color: var(--ink-900); line-height: 1.2; }
+
+  .perks-row { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 0 0 2.5rem; }
+  .perk-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--radius-pill);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: var(--shadow-card);
+    border: 2px solid transparent;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .perk-pill svg { width: 1.1em; height: 1.1em; color: var(--color-check); }
+  .perk-pill:hover { border-color: var(--color-green); transform: translateY(-3px); }
+
+  .careers-copy { max-width: 750px; text-align: left; font-size: 1.125rem; color: var(--on-cream-muted); }
+  .careers-copy p { margin-bottom: 1.5rem; }
+  .careers-copy strong { color: var(--color-green-deep); }
+  .careers-apply { font-size: 1.1rem; padding: 1.1rem 3rem; }
+
+  @media (max-width: 768px) {
+    .take-home-badge {
+      position: static;
+      transform: none;
+      margin: -10px auto 0;
+      text-align: center;
+      max-width: none;
+    }
+  }
+</style>

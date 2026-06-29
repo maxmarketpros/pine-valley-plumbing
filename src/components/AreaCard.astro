@@ -1,0 +1,48 @@
+---
+import Icon from "./Icon.astro";
+interface Props {
+  label: string;
+  href: string;
+}
+const { label, href } = Astro.props;
+---
+<a href={href} class="area-card">
+  <span class="area-card__pin"><Icon name="map-pin" /></span>
+  <span class="area-card__label">{label}</span>
+  <Icon name="arrow-right" class="area-card__arrow" />
+</a>
+
+<style>
+  .area-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: var(--white);
+    border: 1px solid #00000010;
+    border-left: 4px solid var(--gold-500);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: 1rem 1.25rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .area-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .area-card__pin {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-pill);
+    background: var(--green-tint);
+    color: var(--color-green-deep);
+    flex-shrink: 0;
+  }
+  .area-card__pin svg { width: 1.3rem; height: 1.3rem; }
+  .area-card__label {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: var(--ink-900);
+    flex: 1;
+  }
+  .area-card__arrow { width: 1.1rem; height: 1.1rem; color: var(--color-gold-deep); }
+</style>

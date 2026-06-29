@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import CtaBand from "../components/CtaBand.astro";
+import ContactInfo from "../components/ContactInfo.astro";
+
+const title = "Contact Pine Valley Plumbing in Merrimack, NH";
+const description =
+  "Get reliable plumbing solutions in Merrimack, NH. Contact Pine Valley Plumbing for urgent assistance, quotes, and expert advice on your plumbing needs.";
+
+const faqs = [
+  { q: "How fast can you respond?", a: "We handle emergencies with urgency. Call us at (603) 339-6732 and we'll get there as soon as we can. Plumbing doesn't wait and neither do we." },
+  { q: "What should I tell you?", a: "Describe what's happening and where. Let us know if water is actively leaking or if it's something that's been building. The more details you give, the better we can prepare." },
+  { q: "Do you work on weekends?", a: "We understand plumbing problems don't follow a schedule. Contact us and we'll discuss availability for your situation. Emergencies are our priority." },
+  { q: "Can you fix it right?", a: "That's the only way we work. We take the time to do it properly, not just quickly. You'll understand the process and know it's done right." },
+  { q: "What areas do you serve?", a: "We're based in Merrimack, NH and service the surrounding areas. Call us to confirm we reach your location." },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Ready"
+    heading="Contact Pine Valley Plumbing in Merrimack, NH"
+    subheading="Reach out to Pine Valley Plumbing in Merrimack, NH for quotes and answers"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SectionHeader eyebrow="Direct" heading="Get in touch" lead="We're here when you need us most" align="left" />
+    <ContactInfo />
+  </Section>
+
+  <FaqAccordion faqs={faqs} heading="Questions" subheading="Find answers to what you need to know about our services" />
+
+  <Section surface="cream" container="md" size="sm" class="text-center">
+    <h3>Need more help?</h3>
+    <p class="lead" style="margin-top:.75rem">Reach out directly and we'll answer what you need</p>
+  </Section>
+
+  <CtaBand
+    heading="Ready for the fix"
+    body="Don't let plumbing problems wait. We're standing by to help you today."
+  />
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import Icon from "./Icon.astro";
+
+const badges = [
+  { icon: "clock", label: "Same-Day Service Available" },
+  { icon: "tag", label: "Upfront Flat-Rate Pricing" },
+  { icon: "shield-check", label: "Licensed & Insured" },
+  { icon: "home", label: "Locally Owned & Operated" },
+  { icon: "credit-card", label: "Financing Available" },
+];
+---
+
+<section class="trust surface-paper">
+  <div class="container trust__row">
+    {badges.map((b) => (
+      <div class="trust__chip">
+        <span class="trust__icon"><Icon name={b.icon} /></span>
+        <span class="trust__label">{b.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .trust { padding-block: var(--section-sm); border-block: 1px dashed #00000018; }
+  .trust__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 2.5rem;
+  }
+  .trust__chip {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-align: left;
+  }
+  .trust__icon {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-pill);
+    background: var(--green-tint);
+    color: var(--color-green-deep);
+    flex-shrink: 0;
+  }
+  .trust__icon svg { width: 1.5rem; height: 1.5rem; }
+  .trust__label {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--ink-900);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    max-width: 11rem;
+  }
+</style>

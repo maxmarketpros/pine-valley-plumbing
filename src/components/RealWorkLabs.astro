@@ -1,0 +1,31 @@
+---
+import { business } from "../data/site";
+/**
+ * Real Work Labs reviews/projects widget.
+ * Renders the output target + loads the plugin once.
+ */
+interface Props {
+  outputId?: string;
+}
+const { outputId = "rwl-output" } = Astro.props;
+---
+<div id={outputId}></div>
+<script type="text/javascript" is:inline define:vars={{ origin: business.rwlOrigin, token: business.rwlToken }}>
+  (function () {
+    if (window.__rwlLoaded) return;
+    window.__rwlLoaded = true;
+    var d = document,
+      t = "script",
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = origin + "/static/plugin/loader.js?v=" + new Date().getTime();
+    window.addEventListener(
+      "rwlPluginReady",
+      function () {
+        window.rwlPlugin.init(origin, token);
+      },
+      false
+    );
+    s.parentNode.insertBefore(o, s);
+  })();
+</script>

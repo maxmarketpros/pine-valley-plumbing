@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hirepinevalley.com/sitemap-index.xml

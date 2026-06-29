@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Toilet Installation in Merrimack, NH";
+const description =
+  "Get professional toilet installation in Merrimack, NH. Enjoy water efficiency, leak prevention, and years of reliable performance with our expert services.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Installation"
+    heading={`Toilet Installation in <span class="hl">Merrimack, NH</span>`}
+    subheading="Professional toilet installation done right the first time in Merrimack, NH"
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Precision"
+      heading="Why proper toilet installation matters"
+      body="A new toilet installed correctly saves water, prevents leaks, and runs quietly for years. The difference between rushed work and careful installation shows up in your water bill and peace of mind."
+      image="/images/relume-653333.jpeg"
+      imageSrcset="/images/relume-653333-p-500.jpeg 500w, /images/relume-653333-p-800.jpeg 800w, /images/relume-653333-p-1080.jpeg 1080w, /images/relume-653333-p-1600.jpeg 1600w, /images/relume-653333.jpeg 1920w"
+      imageAlt="Plumber in blue overalls repairing toilet with tool bag nearby"
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> Water efficiency</li>
+        <li><Icon name="check" /> Leak prevention</li>
+        <li><Icon name="check" /> Years of reliability</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Process"
+      heading="How we install your toilet"
+      image="/images/relume-653334.jpeg"
+      imageSrcset="/images/relume-653334-p-500.jpeg 500w, /images/relume-653334-p-800.jpeg 800w, /images/relume-653334-p-1080.jpeg 1080w, /images/relume-653334-p-1600.jpeg 1600w, /images/relume-653334.jpeg 1920w"
+      imageAlt="Plumber installing water pipes and fittings on a bathroom sink"
+      reverse
+    >
+      <div class="card-grid cols-3">
+        <FeatureCard
+          icon="home"
+          title="First, we listen"
+          body="You tell us what you need and we inspect your bathroom to understand the job ahead."
+        />
+        <FeatureCard
+          icon="wrench"
+          title="Then we remove it"
+          body="The old toilet comes out carefully without damage to your floor or surrounding walls."
+        />
+        <FeatureCard
+          icon="check"
+          title="Finally, we install"
+          body="Your new toilet gets leveled, sealed, bolted down to code, and tested thoroughly."
+        />
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SectionHeader
+      eyebrow="Certified"
+      heading="Master plumber with over a decade of Experience"
+    />
+    <div class="card-grid cols-2">
+      <FeatureCard
+        icon="shield-check"
+        title="Licensed master"
+        body="Certified and trained to handle every detail of your toilet installation correctly."
+      />
+      <FeatureCard
+        icon="clock"
+        title="Clean work"
+        body="No mess, no shortcuts, no cutting corners on what matters most to you."
+      />
+      <FeatureCard
+        icon="clock"
+        title="You understand"
+        body="We explain the process so you know exactly why the work is done right."
+      />
+      <FeatureCard
+        icon="clock"
+        title="It lasts"
+        body="Proper installation means your toilet runs quietly and reliably for many years ahead."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Ready for a new toilet"
+    body="Call Pine Valley Plumbing today to schedule your installation in Merrimack, NH."
+  />
+</BaseLayout>

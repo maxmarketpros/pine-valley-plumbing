@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+
+const title = "Expert Water Heater Repair in Merrimack, NH";
+const description =
+  "Get reliable water heater repair services in Merrimack, NH. Our licensed plumbers ensure efficient solutions with no surprises. Call us today!";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Reliable"
+    heading="Water Heater Repair in Merrimack, NH"
+    subheading="Fast repairs when your water heater fails. We handle it right the first time, every time."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Expertise"
+      heading="Diagnosis and repair done right"
+      body="We know water heaters inside and out."
+      image="/images/relume-653360.jpeg"
+      imageSrcset="/images/relume-653360-p-500.jpeg 500w, /images/relume-653360-p-800.jpeg 800w, /images/relume-653360-p-1080.jpeg 1080w, /images/relume-653360-p-1600.jpeg 1600w, /images/relume-653360.jpeg 1920w"
+      imageAlt="Tankless water heater with copper pipes and valves installed on wall"
+      reverse
+    >
+      <div class="rich-text">
+        <h3>Tank or tankless, we handle both types</h3>
+        <p>Every water heater is different. We diagnose the real problem, not guess. Then we fix it so it works safe and efficient again.</p>
+      </div>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Honesty"
+      heading="We tell you what it costs"
+      body="Before we touch anything, we explain the problem and what needs fixing. You know the price and the work ahead. No surprises."
+      image="/images/relume-653309.jpeg"
+      imageSrcset="/images/relume-653309-p-500.jpeg 500w, /images/relume-653309-p-800.jpeg 800w, /images/relume-653309-p-1080.jpeg 1080w, /images/relume-653309-p-1600.jpeg 1600w, /images/relume-653309.jpeg 1920w"
+      imageAlt="Technician wearing safety glasses and red gloves repairs electrical equipment"
+    />
+  </Section>
+
+  <Section surface="cream">
+    <SectionHeader eyebrow="Speed" heading="Same day service" lead="Most repairs finish before evening. We move fast because we know what we're doing." />
+    <div class="card-grid cols-2">
+      <FeatureCard
+        tag="Skill"
+        title="Licensed master plumber on call"
+        body="With over a decade in the trade. Master plumber license and gas license. We've earned our stripes."
+        image="/images/relume-653311.jpeg"
+        imageSrcset="/images/relume-653311-p-500.jpeg 500w, /images/relume-653311-p-800.jpeg 800w, /images/relume-653311-p-1080.jpeg 1080w, /images/relume-653311-p-1600.jpeg 1600w, /images/relume-653311.jpeg 1920w"
+        imageAlt="Finger adjusting temperature on digital water heater control panel"
+      />
+      <FeatureCard
+        tag="Lasting"
+        title="Real fixes, not temporary patches"
+        body="We take the time to do it right. Your water heater works safe and efficient for years to come."
+        image="/images/relume-653312.jpeg"
+        imageSrcset="/images/relume-653312-p-500.jpeg 500w, /images/relume-653312-p-800.jpeg 800w, /images/relume-653312-p-1080.jpeg 1080w, /images/relume-653312-p-1600.jpeg 1600w, /images/relume-653312.jpeg 1920w"
+        imageAlt="Plumbing tools and valves on top of a white water heater"
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Get your water back"
+    body="Call (603) 521-2433 or email priorityplumbingnh@gmail.com now."
+  />
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  surface?: "wood" | "cream" | "paper" | "forest" | "forest-deep" | "gold";
+  container?: "xl" | "lg" | "md" | "readable";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+}
+const { surface = "cream", container = "xl", size = "md", class: className } = Astro.props;
+const containerClass = container === "xl" ? "container" : `container container--${container}`;
+---
+<section class:list={[`section section--${size}`, `surface-${surface}`, className]}>
+  <div class={containerClass}>
+    <slot />
+  </div>
+</section>

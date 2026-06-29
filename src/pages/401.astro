@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+---
+<BaseLayout title="Protected page" description="This page is protected.">
+  <section class="nf surface-wood">
+    <div class="container nf__inner">
+      <p class="script-accent">Hold on…</p>
+      <h1>Protected Page</h1>
+      <p class="nf__text">This page is protected. Please head back home.</p>
+      <div class="btn-group is-center">
+        <a href="/" class="btn btn--gold"><Icon name="home" /> Back Home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf { padding-block: var(--section-lg); text-align: center; }
+  .nf__inner { max-width: 40rem; }
+  .nf h1 { font-size: var(--fs-hero); color: var(--on-wood-strong); }
+  .nf__text { color: var(--on-wood-body); font-size: var(--fs-body-lg); margin: 1rem 0 1.75rem; }
+</style>

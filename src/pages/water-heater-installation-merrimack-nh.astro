@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Expert Water Heater Installation in Merrimack, NH";
+const description =
+  "Get professional water heater installation in Merrimack, NH. Enjoy reliable hot water, lower costs, and a warranty. Call for a free estimate today!";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Installation"
+    heading="Water Heater Installation in Merrimack, NH"
+    subheading="Professional water heater installation in Merrimack NH and surrounding areas. Call (603) 339-6732."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Results"
+      heading="What you get from us"
+      body="A new water heater means comfort and reliability in your home."
+      image="/images/relume-653305.jpeg"
+      imageSrcset="/images/relume-653305-p-500.jpeg 500w, /images/relume-653305-p-800.jpeg 800w, /images/relume-653305-p-1080.jpeg 1080w, /images/relume-653305-p-1600.jpeg 1600w, /images/relume-653305.jpeg 1920w"
+      imageAlt="Gray water heater with electrical panel and blue toolbox in utility room"
+      reverse
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="clock"
+        title="Hot water that lasts"
+        body="No more cold showers or waiting for the tank to recover between uses."
+      />
+      <FeatureCard
+        icon="credit-card"
+        title="Lower monthly costs"
+        body="New units are built to run efficiently. You'll notice it when the utility bill arrives."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="Warranty and installation guarantee"
+        body="The manufacturer backs the heater. We back our work. You're protected both ways."
+      />
+    </div>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Experience"
+      heading="Licensed master plumber with over a decade of experience"
+      body="We've installed every type of water heater you can think of. Tank, tankless, electric, gas—we know the differences and we know what works best for your home. We take the time to do it right."
+      image="/images/relume-653306.jpeg"
+      imageSrcset="/images/relume-653306-p-500.jpeg 500w, /images/relume-653306-p-800.jpeg 800w, /images/relume-653306-p-1080.jpeg 1080w, /images/relume-653306-p-1600.jpeg 1600w, /images/relume-653306.jpeg 1920w"
+      imageAlt="Hand adjusting gas valve control on industrial equipment"
+    />
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Process"
+      heading="We handle it step by step"
+      body="We start with what you need and end with you knowing exactly what was done"
+      image="/images/relume-653307.jpeg"
+      imageSrcset="/images/relume-653307-p-500.jpeg 500w, /images/relume-653307-p-800.jpeg 800w, /images/relume-653307-p-1080.jpeg 1080w, /images/relume-653307-p-1600.jpeg 1600w, /images/relume-653307.jpeg 1920w"
+      imageAlt="Technician repairing an internal component of a water heater system"
+      reverse
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> Right unit for your home</li>
+        <li><Icon name="check" /> Removal and disposal handled</li>
+        <li><Icon name="check" /> Tested and ready to go</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="forest">
+    <SectionHeader eyebrow="Assessment" heading="We listen and we look" />
+    <div class="card-grid cols-4">
+      <FeatureCard
+        icon="phone"
+        title="Talk first"
+        body="We listen to what you need and examine your current setup carefully."
+      />
+      <FeatureCard
+        icon="wrench"
+        title="Choose right"
+        body="We explain your options so you understand what works for your home."
+      />
+      <FeatureCard
+        icon="home"
+        title="Install clean"
+        body="Old unit out, new unit in, everything done to code and done right."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="Understand it"
+        body="We walk you through what was done so you know it's solid work."
+      />
+    </div>
+  </Section>
+
+  <CtaBand
+    heading="Ready for a new water heater"
+    body="Call us today for a free estimate or to schedule your installation."
+  />
+</BaseLayout>

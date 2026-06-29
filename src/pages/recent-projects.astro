@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import CtaBand from "../components/CtaBand.astro";
+import RealWorkLabs from "../components/RealWorkLabs.astro";
+
+const title = "Recent Projects | Pine Valley Plumbing";
+const description =
+  "Check out our recent projects in Merrimack, NH. Contact Pine Valley Plumbing for urgent assistance, quotes, and expert advice on your plumbing needs.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero
+    eyebrow="Our Work"
+    heading="Recent Projects"
+    subheading="Check out our recent projects in Merrimack, NH. Contact Pine Valley Plumbing for urgent assistance, quotes, and expert advice on your plumbing needs."
+    showButtons={true}
+    align="center"
+  />
+
+  <Section surface="cream">
+    <RealWorkLabs outputId="rwl-output" />
+  </Section>
+
+  <CtaBand
+    heading="Ready to get started"
+    body="Call for emergency service or a free estimate on your project."
+  />
+</BaseLayout>

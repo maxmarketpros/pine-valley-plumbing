@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import SplitFeature from "../components/SplitFeature.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import CtaBand from "../components/CtaBand.astro";
+import Icon from "../components/Icon.astro";
+
+const title = "Protect Your Home with Sump Pump & Backflow Prevention";
+const description =
+  "Ensure your home stays safe from flooding and contamination. Pine Valley Plumbing offers sump pump installation, backflow prevention, and more in Merrimack, NH.";
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/relume-653281.jpeg">
+  <Hero
+    eyebrow="Protection"
+    heading={`Sump Pump & Backflow Prevention in <span class="hl">Merrimack, NH</span>`}
+    subheading="Flooding and water damage don't wait. Neither do we. Pine Valley Plumbing protects your home."
+    image="/images/relume-653281.jpeg"
+    imageSrcset="/images/relume-653281-p-500.jpeg 500w, /images/relume-653281-p-800.jpeg 800w, /images/relume-653281-p-1080.jpeg 1080w, /images/relume-653281-p-1600.jpeg 1600w, /images/relume-653281.jpeg 1920w"
+    imageAlt="Black kitchen sink with running water and flower in glass vase"
+  />
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Defense"
+      heading="Four ways we protect you"
+      body="Each service works together to keep water where it belongs."
+      image="/images/relume-653352.jpeg"
+      imageSrcset="/images/relume-653352-p-500.jpeg 500w, /images/relume-653352-p-800.jpeg 800w, /images/relume-653352-p-1080.jpeg 1080w, /images/relume-653352-p-1600.jpeg 1600w, /images/relume-653352.jpeg 1920w"
+      imageAlt="Sump pump with white pipes, electrical cables, and red equipment"
+      reverse
+    />
+    <div class="card-grid cols-3" style="margin-top: 2.75rem;">
+      <FeatureCard
+        icon="home"
+        title="Sump pump installation and service"
+        body="We install systems that remove standing water before it damages your foundation. Our pumps run reliably when heavy rain or snowmelt threatens your basement."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="Backflow prevention device installation"
+        body="Contaminated water can flow backward into your clean supply without proper protection. We install devices that stop this from happening to your family."
+      />
+      <FeatureCard
+        icon="wrench"
+        title="Leak detection and pipe repair"
+        body="Hidden leaks cause damage you can't see until it's too late. We find them fast and fix them right so water stays inside your pipes."
+      />
+      <FeatureCard
+        icon="check"
+        title="Water filtration system installation"
+        body="Clean water matters for your health and your home's longevity. We install systems that filter out what shouldn't be there."
+      />
+      <FeatureCard
+        icon="shield-check"
+        title="Four ways we stop water damage"
+        body="Each service works together to keep water where it belongs."
+      />
+    </div>
+  </Section>
+
+  <Section surface="forest">
+    <SplitFeature
+      eyebrow="Foundation"
+      heading="Sump pump installation"
+      body="Water collects in your basement. A sump pump removes it before damage starts. We install systems that work when you need them most."
+      image="/images/relume-653356.jpeg"
+      imageSrcset="/images/relume-653356-p-500.jpeg 500w, /images/relume-653356-p-800.jpeg 800w, /images/relume-653356-p-1080.jpeg 1080w, /images/relume-653356-p-1600.jpeg 1600w, /images/relume-653356.jpeg 1920w"
+      imageAlt="Pool filtration system with blue tank, pipes, and pumps in mechanical room"
+    >
+      <ul class="check-list">
+        <li><Icon name="check" /> Standing water rises fast</li>
+        <li><Icon name="check" /> We pump it out</li>
+        <li><Icon name="check" /> Your basement stays dry</li>
+      </ul>
+    </SplitFeature>
+  </Section>
+
+  <Section surface="cream">
+    <SplitFeature
+      eyebrow="Safety"
+      heading="Backflow prevention protects your water"
+      body="Contaminated water flowing backward into your supply line is a real threat. We install devices that stop it cold, keeping your family's drinking water safe."
+      image="/images/relume-653354.jpeg"
+      imageSrcset="/images/relume-653354-p-500.jpeg 500w, /images/relume-653354-p-800.jpeg 800w, /images/relume-653354-p-1080.jpeg 1080w, /images/relume-653354-p-1600.jpeg 1600w, /images/relume-653354.jpeg 1920w"
+      imageAlt="Water pipe and valve amid rocky red soil with sparse vegetation"
+      reverse
+    />
+  </Section>
+
+  <CtaBand
+    heading="Ready to protect your home?"
+    body="Get a free assessment today and stop worrying about water damage."
+  />
+</BaseLayout>

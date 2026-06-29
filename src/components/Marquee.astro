@@ -1,0 +1,52 @@
+---
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+// duplicate the track so the scroll loops seamlessly
+const track = [...items, ...items];
+---
+<section class="marquee surface-forest" aria-hidden="true">
+  <div class="marquee__track">
+    {track.map((item) => (
+      <span class="marquee__item">
+        {item}
+        <span class="marquee__star">✦</span>
+      </span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    padding-block: 0.9rem;
+    border-block: 2px solid var(--gold-500);
+  }
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    gap: 0;
+    animation: marquee-scroll 30s linear infinite;
+  }
+  .marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-inline: 0.75rem;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+    color: var(--cream-100);
+    white-space: nowrap;
+  }
+  .marquee__star { color: var(--gold-500); }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; flex-wrap: wrap; justify-content: center; }
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  body?: string;
+  image?: string;
+  imageAlt?: string;
+  imageSrcset?: string;
+  reverse?: boolean;
+  /** "cover" (default) crops to fill; "contain" shows the whole image — use for logos/illustrations. */
+  imageFit?: "cover" | "contain";
+}
+const { eyebrow, heading, body, image, imageAlt = "", imageSrcset, reverse = false, imageFit = "cover" } = Astro.props;
+---
+<div class:list={["split", reverse && "split--reverse", imageFit === "contain" && "split--fit"]}>
+  <div class="split__content">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2 set:html={heading} />
+    {body && <p class="lead">{body}</p>}
+    <slot />
+  </div>
+  {image && (
+    <div class="split__media">
+      <img src={image} srcset={imageSrcset} sizes="(max-width: 900px) 90vw, 45vw" alt={imageAlt} loading="lazy" />
+    </div>
+  )}
+</div>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: center;
+  }
+  .split--reverse .split__media { order: -1; }
+  .split__content > * + * { margin-top: 1.1rem; }
+  .split__media img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-hover);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  :global(.surface-wood) .split__media img,
+  :global(.surface-forest) .split__media img,
+  :global(.surface-forest-deep) .split__media img { border: 5px solid var(--cream-100); }
+
+  /* contain mode: show the whole illustration on a soft paper card */
+  .split--fit .split__media img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    max-height: 26rem;
+    background: var(--cream-100);
+    background-image: radial-gradient(115% 90% at 50% 0%, #fff 0%, #fff0 65%);
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+  }
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; }
+    .split--reverse .split__media { order: 0; }
+    .split__media { max-width: 32rem; margin-inline: auto; }
+  }
+</style>

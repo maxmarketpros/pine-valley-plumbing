@@ -1,0 +1,134 @@
+/* ============================================================
+   Pine Valley Plumbing — Design Tokens
+   Rustic "north-woods neighborhood plumber" system:
+   forest green + amber gold + cream + dark wood.
+   Layered: primitives -> semantic aliases.
+   ============================================================ */
+
+:root {
+  /* ---------- Layer 1: primitives ---------- */
+
+  /* greens */
+  --pine-900: #102612;   /* deepest pine — footer / deep panels */
+  --pine-800: #1b3b1f;   /* deep pine green (brand) */
+  --pine-700: #245c30;   /* rich green (brand) */
+  --kaitoke-900: #003b18;
+  --kaitoke-800: #004a1f; /* kaitoke green (brand) */
+  --leaf-500: #3cb44a;    /* bright leaf / chateau (brand) */
+  --leaf-600: #30903b;
+  --green-tint: #e5ece8;
+
+  /* golds / yellows */
+  --gold-500: #f5b820;    /* primary amber gold — buttons / emphasis */
+  --gold-600: #e2a312;    /* gold hover / press */
+  --gold-700: #9a8c00;    /* deep golden — gold TEXT on light (AA) */
+  --yellow-bright: #f6eb0f; /* sparkle accents only */
+
+  /* wood / browns */
+  --wood-900: #2a160f;    /* darkest plank seam / shadow tint */
+  --wood-800: #381b17;    /* tamarind (brand) — base plank */
+  --wood-700: #4a2a20;    /* lighter plank face */
+  --sepia-600: #80472f;
+  --sepia-500: #a1593b;
+
+  /* paper / cream / neutrals */
+  --cream-100: #fff6ec;   /* lightest cream / paper highlight */
+  --cream-200: #ffead7;   /* warm cream (brand) — base cream surface */
+  --cream-300: #f4dcc4;   /* cream shade / torn-edge shadow */
+  --paper-line: #d9c2a8;  /* faint rule line on paper notes */
+  --ink-900: #030904;     /* near-black (brand) */
+  --ink-700: #1c211d;
+  --white: #fff;
+  --off-white: #f2f2f2;
+
+  /* ---------- Layer 2: semantic aliases ---------- */
+
+  /* surfaces */
+  --color-bg-wood: var(--wood-800);
+  --color-bg-cream: var(--cream-200);
+  --color-bg-paper: var(--cream-100);
+  --color-bg-forest: var(--pine-800);
+  --color-bg-forest-deep: var(--pine-900);
+  --color-bg-gold: var(--gold-500);
+
+  /* brand actors */
+  --color-gold: var(--gold-500);
+  --color-gold-deep: var(--gold-700);
+  --color-green: var(--leaf-500);
+  --color-green-deep: var(--kaitoke-800);
+  --color-cream: var(--cream-200);
+  --color-paper: var(--cream-100);
+  --color-ink: var(--ink-900);
+  --color-check: var(--leaf-600);
+
+  /* text-on-surface pairings (WCAG-AA tuned) */
+  --on-wood-strong: var(--cream-100);
+  --on-wood-body: #f1e2cf;
+  --on-cream-strong: var(--ink-900);
+  --on-cream-muted: #5a4632;
+  --on-forest-strong: var(--cream-100);
+  --on-forest-body: #e7efe4;
+  --on-gold-strong: var(--wood-900);
+  --on-gold-body: #3a2410;
+
+  /* ---------- Typography ---------- */
+  --font-hero: "Permanent Marker", "Anton", "Arial Narrow", sans-serif;
+  --font-display: "Anton", "Cuprum", "Arial Narrow", sans-serif;
+  --font-script: "Caveat", "Comic Sans MS", cursive;
+  --font-body: "Mulish", "Inter", system-ui, -apple-system, sans-serif;
+
+  /* fluid type scale */
+  --fs-hero: clamp(2.75rem, 6vw, 5rem);
+  --fs-h1: clamp(2.25rem, 4.5vw, 3.5rem);
+  --fs-h2: clamp(1.9rem, 3.5vw, 3rem);
+  --fs-h3: clamp(1.6rem, 2.6vw, 2.5rem);
+  --fs-h4: clamp(1.4rem, 2vw, 2rem);
+  --fs-h5: 1.5rem;
+  --fs-h6: 1.125rem;
+  --fs-script: clamp(1.4rem, 2.4vw, 2.2rem);
+  --fs-body-lg: 1.25rem;
+  --fs-body: 1.0625rem;
+  --fs-body-sm: 0.9375rem;
+  --fs-eyebrow: 0.8125rem;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 5rem;
+  --space-9: 6rem;
+  --space-10: 7rem;
+
+  --section-sm: clamp(2.5rem, 5vw, 3rem);
+  --section-md: clamp(3.5rem, 7vw, 5rem);
+  --section-lg: clamp(5rem, 9vw, 7rem);
+  --gutter: 5%;
+
+  /* containers */
+  --container-xl: 80rem;
+  --container-lg: 64rem;
+  --container-md: 48rem;
+  --container-readable: 42rem;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+  --radius-paper: 2px;
+
+  /* ---------- Shadows (warm brown-tinted) ---------- */
+  --shadow-card: 0 6px 18px -6px #2a160f33, 0 2px 4px #2a160f1f;
+  --shadow-hover: 0 16px 32px -10px #2a160f40, 0 4px 8px #2a160f26;
+  --shadow-btn: 0 2px 0 #00000026, 0 4px 10px -2px #2a160f33, inset 0 1px 0 #ffffff66;
+  --shadow-pressed: 0 1px 0 #00000026, inset 0 2px 4px #00000026;
+  --shadow-note: 0 10px 20px -8px #2a160f4d, 0 2px 3px #2a160f33;
+
+  /* misc */
+  --header-h: 84px;
+}

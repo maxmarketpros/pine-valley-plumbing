@@ -1,0 +1,47 @@
+---
+import { business } from "../data/site";
+import Icon from "./Icon.astro";
+
+interface Props {
+  heading?: string;
+  body?: string;
+  scriptAccent?: string;
+  bookLabel?: string;
+  bookUrl?: string;
+  phoneLabel?: string;
+  phoneTel?: string;
+}
+
+const {
+  heading = "Ready to get started",
+  body = "Call for emergency service or a free estimate on your project.",
+  scriptAccent = "It's quick & easy!",
+  bookLabel = "Book Appointment",
+  bookUrl = business.bookingUrl,
+  phoneLabel = business.navPhone,
+  phoneTel = business.navPhoneTel,
+} = Astro.props;
+---
+
+<section class="cta surface-gold">
+  <div class="container cta__inner">
+    {scriptAccent && <p class="script-accent cta__script">{scriptAccent}</p>}
+    <h2 class="cta__heading">{heading}</h2>
+    {body && <p class="cta__body">{body}</p>}
+    <div class="btn-group is-center cta__buttons">
+      <a href={bookUrl} class="btn btn--green"><Icon name="calendar" /> {bookLabel}</a>
+      <a href={phoneTel} class="btn btn--outline"><Icon name="phone" /> {phoneLabel}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta { padding-block: var(--section-md); text-align: center; }
+  .cta__inner { max-width: 46rem; }
+  .cta__script { color: var(--color-green-deep); margin-bottom: 0.25rem; }
+  .cta__heading { font-size: var(--fs-h2); color: var(--on-gold-strong); }
+  .cta__body { font-size: var(--fs-body-lg); color: var(--on-gold-body); margin-top: 1rem; }
+  .cta__buttons { margin-top: 1.75rem; }
+  .cta .btn--outline { color: var(--color-green-deep); }
+  .cta .btn--outline:hover { background: var(--color-green-deep); color: var(--cream-100); border-color: var(--color-green-deep); }
+</style>
