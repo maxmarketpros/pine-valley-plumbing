@@ -12,5 +12,5 @@ npm-debug.log*
 # macOS / Windows
 .DS_Store
 Thumbs.db
-# legacy Webflow export (kept locally as reference, not deployed)
+# legacy Webflow export (kept locally as reference, not deployed) 2
 pine-valley-plumbing.webflow (2)/
