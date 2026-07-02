@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -12,7 +13,10 @@ const description =
   "Pine Valley Plumbing delivers reliable plumbing solutions in Hillsborough County. From emergency repairs to installations, we ensure quality work every time.";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Plumbing Services in Hillsborough County", description, path: "/plumbing-services-in-hillsborough-county", areaServed: "Hillsborough County", areaType: "AdministrativeArea" }),
+  breadcrumbList([{ name: "Hillsborough County", path: "/plumbing-services-in-hillsborough-county" }]),
+]}>
   <Hero
     eyebrow="Local"
     heading={`Plumber in <span class="hl">Hillsborough County</span>`}

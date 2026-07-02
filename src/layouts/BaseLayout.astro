@@ -4,6 +4,7 @@ import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import JsonLd from "../components/JsonLd.astro";
+import { business } from "../data/site";
 
 interface Props {
   title: string;
@@ -12,6 +13,9 @@ interface Props {
   canonicalPath?: string;
   ogType?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  /** Keep the page out of search engines (error/utility pages). */
+  noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   bodyClass?: string;
 }
@@ -21,13 +25,20 @@ const {
   description,
   canonicalPath,
   ogType = "website",
-  ogImage = "/images/relume-653201.jpeg",
+  ogImage = "/images/van-hero-og.jpg",
+  ogImageAlt = "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+  noindex = false,
   jsonLd,
   bodyClass,
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://hirepinevalley.com");
-const canonical = new URL(canonicalPath ?? Astro.url.pathname, site).href;
+// Trailing slash so canonicals byte-match the sitemap URLs (build.format 'directory').
+const canonicalRaw = canonicalPath ?? Astro.url.pathname;
+const canonical = new URL(
+  canonicalRaw.endsWith("/") ? canonicalRaw : `${canonicalRaw}/`,
+  site,
+).href;
 const ogImageUrl = new URL(ogImage, site).href;
 const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
@@ -39,21 +50,26 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content={business.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- Icons -->
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />

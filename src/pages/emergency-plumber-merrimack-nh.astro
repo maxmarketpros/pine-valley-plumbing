@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -12,7 +13,10 @@ const description =
   "Need an emergency plumber in Merrimack, NH? Call us for fast, reliable service. We respond quickly and handle all plumbing emergencies with expertise.";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Emergency Plumbing Services", description, path: "/emergency-plumber-merrimack-nh" }),
+  breadcrumbList([{ name: "Emergency Plumbing Services", path: "/emergency-plumber-merrimack-nh" }]),
+]}>
   <Hero
     eyebrow="Always"
     heading="Emergency Plumber in Merrimack, NH – Fast & Reliable Service"

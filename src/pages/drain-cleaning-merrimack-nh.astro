@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SplitFeature from "../components/SplitFeature.astro";
@@ -11,7 +12,10 @@ const description =
   "Experience professional drain cleaning in Merrimack, NH. We use effective techniques to clear your drains without damaging your pipes. Call us now!";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Drain Cleaning Services", description, path: "/drain-cleaning-merrimack-nh" }),
+  breadcrumbList([{ name: "Drain Cleaning Services", path: "/drain-cleaning-merrimack-nh" }]),
+]}>
   <Hero
     eyebrow="Cleared"
     heading="Professional Drain Cleaning in Merrimack, NH"

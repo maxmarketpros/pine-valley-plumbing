@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbList } from "../data/schema";
 import Section from "../components/Section.astro";
 
 const title = "Terms & Conditions and Privacy Policy";
@@ -7,7 +8,7 @@ const description =
   "Contact Pine Valley Plumbing for urgent assistance, quotes, and expert advice on your plumbing needs.";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={breadcrumbList([{ name: "Terms & Conditions and Privacy Policy", path: "/terms-conditions-and-privacy-policy" }])}>
   <section class="legal-head surface-forest">
     <div class="container container--readable">
       <h1>Terms &amp; Conditions and Privacy Policy</h1>

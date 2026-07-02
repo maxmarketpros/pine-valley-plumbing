@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SplitFeature from "../components/SplitFeature.astro";
@@ -12,7 +13,10 @@ const description =
   "Ensure safety with our licensed gas line installation, repair, and leak detection services in Merrimack, NH. Contact us for reliable service today!";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Gas Line Services", description, path: "/gas-line-services-merrimack-nh" }),
+  breadcrumbList([{ name: "Gas Line Services", path: "/gas-line-services-merrimack-nh" }]),
+]}>
   <Hero
     eyebrow="Safety"
     heading={`Licensed Gas Line Services in <span class="hl">Merrimack, NH</span>`}

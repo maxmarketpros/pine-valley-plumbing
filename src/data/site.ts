@@ -90,9 +90,9 @@ export const footerPages: LinkItem[] = [
 /* Footer column 2 (services), matches source footer order */
 export const footerServices: LinkItem[] = services;
 
-/* Social links — placeholders kept as "#" (no real URLs exist) */
+/* Social links — Facebook is real; the rest stay "#" until URLs exist */
 export const socialLinks = [
-  { label: "Facebook", href: "#", icon: "facebook" },
+  { label: "Facebook", href: "https://www.facebook.com/PriorityPlumbingNH/", icon: "facebook" },
   { label: "Instagram", href: "#", icon: "instagram" },
   { label: "X (Twitter)", href: "#", icon: "x" },
   { label: "LinkedIn", href: "#", icon: "linkedin" },

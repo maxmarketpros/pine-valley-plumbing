@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbList, faqPageSchema } from "../data/schema";
 import Section from "../components/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ContactInfo from "../components/ContactInfo.astro";
@@ -23,7 +24,10 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/Screenshot-2025-12-22-at-6.56.20-PM.png">
+<BaseLayout title={title} description={description} ogImage="/images/Screenshot-2025-12-22-at-6.56.20-PM.png" jsonLd={[
+  breadcrumbList([{ name: "Careers", path: "/careers" }]),
+  faqPageSchema(faqs),
+]}>
   <section class="careers-hero surface-cream">
     <div class="container careers-hero__inner">
       <p class="careers-hero__subtitle">Pine Valley Plumbing • Merrimack, NH</p>

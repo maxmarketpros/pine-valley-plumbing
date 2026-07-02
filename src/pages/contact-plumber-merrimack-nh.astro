@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { plumberSchema, breadcrumbList, faqPageSchema } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -20,7 +21,11 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  plumberSchema,
+  breadcrumbList([{ name: "Contact", path: "/contact-plumber-merrimack-nh" }]),
+  faqPageSchema(faqs),
+]}>
   <Hero
     eyebrow="Ready"
     heading="Contact Pine Valley Plumbing in Merrimack, NH"

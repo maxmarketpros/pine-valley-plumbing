@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SectionHeader from "../components/SectionHeader.astro";
@@ -13,7 +14,10 @@ const description =
   "Get professional water heater installation in Merrimack, NH. Enjoy reliable hot water, lower costs, and a warranty. Call for a free estimate today!";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Water Heater Installation", description, path: "/water-heater-installation-merrimack-nh" }),
+  breadcrumbList([{ name: "Water Heater Installation", path: "/water-heater-installation-merrimack-nh" }]),
+]}>
   <Hero
     eyebrow="Installation"
     heading="Water Heater Installation in Merrimack, NH"

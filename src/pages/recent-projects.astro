@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import CtaBand from "../components/CtaBand.astro";
@@ -10,7 +11,7 @@ const description =
   "Check out our recent projects in Merrimack, NH. Contact Pine Valley Plumbing for urgent assistance, quotes, and expert advice on your plumbing needs.";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={breadcrumbList([{ name: "Recent Projects", path: "/recent-projects" }])}>
   <Hero
     eyebrow="Our Work"
     heading="Recent Projects"

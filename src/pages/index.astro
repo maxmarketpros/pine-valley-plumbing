@@ -10,87 +10,11 @@ import ServiceCard from "../components/ServiceCard.astro";
 import Icon from "../components/Icon.astro";
 import RealWorkLabs from "../components/RealWorkLabs.astro";
 import { business } from "../data/site";
+import { plumberSchema, webSiteSchema, faqPageSchema } from "../data/schema";
 
 const title = "Expert Master Plumber in Merrimack, NH | Pine Valley Plumbing";
 const description =
   "Choose Pine Valley Plumbing for trusted, expert plumbing services in Merrimack, NH. We handle emergencies and installations with care and precision.";
-
-const localBusiness = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Pine Valley Plumbing",
-  description:
-    "Licensed master plumber serving Merrimack, NH and surrounding areas with emergency repairs, installations, and complete plumbing services. Over a decade of expertise with gas certification.",
-  url: "https://hirepinevalley.com/",
-  telephone: "(603) 339-6732",
-  email: "priorityplumbingnh@gmail.com",
-  address: { "@type": "PostalAddress", addressLocality: "Merrimack", addressRegion: "NH", addressCountry: "US" },
-  areaServed: [
-    { "@type": "City", name: "Merrimack", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Manchester", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Nashua", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Derry", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Salem", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Bedford", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Londonderry", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "City", name: "Amherst", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-    { "@type": "AdministrativeArea", name: "Hillsborough County", containedInPlace: { "@type": "State", name: "New Hampshire" } },
-  ],
-  priceRange: "$$",
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "132", bestRating: "5" },
-  sameAs: ["https://share.google/uo5SvDFsKKNNTtAn0"],
-  openingHours: "Mo-Su 00:00-23:59",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Plumbing Services",
-    itemListElement: [
-      ["Emergency Plumbing Services", "24/7 emergency plumbing repairs and service"],
-      ["Drain Cleaning Services", "Professional drain cleaning and maintenance"],
-      ["Water Heater Installation", "Complete water heater installation services"],
-      ["Water Heater Repair", "Expert water heater repair and maintenance"],
-      ["Faucet Repair Services", "Professional faucet repair and replacement"],
-      ["Kitchen Plumbing Services", "Complete kitchen plumbing solutions"],
-      ["Gas Line Services", "Licensed gas line installation and repair"],
-      ["Toilet Installation Services", "Professional toilet installation and replacement"],
-      ["Garbage Disposal Installation", "Expert garbage disposal installation"],
-      ["Pipe Repair Services", "Professional pipe repair and replacement"],
-      ["Water & Flood Prevention Systems", "Sump pump and backflow prevention systems"],
-    ].map(([name, d]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, description: d } })),
-  },
-};
-
-const SITE = "https://hirepinevalley.com";
-const plumberSchema = {
-  "@context": "https://schema.org",
-  "@type": "Plumber",
-  name: "Pine Valley Plumbing",
-  url: `${SITE}/`,
-  telephone: "+1-603-339-6732",
-  email: "priorityplumbingnh@gmail.com",
-  areaServed: [
-    { "@type": "City", name: "Merrimack" },
-    { "@type": "AdministrativeArea", name: "Hillsborough County" },
-    { "@type": "AdministrativeArea", name: "New Hampshire" },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Plumbing Services",
-    itemListElement: [
-      ["Emergency Plumbing Services", "/emergency-plumber-merrimack-nh"],
-      ["Drain Cleaning Services", "/drain-cleaning-merrimack-nh"],
-      ["Water Heater Installation", "/water-heater-installation-merrimack-nh"],
-      ["Water Heater Repair", "/water-heater-repair-merrimack-nh"],
-      ["Faucet Repair Services", "/faucet-repair-merrimack-nh"],
-      ["Kitchen Plumbing Services", "/kitchen-plumbing-merrimack-nh"],
-      ["Bathroom Remodeling Services", "/bathroom-remodeling-merrimack-nh"],
-      ["Gas Line Services", "/gas-line-services-merrimack-nh"],
-      ["Toilet Installation Services", "/toilet-installation-merrimack-nh"],
-      ["Garbage Disposal Installation", "/garbage-disposal-installation-merrimack-nh"],
-      ["Pipe Repair Services", "/pipe-repair-merrimack-nh"],
-      ["Water & Flood Prevention Systems", "/sump-pump-backflow-merrimack-nh"],
-    ].map(([name, path]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, url: `${SITE}${path}` } })),
-  },
-};
 
 const marqueeItems = [
   "Fast service", "Expert work", "Licensed master", "Gas certified", "Honest pricing",
@@ -129,7 +53,7 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} bodyClass="page-home" ogImage="/images/van-hero-og.jpg" jsonLd={[localBusiness, plumberSchema]}>
+<BaseLayout title={title} description={description} bodyClass="page-home" ogImage="/images/van-hero-og.jpg" jsonLd={[plumberSchema, webSiteSchema, faqPageSchema(faqs)]}>
   <Fragment slot="head">
     <link
       rel="preload"

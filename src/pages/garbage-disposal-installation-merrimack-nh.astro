@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SplitFeature from "../components/SplitFeature.astro";
@@ -12,7 +13,10 @@ const description =
   "Get professional garbage disposal installation in Merrimack, NH from a licensed master plumber. Enjoy quality service and transparent pricing for lasting results.";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Garbage Disposal Installation", description, path: "/garbage-disposal-installation-merrimack-nh" }),
+  breadcrumbList([{ name: "Garbage Disposal Installation", path: "/garbage-disposal-installation-merrimack-nh" }]),
+]}>
   <Hero
     eyebrow="Installation"
     heading={`Garbage Disposal Installation in <span class="hl">Merrimack, NH</span>`}

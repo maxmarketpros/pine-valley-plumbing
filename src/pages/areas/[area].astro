@@ -5,6 +5,7 @@ import CtaBand from "../../components/CtaBand.astro";
 import Icon from "../../components/Icon.astro";
 import { business } from "../../data/site";
 import { areaPages } from "../../data/areas";
+import { serviceSchema, breadcrumbList } from "../../data/schema";
 
 export function getStaticPaths() {
   return areaPages.map((area) => ({
@@ -14,9 +15,19 @@ export function getStaticPaths() {
 }
 
 const { area } = Astro.props;
+
+const jsonLd = [
+  serviceSchema({
+    name: `Plumbing Services in ${area.city}, NH`,
+    description: area.seo.description,
+    path: `/areas/${area.slug}`,
+    areaServed: area.city,
+  }),
+  breadcrumbList([{ name: `Plumber in ${area.city}, NH`, path: `/areas/${area.slug}` }]),
+];
 ---
 
-<BaseLayout title={area.seo.title} description={area.seo.description} ogImage={area.hero.image}>
+<BaseLayout title={area.seo.title} description={area.seo.description} ogImage={area.hero.image} jsonLd={jsonLd}>
   <Hero
     heading={area.hero.heading}
     subheading={area.hero.sub}

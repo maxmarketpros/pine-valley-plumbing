@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { serviceSchema, breadcrumbList } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import SplitFeature from "../components/SplitFeature.astro";
@@ -11,7 +12,10 @@ const description =
   "Transform your bathroom with our expert remodeling and plumbing services in Merrimack, NH. Quality fixtures, precise installations, and lasting results.";
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg">
+<BaseLayout title={title} description={description} ogImage="/images/van-hero-og.jpg" jsonLd={[
+  serviceSchema({ name: "Bathroom Remodeling Services", description, path: "/bathroom-remodeling-merrimack-nh" }),
+  breadcrumbList([{ name: "Bathroom Remodeling Services", path: "/bathroom-remodeling-merrimack-nh" }]),
+]}>
   <Hero
     eyebrow="Transform"
     heading={`Bathroom Remodeling & Plumbing in <span class="hl">Merrimack, NH</span>`}
