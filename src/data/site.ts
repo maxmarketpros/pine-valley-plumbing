@@ -12,11 +12,11 @@ export const business = {
   mapsUrl: "https://maps.app.goo.gl/W7Gsk52nfKate5Jc9",
   googleReviewUrl: "https://share.google/uo5SvDFsKKNNTtAn0",
 
-  // Context-specific contacts — intentionally NOT merged.
+  // One number everywhere (old 521-2433 tracking split retired 2026-07).
   navPhone: "(603) 339-6732", // nav / footer / contact
   navPhoneTel: "tel:(603)339-6732",
-  primaryPhone: "(603) 521-2433", // hero CTA / JSON-LD / SEO blocks
-  primaryPhoneTel: "tel:(603)521-2433",
+  primaryPhone: "(603) 339-6732", // hero CTA / JSON-LD / SEO blocks
+  primaryPhoneTel: "tel:(603)339-6732",
   navEmail: "office@hirepinevalley.com",
   navEmailHref: "mailto:office@hirepinevalley.com?subject=Inquiry",
   jsonLdEmail: "priorityplumbingnh@gmail.com",

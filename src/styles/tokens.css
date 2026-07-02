@@ -18,6 +18,11 @@
   --leaf-600: #30903b;
   --green-tint: #e5ece8;
 
+  /* night greens (dark homepage theme) */
+  --night-950: #081409;   /* near-black green — hero/header base */
+  --night-900: #0c1d0f;   /* dark panel / card fill */
+  --pine-750: #14301a;    /* deep pine — CTA band */
+
   /* golds / yellows */
   --gold-500: #f5b820;    /* primary amber gold — buttons / emphasis */
   --gold-600: #e2a312;    /* gold hover / press */
@@ -70,14 +75,26 @@
   --on-forest-body: #e7efe4;
   --on-gold-strong: var(--wood-900);
   --on-gold-body: #3a2410;
+  --on-night-strong: #f7faf2;
+  --on-night-body: #d5e2d0;
+  --on-night-muted: #a7bda2;
+
+  /* night-theme accents */
+  --border-gold-soft: #f5b82059;  /* thin gold card outlines */
+  --border-leaf-soft: #3cb44a4d;  /* thin green outlines */
+
+  /* film grain + pine treeline textures (tiling SVG data-URIs) */
+  --noise-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --treeline-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='90' viewBox='0 0 260 90'%3E%3Cg fill='%231b3b1f' fill-opacity='0.45'%3E%3Cpath d='M30 25 L42 45 L36 45 L48 65 L40 65 L54 90 L6 90 L20 65 L12 65 L24 45 L18 45 Z'/%3E%3Cpath d='M85 45 L94 60 L90 60 L99 74 L93 74 L103 90 L67 90 L77 74 L71 74 L80 60 L76 60 Z'/%3E%3Cpath d='M140 15 L154 40 L146 40 L160 63 L150 63 L166 90 L114 90 L130 63 L120 63 L134 40 L126 40 Z'/%3E%3Cpath d='M195 50 L203 63 L199 63 L208 76 L202 76 L211 90 L179 90 L188 76 L182 76 L191 63 L187 63 Z'/%3E%3Cpath d='M238 32 L249 50 L243 50 L254 70 L246 70 L258 90 L218 90 L230 70 L222 70 L233 50 L227 50 Z'/%3E%3C/g%3E%3C/svg%3E");
 
   /* ---------- Typography ---------- */
-  --font-hero: "Permanent Marker", "Anton", "Arial Narrow", sans-serif;
+  --font-hero: "Anton", "Arial Narrow", sans-serif;
   --font-display: "Anton", "Cuprum", "Arial Narrow", sans-serif;
   --font-script: "Caveat", "Comic Sans MS", cursive;
   --font-body: "Mulish", "Inter", system-ui, -apple-system, sans-serif;
 
   /* fluid type scale */
+  --fs-display-xl: clamp(3.2rem, 8vw, 6.25rem); /* oversized hero/reviews lines */
   --fs-hero: clamp(2.75rem, 6vw, 5rem);
   --fs-h1: clamp(2.25rem, 4.5vw, 3.5rem);
   --fs-h2: clamp(1.9rem, 3.5vw, 3rem);
@@ -128,6 +145,7 @@
   --shadow-btn: 0 2px 0 #00000026, 0 4px 10px -2px #2a160f33, inset 0 1px 0 #ffffff66;
   --shadow-pressed: 0 1px 0 #00000026, inset 0 2px 4px #00000026;
   --shadow-note: 0 10px 20px -8px #2a160f4d, 0 2px 3px #2a160f33;
+  --shadow-night: 0 18px 40px -14px #000000b3, 0 4px 10px #00000080;
 
   /* misc */
   --header-h: 84px;

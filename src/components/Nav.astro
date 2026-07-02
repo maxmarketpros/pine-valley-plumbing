@@ -8,7 +8,7 @@ const isActive = (href: string) => (href === "/" ? currentPath === "/" : current
 const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98e1-32bits-256.png";
 ---
 
-<header class="nav surface-forest" data-nav>
+<header class="nav surface-night" data-nav>
   <div class="nav__bar container">
     <a href="/" class="nav__logo" aria-label="Pine Valley Plumbing — home">
       <img src={navLogo} width="256" height="138" alt="Pine Valley Plumbing" />
@@ -57,8 +57,9 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
         <a href={business.bookingUrl} class="btn btn--gold btn--sm">
           <Icon name="calendar" /> Book Now
         </a>
-        <a href={business.navPhoneTel} class="btn btn--outline btn--sm">
-          <Icon name="phone" /> {business.navPhone}
+        <a href={business.navPhoneTel} class="nav__phonebox">
+          <span class="nav__phonebox-num"><Icon name="phone" /> {business.navPhone}</span>
+          <span class="nav__phonebox-sub">24/7 Emergency Service</span>
         </a>
       </div>
     </nav>
@@ -70,8 +71,8 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 3px solid var(--gold-500);
-    box-shadow: 0 2px 12px #2a160f33;
+    border-bottom: 2px solid var(--gold-500);
+    box-shadow: var(--shadow-night);
   }
   .nav__bar {
     display: flex;
@@ -79,10 +80,26 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     gap: 1rem;
     min-height: var(--header-h);
     padding-block: 0.6rem;
+    /* the bar carries more than the 80rem container can hold — span the viewport */
+    max-width: none;
   }
   .nav__logo { flex: none; display: inline-flex; }
   .nav__logo img { height: 56px; width: auto; max-width: none; }
-  .nav__badge { margin-right: auto; }
+  /* :global — the badge root lives in the child component, outside Nav's style scope */
+  :global(.nav__badge) { margin-right: auto; }
+
+  /* the full bar (logo + badge + 7 links + 2 CTAs) only fits on wide screens:
+     drop the badge first, then tighten links, then hand off to the hamburger */
+  @media (max-width: 1649px) {
+    :global(.nav .nav__bar .nav__badge) { display: none; }
+    .nav__logo { margin-right: auto; }
+    .nav__bar { gap: 0.75rem; }
+    .nav__menu { gap: 0.9rem; }
+    .nav__links { gap: 0.1rem; }
+    .nav__link,
+    .nav__dropbtn { font-size: 0.85rem; letter-spacing: 0.02em; padding: 0.5rem 0.4rem; }
+    .nav__phonebox { padding-inline: 0.7rem; }
+  }
 
   .nav__toggle {
     display: none;
@@ -149,7 +166,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     top: calc(100% + 6px);
     left: 0;
     min-width: 260px;
-    background: var(--pine-900);
+    background: var(--night-900);
     border: 1px solid #ffffff1a;
     border-top: 3px solid var(--gold-500);
     border-radius: var(--radius-md);
@@ -171,18 +188,47 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
   .nav__dropbtn[aria-expanded="true"] + .nav__dropmenu { display: block; }
   .nav__dropbtn[aria-expanded="true"] .nav__chev { transform: rotate(180deg); }
 
-  .nav__buttons { display: flex; gap: 0.6rem; }
+  .nav__buttons { display: flex; align-items: center; gap: 0.7rem; }
+
+  .nav__phonebox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--border-gold-soft);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+  .nav__phonebox:hover { border-color: var(--gold-500); background: #ffffff0a; }
+  .nav__phonebox-num {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--on-night-strong);
+    white-space: nowrap;
+  }
+  .nav__phonebox-num svg { width: 1em; height: 1em; color: var(--gold-500); }
+  .nav__phonebox-sub {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+    white-space: nowrap;
+  }
 
   /* desktop hover open (mouse enhancement) */
-  @media (min-width: 992px) and (hover: hover) {
+  @media (min-width: 1280px) and (hover: hover) {
     .nav__dropdown:hover .nav__dropmenu { display: block; }
     .nav__dropdown:hover .nav__chev { transform: rotate(180deg); }
   }
 
-  /* ---- mobile ---- */
-  @media (max-width: 991px) {
-    .nav__badge { display: none; }
-    .nav__logo { margin-right: auto; }
+  /* ---- mobile / mid-desktop hamburger ---- */
+  @media (max-width: 1279px) {
     .nav__toggle { display: flex; }
     .nav__menu {
       position: fixed;
@@ -190,7 +236,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
       flex-direction: column;
       align-items: stretch;
       gap: 0;
-      background: var(--pine-900);
+      background: var(--night-950);
       padding: 1.25rem var(--gutter) 2.5rem;
       overflow-y: auto;
       transform: translateX(100%);
@@ -220,8 +266,9 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
       background: #00000026;
       margin: 0.25rem 0 0.5rem;
     }
-    .nav__buttons { flex-direction: column; margin-top: 1.5rem; }
+    .nav__buttons { flex-direction: column; align-items: stretch; margin-top: 1.5rem; }
     .nav__buttons .btn { width: 100%; }
+    .nav__phonebox { width: 100%; padding-block: 0.6rem; }
   }
 </style>
 
@@ -230,7 +277,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
   const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
   const dropBtns = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-dropdown]"));
 
-  const isMobile = () => window.matchMedia("(max-width: 991px)").matches;
+  const isMobile = () => window.matchMedia("(max-width: 1279px)").matches;
 
   toggle?.addEventListener("click", () => {
     const open = root?.toggleAttribute("data-open");

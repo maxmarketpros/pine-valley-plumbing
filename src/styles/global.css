@@ -28,6 +28,9 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+/* homepage runs the dark night theme edge to edge */
+body.page-home { background: var(--night-950); }
+
 img,
 picture,
 svg,
@@ -161,6 +164,28 @@ strong { font-weight: 800; }
 .surface-forest :is(h1, h2, h3, h4, h5, h6),
 .surface-forest-deep :is(h1, h2, h3, h4, h5, h6) { color: var(--on-forest-strong); }
 
+/* Night (dark homepage theme) — near-black green + film grain */
+.surface-night {
+  color: var(--on-night-body);
+  background-color: var(--night-950);
+  background-image:
+    var(--noise-img),
+    radial-gradient(120% 90% at 50% 0%, #1b3b1f2e 0%, #0000 60%);
+}
+/* Variant with a faint pine treeline along the bottom */
+.surface-night-forest {
+  color: var(--on-night-body);
+  background-color: var(--night-950);
+  background-image:
+    var(--noise-img),
+    var(--treeline-img),
+    radial-gradient(130% 100% at 50% 0%, #1b3b1f33 0%, #0000 55%);
+  background-repeat: repeat, repeat-x, no-repeat;
+  background-position: 0 0, bottom center, top center;
+}
+.surface-night :is(h1, h2, h3, h4, h5, h6),
+.surface-night-forest :is(h1, h2, h3, h4, h5, h6) { color: var(--on-night-strong); }
+
 /* Gold CTA */
 .surface-gold {
   color: var(--on-gold-body);
@@ -172,7 +197,9 @@ strong { font-weight: 800; }
 /* dark surfaces flag for focus ring color */
 .surface-wood,
 .surface-forest,
-.surface-forest-deep { --focus-ring: var(--cream-100); }
+.surface-forest-deep,
+.surface-night,
+.surface-night-forest { --focus-ring: var(--cream-100); }
 
 /* Torn-paper top/bottom edges (decorative) */
 .edge-torn-top {
@@ -237,13 +264,23 @@ strong { font-weight: 800; }
 }
 .surface-wood .btn--outline,
 .surface-forest .btn--outline,
-.surface-forest-deep .btn--outline { color: var(--cream-100); }
+.surface-forest-deep .btn--outline,
+.surface-night .btn--outline,
+.surface-night-forest .btn--outline { color: var(--cream-100); }
 .btn--outline:hover {
   background: var(--color-green-deep);
   border-color: var(--color-green-deep);
   color: var(--cream-100);
   box-shadow: var(--shadow-hover);
 }
+
+/* mid-green CTA that reads on near-black night surfaces */
+.btn--forest {
+  background: var(--pine-700);
+  color: var(--white);
+  border-color: #ffffff2b;
+}
+.btn--forest:hover { background: var(--leaf-600); }
 
 .btn--sm { padding: 0.55rem 1.15rem; font-size: 0.875rem; }
 
@@ -260,7 +297,9 @@ strong { font-weight: 800; }
 }
 .surface-wood .link-arrow,
 .surface-forest .link-arrow,
-.surface-forest-deep .link-arrow { color: var(--color-gold); }
+.surface-forest-deep .link-arrow,
+.surface-night .link-arrow,
+.surface-night-forest .link-arrow { color: var(--color-gold); }
 .link-arrow svg { width: 1em; height: 1em; transition: transform 0.18s ease; }
 .link-arrow:hover svg { transform: translateX(4px); }
 
@@ -279,6 +318,8 @@ strong { font-weight: 800; }
 .surface-wood .eyebrow,
 .surface-forest .eyebrow,
 .surface-forest-deep .eyebrow,
+.surface-night .eyebrow,
+.surface-night-forest .eyebrow,
 .surface-gold .eyebrow { color: var(--color-gold); }
 .surface-gold .eyebrow { color: var(--on-gold-strong); }
 
@@ -291,7 +332,9 @@ strong { font-weight: 800; }
 }
 .surface-wood .script-accent,
 .surface-forest .script-accent,
-.surface-forest-deep .script-accent { color: var(--color-gold); }
+.surface-forest-deep .script-accent,
+.surface-night .script-accent,
+.surface-night-forest .script-accent { color: var(--color-gold); }
 
 /* two-tone heading helper */
 .hl { color: var(--color-gold); }
@@ -336,7 +379,9 @@ strong { font-weight: 800; }
 }
 .surface-wood .check-list li svg,
 .surface-forest .check-list li svg,
-.surface-forest-deep .check-list li svg { color: var(--color-gold); }
+.surface-forest-deep .check-list li svg,
+.surface-night .check-list li svg,
+.surface-night-forest .check-list li svg { color: var(--color-gold); }
 
 /* ============================================================
    Cards
@@ -350,6 +395,15 @@ strong { font-weight: 800; }
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+/* dark night-theme card (gold or green hairline outline) */
+.card-dark {
+  background: var(--night-900);
+  border: 1px solid var(--border-gold-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-night);
+}
+.card-dark--leaf { border-color: var(--border-leaf-soft); }
 
 .icon-chip {
   display: inline-grid;

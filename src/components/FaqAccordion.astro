@@ -9,11 +9,13 @@ interface Props {
   faqs: FaqItem[];
   heading?: string;
   subheading?: string;
+  /** "dark" renders the night theme (homepage); default keeps the cream look. */
+  variant?: "light" | "dark";
 }
-const { faqs, heading = "FAQs", subheading } = Astro.props;
+const { faqs, heading = "FAQs", subheading, variant = "light" } = Astro.props;
 ---
 
-<section class="faq surface-cream section">
+<section class:list={["faq", "section", variant === "dark" ? "surface-night faq--dark" : "surface-cream"]}>
   <div class="container--md container">
     {heading && (
       <div class="section-head is-center faq__head">
@@ -66,4 +68,10 @@ const { faqs, heading = "FAQs", subheading } = Astro.props;
     max-width: 60ch;
   }
   .faq__a p { line-height: 1.6; }
+
+  /* night-theme variant (homepage) */
+  .faq--dark .faq__item { border-bottom-color: #ffffff1a; }
+  .faq--dark .faq__q { color: var(--on-night-strong); }
+  .faq--dark .faq__icon { color: var(--gold-500); }
+  .faq--dark .faq__a { color: var(--on-night-muted); }
 </style>

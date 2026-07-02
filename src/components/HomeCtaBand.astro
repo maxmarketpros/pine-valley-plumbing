@@ -1,0 +1,134 @@
+---
+/**
+ * Homepage-only dark CTA band: deep pine, silhouette treelines on the
+ * edges, gold phone + Book Now. Interior pages keep CtaBand.astro.
+ */
+import { business } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="hcta">
+  <svg class="hcta__pines hcta__pines--l" viewBox="0 0 260 90" preserveAspectRatio="xMinYMax meet" aria-hidden="true">
+    <g fill="#081409">
+      <path d="M30 25 L42 45 L36 45 L48 65 L40 65 L54 90 L6 90 L20 65 L12 65 L24 45 L18 45 Z" />
+      <path d="M85 45 L94 60 L90 60 L99 74 L93 74 L103 90 L67 90 L77 74 L71 74 L80 60 L76 60 Z" />
+      <path d="M140 15 L154 40 L146 40 L160 63 L150 63 L166 90 L114 90 L130 63 L120 63 L134 40 L126 40 Z" />
+      <path d="M195 50 L203 63 L199 63 L208 76 L202 76 L211 90 L179 90 L188 76 L182 76 L191 63 L187 63 Z" />
+    </g>
+  </svg>
+  <svg class="hcta__pines hcta__pines--r" viewBox="0 0 260 90" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+    <g fill="#081409">
+      <path d="M65 50 L73 63 L69 63 L78 76 L72 76 L81 90 L49 90 L58 76 L52 76 L61 63 L57 63 Z" />
+      <path d="M120 15 L134 40 L126 40 L140 63 L130 63 L146 90 L94 90 L110 63 L100 63 L114 40 L106 40 Z" />
+      <path d="M175 45 L184 60 L180 60 L189 74 L183 74 L193 90 L157 90 L167 74 L161 74 L170 60 L166 60 Z" />
+      <path d="M230 25 L242 45 L236 45 L248 65 L240 65 L254 90 L206 90 L220 65 L212 65 L224 45 L218 45 Z" />
+    </g>
+  </svg>
+
+  <div class="container hcta__inner">
+    <div class="hcta__call">
+      <h2>Need a Plumber Today?</h2>
+      <a class="hcta__phone" href={business.primaryPhoneTel}>
+        <span class="hcta__phone-icon"><Icon name="phone" /></span>
+        {business.primaryPhone}
+      </a>
+    </div>
+    <div class="hcta__book">
+      <p class="hcta__note">Or book online<br />in less than 60 seconds.</p>
+      <svg class="hcta__arrow" viewBox="0 0 120 90" aria-hidden="true">
+        <path d="M14 10 C 30 58, 62 74, 96 58" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M82 50 L96 58 L86 70" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <a href={business.bookingUrl} class="btn btn--gold hcta__bookbtn">
+        <Icon name="calendar" /> Book Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hcta {
+    position: relative;
+    overflow: hidden;
+    color: var(--on-night-body);
+    background-color: var(--pine-750);
+    background-image: var(--noise-img);
+    border-block: 1px solid var(--border-gold-soft);
+    padding-block: clamp(2.75rem, 5.5vw, 4rem);
+  }
+  .hcta h2 { color: var(--on-night-strong); font-size: var(--fs-h2); }
+
+  .hcta__pines {
+    position: absolute;
+    bottom: -2px;
+    height: min(72%, 200px);
+    width: auto;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .hcta__pines--l { left: -1.5rem; }
+  .hcta__pines--r { right: -1.5rem; }
+
+  .hcta__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hcta__call > * + * { margin-top: 0.9rem; }
+  .hcta__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1;
+    color: var(--gold-500);
+    white-space: nowrap;
+    transition: color 0.18s ease;
+  }
+  .hcta__phone:hover { color: var(--gold-600); }
+  .hcta__phone-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    background: var(--gold-500);
+    color: var(--night-950);
+  }
+  .hcta__phone-icon svg { width: 1.4rem; height: 1.4rem; }
+
+  .hcta__book {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.1rem;
+  }
+  .hcta__note {
+    font-weight: 700;
+    color: var(--on-night-strong);
+    line-height: 1.4;
+  }
+  .hcta__arrow {
+    width: 64px;
+    height: 48px;
+    flex: none;
+    transform: rotate(6deg);
+    opacity: 0.9;
+  }
+  .hcta__bookbtn { padding: 1rem 1.8rem; font-size: 1.05rem; }
+
+  @media (max-width: 900px) {
+    .hcta__inner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+    .hcta__call h2 { font-size: var(--fs-h3); }
+    .hcta__arrow { display: none; }
+    .hcta__book { flex-direction: column; justify-content: center; gap: 0.9rem; }
+    .hcta__bookbtn { width: min(100%, 22rem); }
+    .hcta__pines { height: 90px; opacity: 0.3; }
+  }
+</style>

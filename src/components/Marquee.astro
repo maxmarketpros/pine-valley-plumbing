@@ -6,7 +6,7 @@ const { items } = Astro.props;
 // duplicate the track so the scroll loops seamlessly
 const track = [...items, ...items];
 ---
-<section class="marquee surface-forest" aria-hidden="true">
+<section class="marquee surface-night" aria-hidden="true">
   <div class="marquee__track">
     {track.map((item) => (
       <span class="marquee__item">
@@ -21,7 +21,7 @@ const track = [...items, ...items];
   .marquee {
     overflow: hidden;
     padding-block: 0.9rem;
-    border-block: 2px solid var(--gold-500);
+    border-block: 1px solid var(--border-gold-soft);
   }
   .marquee__track {
     display: flex;

@@ -10,11 +10,13 @@ interface Props {
   image?: string;
   imageAlt?: string;
   imageSrcset?: string;
+  /** "dark" renders the night-theme card (homepage); default keeps the light card. */
+  variant?: "light" | "dark";
 }
-const { title, href, body, linkLabel = "Learn more", eyebrow, image, imageAlt = "", imageSrcset } = Astro.props;
+const { title, href, body, linkLabel = "Learn more", eyebrow, image, imageAlt = "", imageSrcset, variant = "light" } = Astro.props;
 ---
 
-<a href={href} class="svc-card">
+<a href={href} class:list={["svc-card", variant === "dark" && "svc-card--dark"]}>
   {image && (
     <div class="svc-card__media">
       <img src={image} srcset={imageSrcset} sizes="(max-width: 700px) 90vw, 420px" alt={imageAlt} loading="lazy" />
@@ -46,4 +48,13 @@ const { title, href, body, linkLabel = "Learn more", eyebrow, image, imageAlt = 
   .svc-card__title { font-size: 1.4rem; color: var(--ink-900); }
   .svc-card__text { color: var(--on-cream-muted); font-size: var(--fs-body-sm); flex: 1; }
   .svc-card__link { margin-top: 0.5rem; }
+
+  /* night-theme variant (homepage) */
+  .svc-card--dark {
+    background: var(--night-900);
+    border: 1px solid var(--border-gold-soft);
+    box-shadow: var(--shadow-night);
+  }
+  .svc-card--dark .svc-card__title { color: var(--on-night-strong); }
+  .svc-card--dark .svc-card__text { color: var(--on-night-body); }
 </style>

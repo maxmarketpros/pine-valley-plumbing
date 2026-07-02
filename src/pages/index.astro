@@ -1,16 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
+import HomeHero from "../components/HomeHero.astro";
 import Marquee from "../components/Marquee.astro";
 import TrustBadges from "../components/TrustBadges.astro";
 import Testimonials from "../components/Testimonials.astro";
-import CtaBand from "../components/CtaBand.astro";
+import HomeCtaBand from "../components/HomeCtaBand.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import Seal from "../components/Seal.astro";
 import Icon from "../components/Icon.astro";
 import RealWorkLabs from "../components/RealWorkLabs.astro";
-import { business, services as allServices } from "../data/site";
+import { business } from "../data/site";
 
 const title = "Expert Master Plumber in Merrimack, NH | Pine Valley Plumbing";
 const description =
@@ -23,7 +22,7 @@ const localBusiness = {
   description:
     "Licensed master plumber serving Merrimack, NH and surrounding areas with emergency repairs, installations, and complete plumbing services. Over a decade of expertise with gas certification.",
   url: "https://hirepinevalley.com/",
-  telephone: "(603) 521-2433",
+  telephone: "(603) 339-6732",
   email: "priorityplumbingnh@gmail.com",
   address: { "@type": "PostalAddress", addressLocality: "Merrimack", addressRegion: "NH", addressCountry: "US" },
   areaServed: [
@@ -66,7 +65,7 @@ const plumberSchema = {
   "@type": "Plumber",
   name: "Pine Valley Plumbing",
   url: `${SITE}/`,
-  telephone: "+1-603-521-2433",
+  telephone: "+1-603-339-6732",
   email: "priorityplumbingnh@gmail.com",
   areaServed: [
     { "@type": "City", name: "Merrimack" },
@@ -104,19 +103,20 @@ const testimonials = [
   { quote: "Best plumbing company we've used.", location: "Nashua, NH" },
 ];
 
-// SEO services grid (matches source "pv-seo" block)
+// SEO services grid (matches source "pv-seo" block); img = base name in
+// public/images/, reusing each service page's own photo
 const seoServices = [
-  ["Emergency Plumbing", "Burst pipes, backups, no hot water—call anytime for fast help.", "Emergency Plumbing Services", "/emergency-plumber-merrimack-nh", "phone"],
-  ["Drain Cleaning", "Clear clogs the right way—no shortcuts, no pipe damage.", "Drain Cleaning Services", "/drain-cleaning-merrimack-nh", "droplet"],
-  ["Water Heater Installation", "New tank or tankless systems installed cleanly, safely, and to code.", "Water Heater Installation", "/water-heater-installation-merrimack-nh", "flame"],
-  ["Water Heater Repair", "Diagnostics + real repairs so you’re not stuck with cold showers.", "Water Heater Repair", "/water-heater-repair-merrimack-nh", "thermometer"],
-  ["Gas Line Services", "Gas piping work done by a certified professional—safety first.", "Gas Line Services", "/gas-line-services-merrimack-nh", "shield-check"],
-  ["Pipe Repair & Leak Fixes", "Stop leaks, protect your home, and prevent bigger failures.", "Pipe Repair Services", "/pipe-repair-merrimack-nh", "wrench"],
-  ["Kitchen Plumbing", "Faucets, sinks, dishwasher hookups, and kitchen upgrades done right.", "Kitchen Plumbing Services", "/kitchen-plumbing-merrimack-nh", "utensils"],
-  ["Bathroom Remodeling", "Remodel plumbing for showers, tubs, toilets, and full bathroom upgrades.", "Bathroom Remodeling Services", "/bathroom-remodeling-merrimack-nh", "shower-head"],
-  ["Toilet Installation", "New installs or replacements—sealed, leveled, and tested.", "Toilet Installation Services", "/toilet-installation-merrimack-nh", "droplet"],
-  ["Garbage Disposal Installation", "Clean installs with proper connections and leak checks.", "Garbage Disposal Installation", "/garbage-disposal-installation-merrimack-nh", "trash"],
-  ["Flood Prevention", "Sump pumps & backflow protection to help keep basements dry.", "Water & Flood Prevention Systems", "/sump-pump-backflow-merrimack-nh", "waves"],
+  ["Emergency Plumbing", "Burst pipes, backups, no hot water—call anytime for fast help.", "Emergency Plumbing Services", "/emergency-plumber-merrimack-nh", "phone", "relume-653300"],
+  ["Drain Cleaning", "Clear clogs the right way—no shortcuts, no pipe damage.", "Drain Cleaning Services", "/drain-cleaning-merrimack-nh", "droplet", "relume-653303"],
+  ["Water Heater Installation", "New tank or tankless systems installed cleanly, safely, and to code.", "Water Heater Installation", "/water-heater-installation-merrimack-nh", "flame", "relume-653305"],
+  ["Water Heater Repair", "Diagnostics + real repairs so you’re not stuck with cold showers.", "Water Heater Repair", "/water-heater-repair-merrimack-nh", "thermometer", "relume-653360"],
+  ["Gas Line Services", "Gas piping work done by a certified professional—safety first.", "Gas Line Services", "/gas-line-services-merrimack-nh", "shield-check", "relume-653349"],
+  ["Pipe Repair & Leak Fixes", "Stop leaks, protect your home, and prevent bigger failures.", "Pipe Repair Services", "/pipe-repair-merrimack-nh", "wrench", "relume-653317"],
+  ["Kitchen Plumbing", "Faucets, sinks, dishwasher hookups, and kitchen upgrades done right.", "Kitchen Plumbing Services", "/kitchen-plumbing-merrimack-nh", "utensils", "relume-653281"],
+  ["Bathroom Remodeling", "Remodel plumbing for showers, tubs, toilets, and full bathroom upgrades.", "Bathroom Remodeling Services", "/bathroom-remodeling-merrimack-nh", "shower-head", "relume-653344"],
+  ["Toilet Installation", "New installs or replacements—sealed, leveled, and tested.", "Toilet Installation Services", "/toilet-installation-merrimack-nh", "droplet", "relume-653333"],
+  ["Garbage Disposal Installation", "Clean installs with proper connections and leak checks.", "Garbage Disposal Installation", "/garbage-disposal-installation-merrimack-nh", "trash", "relume-653336"],
+  ["Flood Prevention", "Sump pumps & backflow protection to help keep basements dry.", "Water & Flood Prevention Systems", "/sump-pump-backflow-merrimack-nh", "waves", "relume-653352"],
 ];
 
 const serviceBadges = ["Emergency Response", "Drain & Sewer Issues", "Water Heaters", "Gas Line Services", "Remodel Plumbing", "Leak & Pipe Repair"];
@@ -129,21 +129,56 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} bodyClass="page-home" jsonLd={[localBusiness, plumberSchema]}>
-  <Hero
-    heading='Plumber in <span class="hl">Merrimack, NH</span>'
-    subheading="Pine Valley Plumbing serves Merrimack, New Hampshire and the surrounding areas with honest work and real expertise. We handle everything from emergency repairs to complete system installations, and we take the time to do it correctly."
-    image="/images/relume-653201.jpeg"
-    imageSrcset="/images/relume-653201-p-500.jpeg 500w, /images/relume-653201-p-800.jpeg 800w, /images/relume-653201-p-1080.jpeg 1080w, /images/relume-653201-p-1600.jpeg 1600w, /images/relume-653201.jpeg 1920w"
-    imageAlt="Plumber fixing sink pipe with wrench under kitchen sink"
-  />
+<BaseLayout title={title} description={description} bodyClass="page-home" ogImage="/images/van-hero-og.jpg" jsonLd={[localBusiness, plumberSchema]}>
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w"
+      imagesizes="100vw"
+    />
+  </Fragment>
 
-  <Marquee items={marqueeItems} />
+  <HomeHero />
 
   <TrustBadges />
 
+  <Marquee items={marqueeItems} />
+
+  <Testimonials items={testimonials} />
+
+  <!-- About / Go-to plumber -->
+  <section class="section surface-night">
+    <div class="container about-dark">
+      <div class="about-dark__media">
+        <img
+          src="/images/van-forest-p-1080.webp"
+          srcset="/images/van-forest-p-500.webp 500w, /images/van-forest-p-800.webp 800w, /images/van-forest-p-1080.webp 1080w, /images/van-forest-p-1600.webp 1600w"
+          sizes="(max-width: 900px) 92vw, 44vw"
+          width="1600"
+          height="905"
+          alt="Pine Valley Plumbing service van parked in a New Hampshire pine forest at dusk"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-dark__content">
+        <span class="eyebrow">Your Neighborhood</span>
+        <h2>Go-To Plumber</h2>
+        <p class="lead">At Pine Valley Plumbing, we're committed to honest recommendations, quality workmanship, and treating your home like our own.</p>
+        <ul class="about-dark__list">
+          <li><span class="about-dark__check"><Icon name="check" /></span> No upselling.</li>
+          <li><span class="about-dark__check"><Icon name="check" /></span> No surprises.</li>
+          <li><span class="about-dark__check"><Icon name="check" /></span> Just plumbing done right.</li>
+        </ul>
+        <div class="btn-group"><a href="/about-pine-valley-plumbing-merrimack-nh" class="btn btn--outline">About Us</a></div>
+      </div>
+    </div>
+  </section>
+
+  <HomeCtaBand />
+
   <!-- Difference -->
-  <section class="section surface-forest">
+  <section class="section surface-night-forest">
     <div class="container diff">
       <div class="diff__media">
         <img
@@ -160,7 +195,7 @@ const faqs = [
         <p class="lead">Over a decade in the trade means every job gets done to code. Your plumbing is built to last.</p>
         <div class="btn-group">
           <a href={business.bookingUrl} class="btn btn--gold"><Icon name="calendar" /> Book Appointment</a>
-          <a href={business.primaryPhoneTel} class="btn btn--outline"><Icon name="phone" /> Call</a>
+          <a href={business.primaryPhoneTel} class="btn btn--forest"><Icon name="phone" /> Call</a>
         </div>
         <div class="diff__cards">
           <div class="diff__card">
@@ -176,46 +211,8 @@ const faqs = [
     </div>
   </section>
 
-  <Testimonials items={testimonials} />
-
-  <!-- Careers -->
-  <section class="section surface-wood careers-cta">
-    <div class="container careers-cta__inner">
-      <div>
-        <span class="eyebrow">Careers</span>
-        <h2>More Than Just Plumbing</h2>
-      </div>
-      <div>
-        <p class="lead">We don’t just serve our community — we’re part of it. By building strong careers for our team, we attract skilled professionals who take pride in their work and treat every home with care. When our people are supported, our customers feel the difference.</p>
-        <div class="btn-group"><a href="/careers" class="btn btn--gold">Careers</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / Go-to plumber -->
-  <section class="section surface-cream">
-    <div class="container about-home">
-      <div class="about-home__content">
-        <span class="eyebrow">Background</span>
-        <h2>More Than Just Plumbing</h2>
-        <p>Pine Valley Plumbing was founded by a husband-and-wife team who believe great service is about more than fixing a problem - it's about communication, respect, and doing the job right the first time. <br />With over a decade of experience in residential and commercial plumbing, our work is rooted in craftsmanship, code compliance, and long-term solutions. Paired with a strong background in design and customer experience, we focus on making the entire process clear, comfortable, and stress-free for our customers.</p>
-        <div class="btn-group"><a href="/about-pine-valley-plumbing-merrimack-nh" class="btn btn--green">About</a></div>
-      </div>
-      <div class="about-home__media">
-        <img
-          src="/images/relume-653251.jpeg"
-          srcset="/images/relume-653251-p-500.jpeg 500w, /images/relume-653251-p-800.jpeg 800w, /images/relume-653251-p-1080.jpeg 1080w, /images/relume-653251-p-1600.jpeg 1600w, /images/relume-653251.jpeg 1920w"
-          sizes="(max-width: 900px) 90vw, 45vw"
-          alt="Hands tightening plumbing pipe connection with metallic background"
-          loading="lazy"
-        />
-        <Seal class="about-home__seal" />
-      </div>
-    </div>
-  </section>
-
   <!-- What we handle (feature cards) -->
-  <section class="section surface-forest">
+  <section class="section surface-night">
     <div class="container">
       <div class="section-head is-center wh__head">
         <span class="eyebrow">Services</span>
@@ -224,6 +221,7 @@ const faqs = [
       </div>
       <div class="wh__grid">
         <ServiceCard
+          variant="dark"
           title="Plumbing emergencies don't wait"
           href="/emergency-plumber-merrimack-nh"
           eyebrow="Emergency"
@@ -233,6 +231,7 @@ const faqs = [
           imageAlt="Shocked woman looking at water leaking from ceiling into blue bucket"
         />
         <ServiceCard
+          variant="dark"
           title="Water heaters and filtration systems"
           href="/water-heater-installation-merrimack-nh"
           eyebrow="Water"
@@ -246,7 +245,7 @@ const faqs = [
   </section>
 
   <!-- SEO services grid -->
-  <section class="section surface-cream">
+  <section class="section surface-night">
     <div class="container">
       <div class="seo-top">
         <div class="seo-top__lead">
@@ -265,12 +264,23 @@ const faqs = [
       </div>
 
       <div class="seo-grid">
-        {seoServices.map(([h, p, link, href, icon]) => (
+        {seoServices.map(([h, p, link, href, icon, img]) => (
           <a class="seo-card" href={href}>
-            <span class="icon-chip seo-card__chip"><Icon name={icon} /></span>
-            <h3>{h}</h3>
-            <p>{p}</p>
-            <span class="link-arrow seo-card__link">{link} <Icon name="arrow-right" /></span>
+            <div class="seo-card__media">
+              <img
+                src={`/images/${img}.jpeg`}
+                srcset={`/images/${img}-p-500.jpeg 500w, /images/${img}-p-800.jpeg 800w`}
+                sizes="(max-width: 560px) 90vw, (max-width: 900px) 45vw, 400px"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <div class="seo-card__body">
+              <span class="icon-chip seo-card__chip"><Icon name={icon} /></span>
+              <h3>{h}</h3>
+              <p>{p}</p>
+              <span class="link-arrow seo-card__link">{link} <Icon name="arrow-right" /></span>
+            </div>
           </a>
         ))}
       </div>
@@ -291,64 +301,105 @@ const faqs = [
           <span class="icon-chip"><Icon name="map-pin" /></span>
           <h3>Service Area</h3>
           <p>Based in Merrimack, NH — serving surrounding areas in the region, including Nashua, Amherst, and Hillsborough County.</p>
-          <p class="seo-fine">Call <a href="tel:+16035212433">(603) 521-2433</a> or email <a href="mailto:priorityplumbingnh@gmail.com">priorityplumbingnh@gmail.com</a>.</p>
+          <p class="seo-fine">Call <a href="tel:+16033396732">(603) 339-6732</a> or email <a href="mailto:priorityplumbingnh@gmail.com">priorityplumbingnh@gmail.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Careers -->
+  <section class="section surface-night careers-cta">
+    <div class="container">
+      <div class="careers-cta__panel card-dark card-dark--leaf">
+        <div class="careers-cta__inner">
+          <div>
+            <span class="eyebrow">Careers</span>
+            <h2>More Than Just Plumbing</h2>
+          </div>
+          <div class="careers-cta__copy">
+            <p class="lead">We don’t just serve our community — we’re part of it. By building strong careers for our team, we attract skilled professionals who take pride in their work and treat every home with care. When our people are supported, our customers feel the difference.</p>
+            <p>Founded by a husband-and-wife team, Pine Valley Plumbing is built on communication, respect, and doing the job right the first time.</p>
+            <div class="btn-group"><a href="/careers" class="btn btn--gold">Careers</a></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Neighborhood reviews widget (Real Work Labs) -->
-  <section class="section surface-paper">
+  <section class="section surface-night">
     <div class="container">
       <RealWorkLabs outputId="rwl-neighborhood" />
     </div>
   </section>
 
-  <CtaBand
-    heading="Ready to get started"
-    body="Call for emergency service or a free estimate on your project."
-  />
+  <FaqAccordion variant="dark" faqs={faqs} heading="FAQs" subheading="Questions about our services and process" />
 
-  <FaqAccordion faqs={faqs} heading="FAQs" subheading="Questions about our services and process" />
-
-  <section class="section--sm section surface-cream">
+  <section class="section--sm section surface-night">
     <div class="container--md container text-center">
       <h3>More questions?</h3>
       <p class="lead" style="margin-top:.75rem">Reach out and we'll answer what you need to know.</p>
       <div class="btn-group is-center" style="margin-top:1.25rem">
-        <a href={business.primaryPhoneTel} class="btn btn--green"><Icon name="phone" /> Contact</a>
+        <a href={business.primaryPhoneTel} class="btn btn--forest"><Icon name="phone" /> Contact</a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* home hero uses the marker font */
-  :global(.page-home) .hero__heading {
-    font-family: var(--font-hero);
-    letter-spacing: 0;
-    line-height: 1.05;
+  /* About (dark) */
+  .about-dark { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+  .about-dark__content > * + * { margin-top: 1.1rem; }
+  .about-dark__media img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ffffff2e;
+    box-shadow: var(--shadow-night);
+    aspect-ratio: 16/10;
+    object-fit: cover;
   }
+  .about-dark__list {
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--on-night-strong);
+  }
+  .about-dark__list li { display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.65rem; align-items: center; }
+  .about-dark__check {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--leaf-500);
+    color: var(--night-950);
+  }
+  .about-dark__check :global(svg) { width: 0.9rem; height: 0.9rem; }
 
   /* Difference */
   .diff { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
-  .diff__media img { width: 100%; border-radius: var(--radius-xl); border: 5px solid var(--cream-100); box-shadow: var(--shadow-hover); transform: rotate(-1.4deg); aspect-ratio: 4/3; object-fit: cover; }
+  .diff__media img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ffffff2e;
+    box-shadow: var(--shadow-night);
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
   .diff__content > * + * { margin-top: 1.1rem; }
   .diff__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.75rem; }
-  .diff__card { background: #ffffff14; border: 1px solid #ffffff26; border-radius: var(--radius-md); padding: 1.25rem; }
+  .diff__card { background: var(--night-900); border: 1px solid var(--border-gold-soft); border-radius: var(--radius-md); padding: 1.25rem; }
   .diff__card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-  .diff__card p { color: var(--on-forest-body); }
+  .diff__card p { color: var(--on-night-body); }
 
   /* Careers */
+  .careers-cta__panel { padding: clamp(1.75rem, 4vw, 3rem); }
   .careers-cta__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
   .careers-cta h2 { font-size: var(--fs-h2); }
-
-  /* About */
-  .about-home { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
-  .about-home__content > * + * { margin-top: 1.1rem; }
-  .about-home__media { position: relative; }
-  .about-home__media img { width: 100%; border-radius: var(--radius-xl); box-shadow: var(--shadow-hover); aspect-ratio: 4/3; object-fit: cover; }
-  .about-home__seal { position: absolute; right: -14px; bottom: -28px; width: 130px; height: 130px; background: var(--cream-100); border-radius: 50%; padding: 6px; box-shadow: var(--shadow-card); }
+  .careers-cta__copy > * + * { margin-top: 1rem; }
+  .careers-cta__copy p:not(.lead) { color: var(--on-night-muted); }
 
   /* What we handle */
   .wh__head { margin-bottom: 2.5rem; }
@@ -359,46 +410,83 @@ const faqs = [
   .seo-top h2 { font-size: var(--fs-h3); margin-bottom: 0.75rem; }
   .seo-top__lead .eyebrow { margin-bottom: 0.5rem; }
   .seo-top__lead .btn-group { margin-top: 1rem; }
-  .seo-fine { font-size: var(--fs-body-sm); color: var(--on-cream-muted); margin-top: 0.85rem; }
+  .seo-fine { font-size: var(--fs-body-sm); color: var(--on-night-muted); margin-top: 0.85rem; }
   .seo-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-end; }
-  .seo-badge { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid #00000018; background: #fff; border-radius: var(--radius-pill); padding: 0.5rem 0.95rem; font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow-card); }
+  .seo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--border-leaf-soft);
+    background: transparent;
+    color: var(--on-night-strong);
+    border-radius: var(--radius-pill);
+    padding: 0.5rem 0.95rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
   .seo-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-gold); flex: none; }
 
   .seo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   .seo-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background: #fff;
-    border: 1px solid #00000010;
+    align-items: stretch;
+    overflow: hidden;
+    background: var(--night-900);
+    border: 1px solid var(--border-gold-soft);
     border-top: 4px solid var(--gold-500);
     border-radius: var(--radius-lg);
-    padding: 1.6rem 1.4rem;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: var(--shadow-night);
+    transition: transform 0.18s ease, border-color 0.18s ease;
   }
-  .seo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-  .seo-card__chip { margin-bottom: 0.9rem; }
+  .seo-card:hover { transform: translateY(-4px); border-color: var(--gold-500); }
+  .seo-card__media { aspect-ratio: 16 / 9; width: 100%; }
+  .seo-card__media img { width: 100%; height: 100%; object-fit: cover; }
+  .seo-card:hover .seo-card__media img { filter: brightness(1.08); }
+  .seo-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding: 0 1.4rem 1.5rem;
+  }
   .seo-card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
-  .seo-card p { font-size: var(--fs-body-sm); color: var(--on-cream-muted); margin-bottom: 0.9rem; flex: 1; }
+  .seo-card p { font-size: var(--fs-body-sm); color: var(--on-night-muted); margin-bottom: 0.9rem; flex: 1; }
   .seo-card__link { margin-top: auto; }
   .seo-card:hover .seo-card__link :global(svg) { transform: translateX(4px); }
 
   .seo-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
-  .seo-box { background: #fff; border: 1px solid #00000010; border-top: 4px solid var(--color-green-deep); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-card); }
+  .seo-box {
+    background: var(--night-900);
+    border: 1px solid var(--border-gold-soft);
+    border-top: 4px solid var(--leaf-600);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-night);
+  }
   .seo-box .icon-chip { margin-bottom: 0.9rem; }
   .seo-box h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
-  .seo-box .seo-fine a { color: var(--color-green-deep); font-weight: 700; }
+  .seo-box .seo-fine a { color: var(--leaf-500); font-weight: 700; }
+
+  /* green-glow icon chips on the dark cards (overrides the light global chip) */
+  .seo-mini .icon-chip { background: #3cb44a1f; color: var(--leaf-500); }
+  /* card chips sit half over the photo, so they need a solid fill */
+  .seo-grid .icon-chip {
+    background: var(--night-900);
+    border: 1px solid var(--border-leaf-soft);
+    color: var(--leaf-500);
+    margin-top: -1.5rem;
+    margin-bottom: 0.9rem;
+  }
 
   @media (max-width: 900px) {
-    .diff, .careers-cta__inner, .about-home { grid-template-columns: 1fr; }
+    .diff, .careers-cta__inner, .about-dark { grid-template-columns: 1fr; }
     .diff__media { max-width: 32rem; margin-inline: auto; }
     .wh__grid { grid-template-columns: 1fr; }
     .seo-top { grid-template-columns: 1fr; }
     .seo-badges { justify-content: flex-start; }
     .seo-grid { grid-template-columns: 1fr 1fr; }
     .seo-mini { grid-template-columns: 1fr; }
-    .about-home__seal { width: 104px; height: 104px; right: 8px; bottom: -22px; }
   }
   @media (max-width: 560px) {
     .diff__cards, .seo-grid { grid-template-columns: 1fr; }
