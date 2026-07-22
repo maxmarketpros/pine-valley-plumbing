@@ -19,7 +19,7 @@ export const business = {
   primaryPhoneTel: "tel:(603)339-6732",
   navEmail: "office@hirepinevalley.com",
   navEmailHref: "mailto:office@hirepinevalley.com?subject=Inquiry",
-  jsonLdEmail: "priorityplumbingnh@gmail.com",
+  jsonLdEmail: "office@hirepinevalley.com",
 
   // Reviews
   rating: "4.9",
