@@ -8,7 +8,7 @@ const isActive = (href: string) => (href === "/" ? currentPath === "/" : current
 const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98e1-32bits-256.png";
 ---
 
-<header class="nav surface-night" data-nav>
+<header class="nav surface-paper" data-nav>
   <div class="nav__bar container">
     <a href="/" class="nav__logo" aria-label="Pine Valley Plumbing — home">
       <img src={navLogo} width="256" height="138" alt="Pine Valley Plumbing" />
@@ -72,7 +72,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     top: 0;
     z-index: 100;
     border-bottom: 2px solid var(--gold-500);
-    box-shadow: var(--shadow-night);
+    box-shadow: var(--shadow-card);
   }
   .nav__bar {
     display: flex;
@@ -117,7 +117,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     display: block;
     height: 3px;
     border-radius: 3px;
-    background: var(--cream-100);
+    background: var(--pine-800);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
@@ -140,7 +140,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     gap: 0.3rem;
     background: transparent;
     border: 0;
-    color: var(--cream-100);
+    color: var(--pine-800);
     font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.9rem;
@@ -153,7 +153,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
   .nav__link:hover,
   .nav__dropbtn:hover,
   .nav__link[aria-current="page"] {
-    color: var(--gold-500);
+    color: var(--gold-700);
   }
   .nav__chev { width: 0.9em; height: 0.9em; transition: transform 0.2s ease; }
 
@@ -166,8 +166,8 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     top: calc(100% + 6px);
     left: 0;
     min-width: 260px;
-    background: var(--night-900);
-    border: 1px solid #ffffff1a;
+    background: var(--white);
+    border: 1px solid #00000012;
     border-top: 3px solid var(--gold-500);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-hover);
@@ -178,11 +178,11 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     display: block;
     padding: 0.6rem 0.8rem;
     border-radius: var(--radius-sm);
-    color: var(--on-forest-body);
+    color: var(--ink-700);
     font-weight: 600;
     font-size: 0.9rem;
   }
-  .nav__droplink:hover { background: #ffffff14; color: var(--gold-500); }
+  .nav__droplink:hover { background: var(--green-tint); color: var(--pine-700); }
 
   /* open states */
   .nav__dropbtn[aria-expanded="true"] + .nav__dropmenu { display: block; }
@@ -201,23 +201,23 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
     text-align: center;
     transition: border-color 0.18s ease, background-color 0.18s ease;
   }
-  .nav__phonebox:hover { border-color: var(--gold-500); background: #ffffff0a; }
+  .nav__phonebox:hover { border-color: var(--gold-500); background: #00000006; }
   .nav__phonebox-num {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
     font-weight: 800;
     font-size: 1rem;
-    color: var(--on-night-strong);
+    color: var(--ink-900);
     white-space: nowrap;
   }
-  .nav__phonebox-num svg { width: 1em; height: 1em; color: var(--gold-500); }
+  .nav__phonebox-num svg { width: 1em; height: 1em; color: var(--gold-600); }
   .nav__phonebox-sub {
     font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-    color: var(--gold-500);
+    color: var(--gold-700);
     white-space: nowrap;
   }
 
@@ -236,7 +236,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
       flex-direction: column;
       align-items: stretch;
       gap: 0;
-      background: var(--night-950);
+      background: var(--cream-100);
       padding: 1.25rem var(--gutter) 2.5rem;
       overflow-y: auto;
       transform: translateX(100%);
@@ -254,7 +254,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
       justify-content: space-between;
       font-size: 1.05rem;
       padding: 0.9rem 0.25rem;
-      border-bottom: 1px solid #ffffff14;
+      border-bottom: 1px solid #00000012;
     }
     .nav__dropmenu {
       position: static;
@@ -263,7 +263,7 @@ const navLogo = "/images/6949b04c9133021b589bca73_963c31600ecb4833cfe46fa8406c98
       box-shadow: none;
       border: 0;
       border-radius: 0;
-      background: #00000026;
+      background: #00000008;
       margin: 0.25rem 0 0.5rem;
     }
     .nav__buttons { flex-direction: column; align-items: stretch; margin-top: 1.5rem; }

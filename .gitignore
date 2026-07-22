@@ -9,6 +9,8 @@ npm-debug.log*
 # environment variables
 .env
 .env.production
+# local Netlify CLI state
+.netlify/
 # macOS / Windows
 .DS_Store
 Thumbs.db

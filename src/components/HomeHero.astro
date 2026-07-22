@@ -1,24 +1,28 @@
 ---
 /**
- * Homepage-only dark hero: full-bleed van photo vignetted into the night
- * theme with a scrim. Interior pages keep Hero.astro.
+ * Homepage-only hero: full-bleed truck photo vignetted into the dark night
+ * theme (the one dark section on the otherwise bright homepage); on mobile
+ * the photo sits in flow above the text so the whole truck is always
+ * visible. Interior pages keep Hero.astro.
  */
 import { business } from "../data/site";
 import Icon from "./Icon.astro";
 ---
 
 <section class="home-hero surface-night">
-  <img
-    class="home-hero__bg"
-    src="/images/van-hero-p-1600.webp"
-    srcset="/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w"
-    sizes="100vw"
-    width="1600"
-    height="900"
-    alt="Pine Valley Plumbing service van with cartoon beaver mascot parked in a Merrimack, NH neighborhood"
-    loading="eager"
-    fetchpriority="high"
-  />
+  <picture class="home-hero__pic">
+    <img
+      class="home-hero__bg"
+      src="/images/truck-hero-wide-p-1600.webp"
+      srcset="/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w"
+      sizes="100vw"
+      width="1600"
+      height="1200"
+      alt="Pine Valley Plumbing truck parked on a sunny Merrimack, NH street"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </picture>
   <div class="home-hero__scrim" aria-hidden="true"></div>
 
   <div class="container home-hero__inner">
@@ -78,17 +82,20 @@ import Icon from "./Icon.astro";
   .home-hero {
     position: relative;
     overflow: hidden;
-    min-height: clamp(560px, 82vh, 840px);
+    /* ~2:1 section over a 4:3 photo keeps the whole truck in the cover crop */
+    min-height: clamp(560px, 50vw, 1000px);
     display: grid;
     align-items: center;
   }
-  .home-hero__bg {
+  .home-hero__pic {
     position: absolute;
     inset: 0;
+  }
+  .home-hero__bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 68% 50%;
+    object-position: 50% 55%;
   }
   .home-hero__scrim {
     position: absolute;
@@ -208,23 +215,25 @@ import Icon from "./Icon.astro";
   }
 
   @media (max-width: 820px) {
+    /* photo sits in flow above the text so the whole truck always shows */
     .home-hero {
+      display: block;
       min-height: auto;
-      /* leave room up top so the van photo shows before the text */
-      padding-top: min(50vw, 21rem);
     }
-    .home-hero__bg { object-position: 60% 22%; }
-    .home-hero__scrim {
-      background: linear-gradient(
-        180deg,
-        #08140966 0%,
-        #08140926 16%,
-        #08140959 36%,
-        #081409e8 58%,
-        #081409fb 100%
-      );
+    .home-hero__pic { position: relative; inset: auto; }
+    /* native 4:3 ratio — the full photo shows, no crop */
+    .home-hero__bg { aspect-ratio: 4 / 3; }
+    /* blend the photo's bottom edge into the dark text panel below it */
+    .home-hero__pic::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 22%;
+      background: linear-gradient(180deg, #08140900 0%, #081409 100%);
+      pointer-events: none;
     }
-    .home-hero__inner { padding-block: 0 2.75rem; }
+    .home-hero__scrim { display: none; }
+    .home-hero__inner { padding-block: 1.9rem 2.75rem; }
   }
   @media (max-width: 560px) {
     .home-hero__buttons { flex-direction: column; align-items: stretch; }

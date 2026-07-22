@@ -36,7 +36,7 @@ export const plumberSchema = {
   url: `${SITE_URL}/`,
   telephone: PHONE_E164,
   email: business.jsonLdEmail,
-  image: abs("/images/van-hero-og.jpg"),
+  image: abs("/images/truck-hero-og.jpg"),
   logo: abs("/images/Logo.svg"),
   address: {
     "@type": "PostalAddress",

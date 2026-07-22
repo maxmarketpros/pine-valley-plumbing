@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="tm surface-night-forest section">
+<section class="tm surface-cream section">
   <div class="container">
     <div class="section-head is-center tm__head">
       <p class="script-accent">{scriptAccent}</p>
@@ -34,7 +34,7 @@ const {
 
     <div class="tm__grid">
       {items.map((t) => (
-        <figure class="tm__card card-dark">
+        <figure class="tm__card card">
           <div class="tm__stars" aria-hidden="true">{Array.from({ length: 5 }).map(() => <Icon name="star" />)}</div>
           <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
           <figcaption>&ndash; {t.location}</figcaption>
@@ -67,7 +67,7 @@ const {
   .tm__proof-text {
     font-weight: 800;
     font-size: 0.95rem;
-    color: var(--on-night-strong);
+    color: var(--ink-900);
   }
   .tm__proof-stars { display: inline-flex; gap: 2px; color: var(--gold-500); }
   .tm__proof-stars svg { width: 1.1rem; height: 1.1rem; }
@@ -93,7 +93,7 @@ const {
     font-size: 1.1rem;
     line-height: 1.5;
     font-weight: 600;
-    color: var(--on-night-strong);
+    color: var(--ink-900);
     flex: 1;
   }
   .tm__card figcaption {
@@ -101,7 +101,7 @@ const {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.09em;
-    color: var(--gold-500);
+    color: var(--gold-700);
   }
 
   .tm__more { margin-top: 2.25rem; }

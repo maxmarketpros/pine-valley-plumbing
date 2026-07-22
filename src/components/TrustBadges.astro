@@ -10,7 +10,7 @@ const badges = [
 ];
 ---
 
-<section class="trust surface-night">
+<section class="trust surface-paper">
   <div class="container trust__row">
     {badges.map((b) => (
       <div class="trust__chip">
@@ -24,7 +24,7 @@ const badges = [
 <style>
   .trust {
     padding-block: 1.9rem;
-    border-block: 1px solid #ffffff12;
+    border-block: 1px solid #00000012;
   }
   .trust__row {
     display: grid;
@@ -38,11 +38,11 @@ const badges = [
     gap: 0.65rem;
     padding-inline: 0.75rem;
   }
-  .trust__chip + .trust__chip { border-left: 1px solid #ffffff14; }
+  .trust__chip + .trust__chip { border-left: 1px solid #00000014; }
   .trust__icon {
     display: grid;
     place-items: center;
-    color: var(--leaf-500);
+    color: var(--leaf-600);
   }
   .trust__icon svg {
     width: 2.35rem;
@@ -52,7 +52,7 @@ const badges = [
   .trust__label {
     font-weight: 800;
     font-size: 0.8rem;
-    color: var(--on-night-strong);
+    color: var(--ink-900);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     line-height: 1.3;

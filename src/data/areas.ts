@@ -39,10 +39,10 @@ export const areaPages: AreaPage[] = [
     hero: {
       heading: "Plumber in Nashua, NH",
       sub: "If you are searching for a dependable plumber in Nashua, NH, Pine Valley Plumbing delivers expert-level service with a focus on precision, reliability, and long-term plumbing solutions for your home.",
-      image: "/images/van-hero-p-1600.webp",
+      image: "/images/truck-hero-wide-p-1600.webp",
       imageSrcset:
-        "/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w",
-      imageAlt: "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+        "/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w",
+      imageAlt: "Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street",
     },
     intro: {
       heading: "Professional Plumbing Services in Nashua, NH",
@@ -155,10 +155,10 @@ export const areaPages: AreaPage[] = [
     hero: {
       heading: "Plumber in Manchester, NH",
       sub: "When you need a reliable plumber in Manchester, NH, Pine Valley Plumbing delivers expert solutions backed by master-level experience, fast response times, and trusted local service.",
-      image: "/images/van-hero-p-1600.webp",
+      image: "/images/truck-hero-wide-p-1600.webp",
       imageSrcset:
-        "/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w",
-      imageAlt: "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+        "/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w",
+      imageAlt: "Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street",
     },
     intro: {
       heading: "Trusted Plumbing Services in Manchester, NH",
@@ -254,10 +254,10 @@ export const areaPages: AreaPage[] = [
     hero: {
       heading: "Plumber in Derry, NH",
       sub: "If you need a dependable plumber in Derry, NH, Pine Valley Plumbing provides expert residential plumbing services with a focus on quality workmanship, fast response times, and long-term reliability.",
-      image: "/images/van-hero-p-1600.webp",
+      image: "/images/truck-hero-wide-p-1600.webp",
       imageSrcset:
-        "/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w",
-      imageAlt: "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+        "/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w",
+      imageAlt: "Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street",
     },
     intro: {
       heading: "Expert Plumbing Services in Derry, NH",
@@ -370,10 +370,10 @@ export const areaPages: AreaPage[] = [
     hero: {
       heading: "Plumber in Salem, NH",
       sub: "When you need a trusted plumber in Salem, NH, Pine Valley Plumbing provides professional residential plumbing services with expert workmanship, reliable communication, and solutions built to protect your home for the long term.",
-      image: "/images/van-hero-p-1600.webp",
+      image: "/images/truck-hero-wide-p-1600.webp",
       imageSrcset:
-        "/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w",
-      imageAlt: "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+        "/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w",
+      imageAlt: "Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street",
     },
     intro: {
       heading: "Reliable Plumbing Services in Salem, NH",
@@ -504,10 +504,10 @@ export const areaPages: AreaPage[] = [
     hero: {
       heading: "Plumber in Bedford, NH",
       sub: "If you are looking for a professional plumber in Bedford, NH, Pine Valley Plumbing delivers high-quality residential plumbing services with expert craftsmanship, dependable service, and solutions designed to keep your home's plumbing system running efficiently.",
-      image: "/images/van-hero-p-1600.webp",
+      image: "/images/truck-hero-wide-p-1600.webp",
       imageSrcset:
-        "/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w",
-      imageAlt: "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+        "/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w",
+      imageAlt: "Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street",
     },
     intro: {
       heading: "Experienced Plumbing Services in Bedford, NH",
@@ -637,10 +637,10 @@ export const areaPages: AreaPage[] = [
     hero: {
       heading: "Plumber in Londonderry, NH",
       sub: "If you need a reliable plumber in Londonderry, NH, Pine Valley Plumbing provides expert residential plumbing services focused on precision, efficiency, and long-term system performance you can trust.",
-      image: "/images/van-hero-p-1600.webp",
+      image: "/images/truck-hero-wide-p-1600.webp",
       imageSrcset:
-        "/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w",
-      imageAlt: "Pine Valley Plumbing service van with cartoon beaver mascot parked in a New Hampshire neighborhood",
+        "/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w",
+      imageAlt: "Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street",
     },
     intro: {
       heading: "Professional Plumbing Services in Londonderry, NH",

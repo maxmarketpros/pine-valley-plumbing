@@ -53,12 +53,12 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} bodyClass="page-home" ogImage="/images/van-hero-og.jpg" jsonLd={[plumberSchema, webSiteSchema, faqPageSchema(faqs)]}>
+<BaseLayout title={title} description={description} bodyClass="page-home" ogImage="/images/truck-hero-og.jpg" jsonLd={[plumberSchema, webSiteSchema, faqPageSchema(faqs)]}>
   <Fragment slot="head">
     <link
       rel="preload"
       as="image"
-      imagesrcset="/images/van-hero-p-500.webp 500w, /images/van-hero-p-800.webp 800w, /images/van-hero-p-1080.webp 1080w, /images/van-hero-p-1600.webp 1600w"
+      imagesrcset="/images/truck-hero-wide-p-500.webp 500w, /images/truck-hero-wide-p-800.webp 800w, /images/truck-hero-wide-p-1080.webp 1080w, /images/truck-hero-wide-p-1600.webp 1600w"
       imagesizes="100vw"
     />
   </Fragment>
@@ -72,16 +72,16 @@ const faqs = [
   <Testimonials items={testimonials} />
 
   <!-- About / Go-to plumber -->
-  <section class="section surface-night">
+  <section class="section surface-paper">
     <div class="container about-dark">
       <div class="about-dark__media">
         <img
-          src="/images/van-forest-p-1080.webp"
-          srcset="/images/van-forest-p-500.webp 500w, /images/van-forest-p-800.webp 800w, /images/van-forest-p-1080.webp 1080w, /images/van-forest-p-1600.webp 1600w"
+          src="/images/home-neighborhood-p-1080.webp"
+          srcset="/images/home-neighborhood-p-500.webp 500w, /images/home-neighborhood-p-800.webp 800w, /images/home-neighborhood-p-1080.webp 1080w"
           sizes="(max-width: 900px) 92vw, 44vw"
-          width="1600"
-          height="905"
-          alt="Pine Valley Plumbing service van parked in a New Hampshire pine forest at dusk"
+          width="1080"
+          height="810"
+          alt="Pine Valley Plumbing plumber carrying a tool bag from the company truck in a Merrimack neighborhood"
           loading="lazy"
         />
       </div>
@@ -102,14 +102,16 @@ const faqs = [
   <HomeCtaBand />
 
   <!-- Difference -->
-  <section class="section surface-night-forest">
+  <section class="section surface-cream">
     <div class="container diff">
       <div class="diff__media">
         <img
-          src="/images/relume-653351.jpeg"
-          srcset="/images/relume-653351-p-500.jpeg 500w, /images/relume-653351-p-800.jpeg 800w, /images/relume-653351-p-1080.jpeg 1080w, /images/relume-653351-p-1600.jpeg 1600w, /images/relume-653351.jpeg 1920w"
-          sizes="(max-width: 900px) 90vw, 45vw"
-          alt="Hand in work glove adjusting yellow and metallic plumbing valves"
+          src="/images/home-handshake-p-1080.webp"
+          srcset="/images/home-handshake-p-500.webp 500w, /images/home-handshake-p-800.webp 800w, /images/home-handshake-p-1080.webp 1080w"
+          sizes="(max-width: 900px) 90vw, 26rem"
+          width="1080"
+          height="1440"
+          alt="Pine Valley Plumbing plumber shaking hands with a customer in front of the company truck"
           loading="lazy"
         />
       </div>
@@ -136,7 +138,7 @@ const faqs = [
   </section>
 
   <!-- What we handle (feature cards) -->
-  <section class="section surface-night">
+  <section class="section surface-paper">
     <div class="container">
       <div class="section-head is-center wh__head">
         <span class="eyebrow">Services</span>
@@ -145,31 +147,29 @@ const faqs = [
       </div>
       <div class="wh__grid">
         <ServiceCard
-          variant="dark"
           title="Plumbing emergencies don't wait"
           href="/emergency-plumber-merrimack-nh"
           eyebrow="Emergency"
           body="We answer the phone and come fast"
-          image="/images/relume-653255.jpeg"
-          imageSrcset="/images/relume-653255-p-500.jpeg 500w, /images/relume-653255-p-800.jpeg 800w, /images/relume-653255-p-1080.jpeg 1080w, /images/relume-653255-p-1600.jpeg 1600w, /images/relume-653255.jpeg 1920w"
-          imageAlt="Shocked woman looking at water leaking from ceiling into blue bucket"
+          image="/images/home-tablet-consult-p-1080.webp"
+          imageSrcset="/images/home-tablet-consult-p-500.webp 500w, /images/home-tablet-consult-p-800.webp 800w, /images/home-tablet-consult-p-1080.webp 1080w"
+          imageAlt="Pine Valley Plumbing plumber reviewing job details on a tablet with a homeowner"
         />
         <ServiceCard
-          variant="dark"
           title="Water heaters and filtration systems"
           href="/water-heater-installation-merrimack-nh"
           eyebrow="Water"
           body="Installation and repair when you need it"
-          image="/images/relume-653257.jpeg"
-          imageSrcset="/images/relume-653257-p-500.jpeg 500w, /images/relume-653257-p-800.jpeg 800w, /images/relume-653257-p-1080.jpeg 1080w, /images/relume-653257-p-1600.jpeg 1600w, /images/relume-653257.jpeg 1920w"
-          imageAlt="Technician checking electrical settings on Grundfos pump control panel"
+          image="/images/home-kitchen-consult-p-1080.webp"
+          imageSrcset="/images/home-kitchen-consult-p-500.webp 500w, /images/home-kitchen-consult-p-800.webp 800w, /images/home-kitchen-consult-p-1080.webp 1080w"
+          imageAlt="Pine Valley Plumbing plumber talking with a homeowner at the kitchen sink"
         />
       </div>
     </div>
   </section>
 
   <!-- SEO services grid -->
-  <section class="section surface-night">
+  <section class="section surface-cream">
     <div class="container">
       <div class="seo-top">
         <div class="seo-top__lead">
@@ -232,9 +232,9 @@ const faqs = [
   </section>
 
   <!-- Careers -->
-  <section class="section surface-night careers-cta">
+  <section class="section surface-paper careers-cta">
     <div class="container">
-      <div class="careers-cta__panel card-dark card-dark--leaf">
+      <div class="careers-cta__panel surface-forest">
         <div class="careers-cta__inner">
           <div>
             <span class="eyebrow">Careers</span>
@@ -251,15 +251,15 @@ const faqs = [
   </section>
 
   <!-- Neighborhood reviews widget (Real Work Labs) -->
-  <section class="section surface-night">
+  <section class="section surface-paper">
     <div class="container">
       <RealWorkLabs outputId="rwl-neighborhood" />
     </div>
   </section>
 
-  <FaqAccordion variant="dark" faqs={faqs} heading="FAQs" subheading="Questions about our services and process" />
+  <FaqAccordion faqs={faqs} heading="FAQs" subheading="Questions about our services and process" />
 
-  <section class="section--sm section surface-night">
+  <section class="section--sm section surface-gold">
     <div class="container--md container text-center">
       <h3>More questions?</h3>
       <p class="lead" style="margin-top:.75rem">Reach out and we'll answer what you need to know.</p>
@@ -271,15 +271,15 @@ const faqs = [
 </BaseLayout>
 
 <style>
-  /* About (dark) */
+  /* About */
   .about-dark { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
   .about-dark__content > * + * { margin-top: 1.1rem; }
   .about-dark__media img {
     width: 100%;
     border-radius: var(--radius-xl);
-    border: 1px solid #ffffff2e;
-    box-shadow: var(--shadow-night);
-    aspect-ratio: 16/10;
+    border: 1px solid #00000010;
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 4/3;
     object-fit: cover;
   }
   .about-dark__list {
@@ -288,7 +288,7 @@ const faqs = [
     gap: 0.7rem;
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--on-night-strong);
+    color: var(--ink-900);
   }
   .about-dark__list li { display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.65rem; align-items: center; }
   .about-dark__check {
@@ -297,33 +297,38 @@ const faqs = [
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background: var(--leaf-500);
-    color: var(--night-950);
+    background: var(--leaf-600);
+    color: var(--white);
   }
   .about-dark__check :global(svg) { width: 0.9rem; height: 0.9rem; }
 
   /* Difference */
   .diff { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+  .diff__media { max-width: 26rem; margin-inline: auto; }
   .diff__media img {
     width: 100%;
     border-radius: var(--radius-xl);
-    border: 1px solid #ffffff2e;
-    box-shadow: var(--shadow-night);
-    aspect-ratio: 4/3;
+    border: 1px solid #00000010;
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 3/4;
     object-fit: cover;
   }
   .diff__content > * + * { margin-top: 1.1rem; }
   .diff__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.75rem; }
-  .diff__card { background: var(--night-900); border: 1px solid var(--border-gold-soft); border-radius: var(--radius-md); padding: 1.25rem; }
+  .diff__card { background: var(--white); border: 1px solid #00000010; border-radius: var(--radius-md); padding: 1.25rem; box-shadow: var(--shadow-card); }
   .diff__card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-  .diff__card p { color: var(--on-night-body); }
+  .diff__card p { color: var(--on-cream-muted); }
 
   /* Careers */
-  .careers-cta__panel { padding: clamp(1.75rem, 4vw, 3rem); }
+  .careers-cta__panel {
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
   .careers-cta__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
   .careers-cta h2 { font-size: var(--fs-h2); }
   .careers-cta__copy > * + * { margin-top: 1rem; }
-  .careers-cta__copy p:not(.lead) { color: var(--on-night-muted); }
+  .careers-cta__copy p:not(.lead) { color: var(--on-forest-body); }
 
   /* What we handle */
   .wh__head { margin-bottom: 2.5rem; }
@@ -334,15 +339,15 @@ const faqs = [
   .seo-top h2 { font-size: var(--fs-h3); margin-bottom: 0.75rem; }
   .seo-top__lead .eyebrow { margin-bottom: 0.5rem; }
   .seo-top__lead .btn-group { margin-top: 1rem; }
-  .seo-fine { font-size: var(--fs-body-sm); color: var(--on-night-muted); margin-top: 0.85rem; }
+  .seo-fine { font-size: var(--fs-body-sm); color: var(--on-cream-muted); margin-top: 0.85rem; }
   .seo-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-end; }
   .seo-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     border: 1px solid var(--border-leaf-soft);
-    background: transparent;
-    color: var(--on-night-strong);
+    background: var(--white);
+    color: var(--ink-900);
     border-radius: var(--radius-pill);
     padding: 0.5rem 0.95rem;
     font-size: 0.85rem;
@@ -356,11 +361,11 @@ const faqs = [
     flex-direction: column;
     align-items: stretch;
     overflow: hidden;
-    background: var(--night-900);
-    border: 1px solid var(--border-gold-soft);
+    background: var(--white);
+    border: 1px solid #00000010;
     border-top: 4px solid var(--gold-500);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-night);
+    box-shadow: var(--shadow-card);
     transition: transform 0.18s ease, border-color 0.18s ease;
   }
   .seo-card:hover { transform: translateY(-4px); border-color: var(--gold-500); }
@@ -375,37 +380,34 @@ const faqs = [
     padding: 0 1.4rem 1.5rem;
   }
   .seo-card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
-  .seo-card p { font-size: var(--fs-body-sm); color: var(--on-night-muted); margin-bottom: 0.9rem; flex: 1; }
+  .seo-card p { font-size: var(--fs-body-sm); color: var(--on-cream-muted); margin-bottom: 0.9rem; flex: 1; }
   .seo-card__link { margin-top: auto; }
   .seo-card:hover .seo-card__link :global(svg) { transform: translateX(4px); }
 
   .seo-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
   .seo-box {
-    background: var(--night-900);
-    border: 1px solid var(--border-gold-soft);
+    background: var(--white);
+    border: 1px solid #00000010;
     border-top: 4px solid var(--leaf-600);
     border-radius: var(--radius-lg);
     padding: 1.75rem;
-    box-shadow: var(--shadow-night);
+    box-shadow: var(--shadow-card);
   }
   .seo-box .icon-chip { margin-bottom: 0.9rem; }
   .seo-box h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
-  .seo-box .seo-fine a { color: var(--leaf-500); font-weight: 700; }
+  .seo-box .seo-fine a { color: var(--color-green-deep); font-weight: 700; }
 
-  /* green-glow icon chips on the dark cards (overrides the light global chip) */
-  .seo-mini .icon-chip { background: #3cb44a1f; color: var(--leaf-500); }
   /* card chips sit half over the photo, so they need a solid fill */
   .seo-grid .icon-chip {
-    background: var(--night-900);
-    border: 1px solid var(--border-leaf-soft);
-    color: var(--leaf-500);
+    background: var(--white);
+    border: 1px solid #00000014;
+    color: var(--color-green-deep);
     margin-top: -1.5rem;
     margin-bottom: 0.9rem;
   }
 
   @media (max-width: 900px) {
     .diff, .careers-cta__inner, .about-dark { grid-template-columns: 1fr; }
-    .diff__media { max-width: 32rem; margin-inline: auto; }
     .wh__grid { grid-template-columns: 1fr; }
     .seo-top { grid-template-columns: 1fr; }
     .seo-badges { justify-content: flex-start; }

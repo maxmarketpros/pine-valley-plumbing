@@ -28,9 +28,6 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* homepage runs the dark night theme edge to edge */
-body.page-home { background: var(--night-950); }
-
 img,
 picture,
 svg,
