@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Keep system/utility pages out of the sitemap.
-      filter: (page) => !/\/(401|404)\/?$/.test(page),
+      filter: (page) => !/\/(401|404|thank-you)\/?$/.test(page),
     }),
   ],
 });

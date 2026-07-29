@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import { business } from "../data/site";
+---
+<BaseLayout
+  title="Thanks — We Got Your Message"
+  description="Your message is on its way to Pine Valley Plumbing. We'll be in touch shortly."
+  noindex
+  contactSection={false}
+>
+  <section class="ty surface-forest">
+    <div class="container ty__inner">
+      <span class="ty__check"><Icon name="check" /></span>
+      <p class="script-accent">Message sent!</p>
+      <h1>Thanks — we got it</h1>
+      <p class="ty__text">
+        We'll get back to you shortly. If it's an emergency and water is moving where it
+        shouldn't, don't wait on email — call us now.
+      </p>
+      <div class="btn-group is-center">
+        <a href={business.navPhoneTel} class="btn btn--gold"><Icon name="phone" /> {business.navPhone}</a>
+        <a href="/" class="btn btn--outline"><Icon name="home" /> Back Home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .ty { padding-block: var(--section-lg); text-align: center; }
+  .ty__inner { max-width: 40rem; }
+  .ty__check {
+    display: inline-grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 1.25rem;
+    border-radius: var(--radius-pill);
+    background: var(--gold-500);
+    color: var(--wood-900);
+  }
+  .ty__check :global(svg) { width: 2.25rem; height: 2.25rem; stroke-width: 3; }
+  .ty h1 { font-size: var(--fs-hero); color: var(--on-forest-strong); }
+  .ty__text {
+    color: var(--on-forest-body);
+    font-size: var(--fs-body-lg);
+    margin: 1rem 0 1.75rem;
+  }
+</style>

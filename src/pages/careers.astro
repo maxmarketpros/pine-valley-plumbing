@@ -2,8 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { breadcrumbList, faqPageSchema } from "../data/schema";
 import Section from "../components/Section.astro";
-import SectionHeader from "../components/SectionHeader.astro";
-import ContactInfo from "../components/ContactInfo.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import CtaBand from "../components/CtaBand.astro";
 import Icon from "../components/Icon.astro";
@@ -59,11 +57,6 @@ const faqs = [
       </div>
     </div>
   </section>
-
-  <Section surface="paper">
-    <SectionHeader eyebrow="Direct" heading="Get in touch" lead="We're here when you need us most" align="left" />
-    <ContactInfo />
-  </Section>
 
   <FaqAccordion faqs={faqs} heading="Questions" subheading="Find answers to what you need to know about our services" />
 

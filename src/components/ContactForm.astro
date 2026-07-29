@@ -1,0 +1,221 @@
+---
+import Icon from "./Icon.astro";
+import { business } from "../data/site";
+
+interface Props {
+  /** Netlify form name — keep stable so every submission lands in one inbox. */
+  formName?: string;
+  /** Prefix for field ids, so two forms on one page never collide. */
+  idPrefix?: string;
+  heading?: string;
+}
+
+const {
+  formName = "contact",
+  idPrefix = "contact",
+  heading = "Send us a message",
+} = Astro.props;
+
+/* Netlify picks the form up at deploy time from the static HTML:
+   data-netlify + the hidden form-name input + a honeypot field.
+   https://docs.netlify.com/forms/setup/ */
+const services = [
+  "Emergency plumbing",
+  "Drain cleaning",
+  "Water heater",
+  "Faucet or fixture repair",
+  "Toilet or garbage disposal",
+  "Gas line service",
+  "Sump pump / backflow",
+  "Something else",
+];
+---
+
+<form
+  class="cform"
+  name={formName}
+  method="POST"
+  action="/thank-you/"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value={formName} />
+  <p class="cform__hp">
+    <label>
+      Leave this field empty
+      <input name="bot-field" tabindex="-1" autocomplete="off" />
+    </label>
+  </p>
+
+  <h3 class="cform__heading">{heading}</h3>
+  <p class="cform__intro">Tell us what's going on and we'll get right back to you.</p>
+
+  <div class="cform__row">
+    <div class="cform__field">
+      <label for={`${idPrefix}-name`}>Name <span class="cform__req">*</span></label>
+      <input
+        id={`${idPrefix}-name`}
+        name="name"
+        type="text"
+        autocomplete="name"
+        placeholder="Jane Smith"
+        required
+      />
+    </div>
+    <div class="cform__field">
+      <label for={`${idPrefix}-phone`}>Phone</label>
+      <input
+        id={`${idPrefix}-phone`}
+        name="phone"
+        type="tel"
+        autocomplete="tel"
+        placeholder="(603) 555-0123"
+      />
+    </div>
+  </div>
+
+  <div class="cform__field">
+    <label for={`${idPrefix}-email`}>Email <span class="cform__req">*</span></label>
+    <input
+      id={`${idPrefix}-email`}
+      name="email"
+      type="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+      required
+    />
+  </div>
+
+  <div class="cform__field">
+    <label for={`${idPrefix}-service`}>How can we help?</label>
+    <select id={`${idPrefix}-service`} name="service">
+      <option value="">Choose a service…</option>
+      {services.map((s) => <option value={s}>{s}</option>)}
+    </select>
+  </div>
+
+  <div class="cform__field">
+    <label for={`${idPrefix}-message`}>Message <span class="cform__req">*</span></label>
+    <textarea
+      id={`${idPrefix}-message`}
+      name="message"
+      rows="5"
+      placeholder="Describe the problem and where it is in the house…"
+      required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn--green cform__submit">
+    <Icon name="mail" /> Send Message
+  </button>
+
+  <p class="cform__note">
+    Need help right now? Call <a href={business.navPhoneTel}>{business.navPhone}</a>.
+  </p>
+</form>
+
+<style>
+  .cform {
+    background: var(--white);
+    border: 1px solid #00000012;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    color: var(--ink-900);
+  }
+
+  /* honeypot — off-screen, never seen or tabbed to */
+  .cform__hp {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .cform__heading {
+    font-size: var(--fs-h4);
+    color: var(--ink-900);
+  }
+  .cform__intro {
+    color: var(--on-cream-muted);
+    font-size: var(--fs-body-sm);
+    margin-top: 0.5rem;
+  }
+
+  .cform__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .cform__row,
+  .cform__field { margin-top: 1.25rem; }
+  .cform__row .cform__field { margin-top: 0; }
+
+  .cform__field label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--on-cream-muted);
+    margin-bottom: 0.4rem;
+  }
+  .cform__req { color: var(--sepia-500); }
+
+  .cform input,
+  .cform select,
+  .cform textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink-900);
+    background: var(--cream-100);
+    border: 1.5px solid #00000018;
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1rem;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+  .cform textarea { resize: vertical; min-height: 8rem; line-height: 1.6; }
+  .cform select { appearance: none; cursor: pointer; }
+  /* chevron for the select */
+  .cform select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235a4632' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.75rem;
+  }
+  .cform ::placeholder { color: #8a7660; opacity: 1; }
+  .cform :is(input, select, textarea):hover { border-color: #00000030; }
+  .cform :is(input, select, textarea):focus {
+    background: var(--white);
+    border-color: var(--color-green-deep);
+  }
+  .cform :is(input, select, textarea):focus-visible {
+    outline: 3px solid var(--color-green-deep);
+    outline-offset: 1px;
+  }
+
+  .cform__submit {
+    margin-top: 1.75rem;
+    width: 100%;
+  }
+
+  .cform__note {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: var(--fs-body-sm);
+    color: var(--on-cream-muted);
+  }
+  .cform__note a {
+    font-weight: 800;
+    color: var(--color-green-deep);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 560px) {
+    .cform__row { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+</style>

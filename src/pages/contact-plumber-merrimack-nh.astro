@@ -3,10 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { plumberSchema, breadcrumbList, faqPageSchema } from "../data/schema";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
-import SectionHeader from "../components/SectionHeader.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import CtaBand from "../components/CtaBand.astro";
-import ContactInfo from "../components/ContactInfo.astro";
+import ContactSection from "../components/ContactSection.astro";
 
 const title = "Contact Pine Valley Plumbing in Merrimack, NH";
 const description =
@@ -21,7 +20,7 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/truck-hero-og.jpg" jsonLd={[
+<BaseLayout title={title} description={description} ogImage="/images/truck-hero-og.jpg" contactSection={false} jsonLd={[
   plumberSchema,
   breadcrumbList([{ name: "Contact", path: "/contact-plumber-merrimack-nh" }]),
   faqPageSchema(faqs),
@@ -35,10 +34,11 @@ const faqs = [
     imageAlt="Pine Valley Plumbing truck with beaver mascot wrap parked on a sunny New Hampshire street"
   />
 
-  <Section surface="cream">
-    <SectionHeader eyebrow="Direct" heading="Get in touch" lead="We're here when you need us most" align="left" />
-    <ContactInfo />
-  </Section>
+  <ContactSection
+    surface="cream"
+    eyebrow="Direct"
+    lead="We're here when you need us most — call, email, or send the form below."
+  />
 
   <FaqAccordion faqs={faqs} heading="Questions" subheading="Find answers to what you need to know about our services" />
 
