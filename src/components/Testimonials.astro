@@ -1,21 +1,23 @@
 ---
 import { business } from "../data/site";
+import { reviews as allReviews, type Review } from "../data/reviews";
 import Icon from "./Icon.astro";
 
-interface Testimonial {
-  quote: string;
-  location: string;
-}
 interface Props {
-  items: Testimonial[];
+  items?: Review[];
   scriptAccent?: string;
   heading?: string;
+  /** Cards visible before "Show more reviews". */
+  initialCount?: number;
 }
 const {
-  items,
+  items = allReviews,
   scriptAccent = "Why homeowners choose",
   heading = "Pine Valley Plumbing",
+  initialCount = 6,
 } = Astro.props;
+
+const hidden = items.length - initialCount;
 ---
 
 <section class="tm surface-cream section">
@@ -32,19 +34,27 @@ const {
       </p>
     </div>
 
-    <div class="tm__grid">
-      {items.map((t) => (
-        <figure class="tm__card card">
+    <div class="tm__grid" data-tm-grid>
+      {items.map((t, i) => (
+        <figure class="tm__card card" hidden={i >= initialCount} data-tm-extra={i >= initialCount ? "" : null}>
           <div class="tm__stars" aria-hidden="true">{Array.from({ length: 5 }).map(() => <Icon name="star" />)}</div>
           <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
-          <figcaption>&ndash; {t.location}</figcaption>
+          <figcaption>
+            &ndash; {t.name}
+            {t.service && <span class="tm__service">{t.service}</span>}
+          </figcaption>
         </figure>
       ))}
     </div>
 
     <div class="btn-group is-center tm__more">
+      {hidden > 0 && (
+        <button type="button" class="btn btn--outline" data-tm-toggle aria-expanded="false">
+          Show {hidden} More Reviews
+        </button>
+      )}
       <a href={business.googleReviewUrl} target="_blank" rel="noopener" class="btn btn--outline">
-        Read More Reviews on Google <Icon name="arrow-right" />
+        Read All {business.reviewCount} Reviews on Google <Icon name="arrow-right" />
       </a>
     </div>
   </div>
@@ -87,21 +97,33 @@ const {
     text-align: center;
     gap: 0.9rem;
   }
+  /* display:flex above would otherwise beat the [hidden] attribute */
+  .tm__card[hidden] { display: none; }
   .tm__stars { display: flex; gap: 3px; color: var(--gold-500); }
   .tm__stars svg { width: 1.2rem; height: 1.2rem; }
   .tm__card blockquote {
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.55;
     font-weight: 600;
     color: var(--ink-900);
     flex: 1;
   }
   .tm__card figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
     font-weight: 800;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.09em;
     color: var(--gold-700);
+  }
+  .tm__service {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--ink-500, #6b6b6b);
   }
 
   .tm__more { margin-top: 2.25rem; }
@@ -110,3 +132,17 @@ const {
     .tm__grid { grid-template-columns: 1fr; max-width: 26rem; margin-inline: auto; }
   }
 </style>
+
+<script>
+  // Progressive enhancement: extra cards ship hidden and stay hidden without JS,
+  // where the "Read all reviews on Google" link still covers the need.
+  document.querySelectorAll("[data-tm-toggle]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const section = btn.closest("section");
+      section?.querySelectorAll("[data-tm-extra]").forEach((card) => {
+        (card as HTMLElement).hidden = false;
+      });
+      btn.remove();
+    });
+  });
+</script>

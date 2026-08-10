@@ -1,0 +1,41 @@
+name: Refresh Google review count
+
+on:
+  schedule:
+    # Mondays at 09:00 UTC (~5am ET). Cron on GitHub is best-effort and may
+    # run late when the shared runners are busy — fine for a weekly number.
+    - cron: "0 9 * * 1"
+  workflow_dispatch: # lets you refresh on demand from the Actions tab
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to push the updated JSON back to main
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch the current rating and review count
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        run: node scripts/fetch-google-reviews.mjs
+
+      # Pushing to main is what triggers the Netlify deploy — no build hook
+      # needed. Nothing is pushed when the numbers haven't moved.
+      - name: Commit the change, if any
+        run: |
+          if git diff --quiet -- src/data/google-reviews.json; then
+            echo "Review count unchanged — nothing to deploy."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/google-reviews.json
+          # Do NOT add [skip ci] here — Netlify honours it and would skip the
+          # deploy, which is the whole point of the push.
+          git commit -m "Update Google review count"
+          git push

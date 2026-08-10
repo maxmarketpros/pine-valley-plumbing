@@ -3,14 +3,24 @@
    Internal links are all root-relative and clean (no .html).
    ============================================================ */
 
+/* Rating + review count are refreshed from the Google Places API by
+   scripts/fetch-google-reviews.mjs (npm prebuild + a weekly GitHub Action).
+   Edit google-reviews.json only if you need to override it by hand — the
+   next successful fetch will overwrite it. */
+import googleReviews from "./google-reviews.json";
+
 export const business = {
   name: "Pine Valley Plumbing",
 
   // External actions
   bookingUrl: "https://portal.fieldpulse.com/priorityplumbing",
   careersApplyUrl: "https://priorityplumbing.applicantpro.com/jobs/",
-  mapsUrl: "https://maps.app.goo.gl/W7Gsk52nfKate5Jc9",
-  googleReviewUrl: "https://share.google/uo5SvDFsKKNNTtAn0",
+  // Both verified 2026-08-10 to land on the Pine Valley profile itself.
+  // (The old share.google links were dead and mapsUrl pointed at the town.)
+  mapsUrl: "https://maps.app.goo.gl/EVkoiJRHmkjnUbmH6",
+  // Same place page with the Reviews tab already open (!9m1!1b1).
+  googleReviewUrl:
+    "https://www.google.com/maps/place/Pine+Valley+Plumbing/@42.8839198,-71.5230573,17z/data=!4m8!3m7!1s0x43fc22bf0759cad9:0xc80434fec631349!8m2!3d42.8839041!4d-71.5232182!9m1!1b1!16s%2Fg%2F11lmdmqkxz",
 
   // One number everywhere (old 521-2433 tracking split retired 2026-07).
   navPhone: "(603) 339-6732", // nav / footer / contact
@@ -21,9 +31,9 @@ export const business = {
   navEmailHref: "mailto:office@hirepinevalley.com?subject=Inquiry",
   jsonLdEmail: "office@hirepinevalley.com",
 
-  // Reviews
-  rating: "4.9",
-  reviewCount: "132",
+  // Reviews (auto-updated — see google-reviews.json above)
+  rating: googleReviews.rating,
+  reviewCount: googleReviews.reviewCount,
 
   // Real Work Labs widget
   rwlToken: "LO0UmloUXs9p8MYL",

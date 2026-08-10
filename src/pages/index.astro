@@ -21,12 +21,6 @@ const marqueeItems = [
   "Done right", "No shortcuts", "Visible care", "Hidden precision", "Always available",
 ];
 
-const testimonials = [
-  { quote: "Fast, professional, and honest.", location: "Merrimack, NH" },
-  { quote: "Showed up on time and did great work.", location: "Bedford, NH" },
-  { quote: "Best plumbing company we've used.", location: "Nashua, NH" },
-];
-
 // SEO services grid (matches source "pv-seo" block); img = base name in
 // public/images/, reusing each service page's own photo
 const seoServices = [
@@ -69,7 +63,7 @@ const faqs = [
 
   <Marquee items={marqueeItems} />
 
-  <Testimonials items={testimonials} />
+  <Testimonials />
 
   <!-- About / Go-to plumber -->
   <section class="section surface-paper">

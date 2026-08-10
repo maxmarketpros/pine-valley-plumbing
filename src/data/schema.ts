@@ -64,9 +64,7 @@ export const plumberSchema = {
   },
   sameAs: [
     business.mapsUrl,
-    business.googleReviewUrl,
     "https://www.facebook.com/PriorityPlumbingNH/",
-    "https://share.google/veV7H31jbW5vpnr8K",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
