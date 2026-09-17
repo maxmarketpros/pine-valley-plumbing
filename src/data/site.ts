@@ -14,7 +14,7 @@ export const business = {
 
   // External actions
   bookingUrl: "https://portal.fieldpulse.com/priorityplumbing",
-  careersApplyUrl: "https://priorityplumbing.applicantpro.com/jobs/",
+  careersApplyUrl: "https://pinevalleyplumbing.applicantpro.com/",
   // Both verified 2026-08-10 to land on the Pine Valley profile itself.
   // (The old share.google links were dead and mapsUrl pointed at the town.)
   mapsUrl: "https://maps.app.goo.gl/EVkoiJRHmkjnUbmH6",
