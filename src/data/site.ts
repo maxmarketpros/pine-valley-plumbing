@@ -52,7 +52,7 @@ export const navLinks: LinkItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about-pine-valley-plumbing-merrimack-nh" },
   { label: "Recent Projects", href: "/recent-projects" },
-  { label: "Careers", href: business.careersApplyUrl },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact-plumber-merrimack-nh" },
 ];
 
@@ -86,7 +86,7 @@ export const areas: LinkItem[] = [
 export const footerPages: LinkItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about-pine-valley-plumbing-merrimack-nh" },
-  { label: "Careers", href: business.careersApplyUrl },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact-plumber-merrimack-nh" },
   { label: "Hillsborough County", href: "/plumbing-services-in-hillsborough-county" },
   { label: "Manchester, NH", href: "/areas/plumber-in-manchester-nh" },
